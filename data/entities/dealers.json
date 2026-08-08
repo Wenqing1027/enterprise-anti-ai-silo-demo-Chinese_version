@@ -1,0 +1,222 @@
+[
+  {
+    "dealer_id": "DLR-3001",
+    "dealer_name": "青枢南京第2一网",
+    "legal_person": "秦博文",
+    "open_account_date": "2022-10-09",
+    "developer_name": "陈雨桐",
+    "org_id": "WZ-EAST",
+    "province": "江苏",
+    "city": "南京",
+    "county_code": "320115"
+  },
+  {
+    "dealer_id": "DLR-3002",
+    "dealer_name": "青枢苏州第3一网",
+    "legal_person": "杨浩然",
+    "open_account_date": "2026-02-15",
+    "developer_name": "何明轩",
+    "org_id": "WZ-EAST",
+    "province": "江苏",
+    "city": "苏州",
+    "county_code": "320505"
+  },
+  {
+    "dealer_id": "DLR-3003",
+    "dealer_name": "青枢杭州第1一网",
+    "legal_person": "孔承泽",
+    "open_account_date": "2024-10-06",
+    "developer_name": "郑婉清",
+    "org_id": "WZ-SOUTH",
+    "province": "浙江",
+    "city": "杭州",
+    "county_code": "330106"
+  },
+  {
+    "dealer_id": "DLR-3004",
+    "dealer_name": "青枢宁波第2一网",
+    "legal_person": "卫承泽",
+    "open_account_date": "2024-06-10",
+    "developer_name": "钱佳宁",
+    "org_id": "WZ-WEST",
+    "province": "浙江",
+    "city": "宁波",
+    "county_code": "330212"
+  },
+  {
+    "dealer_id": "DLR-3005",
+    "dealer_name": "青枢合肥第3一网",
+    "legal_person": "曹志强",
+    "open_account_date": "2025-09-20",
+    "developer_name": "褚嘉怡",
+    "org_id": "WZ-NORTH",
+    "province": "安徽",
+    "city": "合肥",
+    "county_code": "340104"
+  },
+  {
+    "dealer_id": "DLR-3006",
+    "dealer_name": "青枢济南第1一网",
+    "legal_person": "蒋浩然",
+    "open_account_date": "2024-06-10",
+    "developer_name": "尤嘉怡",
+    "org_id": "WZ-EAST",
+    "province": "山东",
+    "city": "济南",
+    "county_code": "370102"
+  },
+  {
+    "dealer_id": "DLR-3007",
+    "dealer_name": "青枢成都第2一网",
+    "legal_person": "严天佑",
+    "open_account_date": "2023-10-19",
+    "developer_name": "卫一诺",
+    "org_id": "WZ-EAST",
+    "province": "四川",
+    "city": "成都",
+    "county_code": "510107"
+  },
+  {
+    "dealer_id": "DLR-3008",
+    "dealer_name": "青枢广州第3一网",
+    "legal_person": "杨欣怡",
+    "open_account_date": "2026-04-25",
+    "developer_name": "吕若曦",
+    "org_id": "WZ-SOUTH",
+    "province": "广东",
+    "city": "广州",
+    "county_code": "440106"
+  },
+  {
+    "dealer_id": "DLR-3009",
+    "dealer_name": "青枢南京第1一网",
+    "legal_person": "陈志强",
+    "open_account_date": "2025-10-16",
+    "developer_name": "金思远",
+    "org_id": "WZ-WEST",
+    "province": "江苏",
+    "city": "南京",
+    "county_code": "320115"
+  },
+  {
+    "dealer_id": "DLR-3010",
+    "dealer_name": "青枢苏州第2一网",
+    "legal_person": "褚景行",
+    "open_account_date": "2023-01-25",
+    "developer_name": "褚嘉怡",
+    "org_id": "WZ-NORTH",
+    "province": "江苏",
+    "city": "苏州",
+    "county_code": "320505"
+  },
+  {
+    "dealer_id": "DLR-3011",
+    "dealer_name": "青枢杭州第3一网",
+    "legal_person": "施若曦",
+    "open_account_date": "2023-07-03",
+    "developer_name": "陈思远",
+    "org_id": "WZ-EAST",
+    "province": "浙江",
+    "city": "杭州",
+    "county_code": "330106"
+  },
+  {
+    "dealer_id": "DLR-3012",
+    "dealer_name": "青枢宁波第1一网",
+    "legal_person": "施俊杰",
+    "open_account_date": "2022-07-17",
+    "developer_name": "孔婉清",
+    "org_id": "WZ-EAST",
+    "province": "浙江",
+    "city": "宁波",
+    "county_code": "330212"
+  },
+  {
+    "dealer_id": "DLR-3013",
+    "dealer_name": "青枢合肥第2一网",
+    "legal_person": "施佳宁",
+    "open_account_date": "2022-11-25",
+    "developer_name": "朱雨桐",
+    "org_id": "WZ-SOUTH",
+    "province": "安徽",
+    "city": "合肥",
+    "county_code": "340104"
+  },
+  {
+    "dealer_id": "DLR-3014",
+    "dealer_name": "青枢济南第3一网",
+    "legal_person": "孙嘉怡",
+    "open_account_date": "2023-04-20",
+    "developer_name": "金婉清",
+    "org_id": "WZ-WEST",
+    "province": "山东",
+    "city": "济南",
+    "county_code": "370102"
+  },
+  {
+    "dealer_id": "DLR-3015",
+    "dealer_name": "青枢成都第1一网",
+    "legal_person": "杨语嫣",
+    "open_account_date": "2022-09-11",
+    "developer_name": "魏清扬",
+    "org_id": "WZ-NORTH",
+    "province": "四川",
+    "city": "成都",
+    "county_code": "510107"
+  },
+  {
+    "dealer_id": "DLR-3016",
+    "dealer_name": "青枢广州第2一网",
+    "legal_person": "吕子轩",
+    "open_account_date": "2023-07-04",
+    "developer_name": "尤佳宁",
+    "org_id": "WZ-EAST",
+    "province": "广东",
+    "city": "广州",
+    "county_code": "440106"
+  },
+  {
+    "dealer_id": "DLR-3017",
+    "dealer_name": "青枢南京第3一网",
+    "legal_person": "郑志强",
+    "open_account_date": "2023-12-10",
+    "developer_name": "张志强",
+    "org_id": "WZ-EAST",
+    "province": "江苏",
+    "city": "南京",
+    "county_code": "320115"
+  },
+  {
+    "dealer_id": "DLR-3018",
+    "dealer_name": "青枢苏州第1一网",
+    "legal_person": "秦清扬",
+    "open_account_date": "2025-04-16",
+    "developer_name": "孙承泽",
+    "org_id": "WZ-SOUTH",
+    "province": "江苏",
+    "city": "苏州",
+    "county_code": "320505"
+  },
+  {
+    "dealer_id": "DLR-3019",
+    "dealer_name": "青枢杭州第2一网",
+    "legal_person": "李一诺",
+    "open_account_date": "2025-03-10",
+    "developer_name": "曹清扬",
+    "org_id": "WZ-WEST",
+    "province": "浙江",
+    "city": "杭州",
+    "county_code": "330106"
+  },
+  {
+    "dealer_id": "DLR-3020",
+    "dealer_name": "青枢宁波第3一网",
+    "legal_person": "姜景行",
+    "open_account_date": "2022-10-26",
+    "developer_name": "蒋子轩",
+    "org_id": "WZ-NORTH",
+    "province": "浙江",
+    "city": "宁波",
+    "county_code": "330212"
+  }
+]

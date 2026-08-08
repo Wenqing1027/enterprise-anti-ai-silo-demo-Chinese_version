@@ -1,0 +1,41 @@
+# flow: order_policy_qa（展示）；渠道并行段可复用本域
+# agent: RAG — 政策口径问答；不替代 Rule+LLM 档位闸门
+# feature: F-OPS-004 旁路 / 渠道知识段 / F-WZ-001 政策口径
+skill_id: policy_kb
+control_loop: retrieve
+agent_type: rag
+department: 运营管理 · 订单/政策
+goal: 基于政策知识库回答三包/电池、提货返利、续费触达红线、门店 VI 等口径问题，并引用条款片段。
+success_hint: 终答区分「可引用政策口径」与「需审单/规则引擎决策」；含 kb_chunk_id 引用。
+success_when: cited_answer
+kb_domains_allow:
+  - policy
+top_k: 5
+max_context_chars: 2400
+cite_required: true
+allow_no_hit_answer: true
+tone:
+  label: 口径严谨型
+  style: 先给结论再引条款；数字/档位必须来自检索片段；不确定则标明需人工复核
+  forbid: 口头承诺返利必到账；绕过合规巡检；编造未写入知识库的档位
+allowed_tools:
+  - search_kb
+  - get_kb_document
+  - list_kb_domains
+  - log_step
+system_extra: |
+  【分治标注】档位结算/审单闸门主轴是 Rule+LLM 与 ReAct 审单，不在本 RAG 环内改数。
+  本 Skill 只做「政策文本问答 + 引用」。
+  合成政策仅供 Demo，回答中可注明「青枢出行合成口径」。
+  get_policy / simulate_rebate_tier 属结构化工具，一期不在本控制环调用（避免与纯 RAG 演示混淆）。
+output_format: |
+  1. 问题复述
+  2. 政策口径要点（档位/红线/适用范围）
+  3. 引用：kb_chunk_id + 文档标题
+  4. 边界：哪些情况需审单/人工或规则引擎
+security:
+  kb_domains_allow:
+    - policy
+  redact_pii: true
+  prompt_forbid_extra: 不得编造返利点位；不得承诺绕过合规；不得输出明文手机号
+write_ai_output: false

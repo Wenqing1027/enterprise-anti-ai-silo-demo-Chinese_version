@@ -1,0 +1,1158 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>青枢出行 · 子页二 · AI 方案设计</title>
+    <link rel="stylesheet" href="/static/styles.css?v=20260808-logic4" />
+    <link rel="stylesheet" href="/static/logic.css?v=20260808-logic4" />
+  </head>
+  <body class="page-logic">
+    <nav class="mode-switch" aria-label="界面切换">
+      <a href="/business">业务主管</a>
+      <a href="/ops">IT 运维</a>
+      <a class="active" href="/logic" aria-current="page">逻辑讲解</a>
+    </nav>
+    <div class="shell shell-wide shell-logic">
+
+      <header class="topbar">
+        <div class="topbar-brand">
+          <div class="eyebrow">Qingshu Mobility · Solution Logic</div>
+          <h1>子页二 · AI 方案设计逻辑</h1>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-meta">Control Loop 保留 · Skill 搭建逻辑<br />一二三期路线与当期 KPI</div>
+        </div>
+      </header>
+      <nav class="logic-subnav" aria-label="逻辑子页">
+        <a href="/logic">总览</a>
+        <a href="/logic/architecture">子页一 · 公司架构拆解</a>
+        <a class="active" href="/logic/solution">子页二 · AI 方案设计</a>
+        <a href="/logic/risk">子页三 · 风险管控</a>
+      </nav>
+      <div class="logic-hero">
+        <p class="logic-lead">
+          以<strong>部门为大卡片</strong>，对每个功能给出 <b>Control Loop</b>、工具边界、相处模式，以及
+          <b>Skill 搭建逻辑</b>：调用哪些业务数据/知识 → 做何种处理 → 交给何种模型/办事方式 → 用哪些工具 → 产出如何被下游使用。
+        </p>
+      </div>
+
+      <section class="logic-section dept-card">
+        <h2>服务事业部 <span class="dept-count-inline">7 项功能</span></h2>
+        <p class="sec-note">逐功能保留 Control Loop；Skill 用「数据 → 处理 → 模型 → 工具 → 产出」说明搭建逻辑，业务主管与技术同事都能跟读。</p>
+        <div class="feat-judge-list">
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>智能填单</strong>
+                <code>F-SVC-001</code>
+                <span class="pill pill-ghost">一期可试用</span>
+              </div>
+              <p class="feat-purpose">对话生成工单草案并写入共享产出</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。本功能实际会用到：读业务实体（客户、车辆、工单、工单列表）；整理/写共享/把关（抽工单字段、建议主题标签、标签字典、写入共用产出）。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「智能填单」能力包搭建逻辑（fill_ticket · Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>客户、车辆、既有工单（主数据）；必要时标签字典</li>
+                <li><b>做什么样的处理：</b>核对身份与未结工单 → 从对话原文抽工单字段并建议主题标签 → 组装工单草案</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）：决定查什么、何时写入；字段抽取可用规则工具辅助</li>
+                <li><b>调用哪些工具能力：</b>读客户/车辆/工单；抽字段与打标；写入共用产出供续费等读取</li>
+                <li><b>产出什么、如何被下游使用：</b>工单草案 + 投诉类标签进入共用层；一次运行只完成填单，不自动触达</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>智能填单 · 信息整理</strong>
+                <code>F-SVC-001-EXT</code>
+                <span class="pill pill-ghost">一期可试用</span>
+              </div>
+              <p class="feat-purpose">纯结构化抽取工单草案并写入共享产出</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Extract</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 write_govern（结构化）。按 schema 从原文抽字段/标签；需要沉淀时再写入共用产出。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 输入原文，产出 schema 字段；写入共享属审批边界</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「智能填单 · 信息整理」能力包搭建逻辑（ticket_fields · Extract）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>客服/用户原文；客户与车辆 ID（若提供）</li>
+                <li><b>做什么样的处理：</b>按工单草案 schema 抽取类型、摘要、标签、情感、是否投诉等字段并校验齐全</li>
+                <li><b>交给什么样的模型/办事方式：</b>信息整理模型（Extract）：偏结构化抽取与校验，不做多步查库脑回路</li>
+                <li><b>调用哪些工具能力：</b>以 schema 校验为主；需要沉淀时再写入共用产出</li>
+                <li><b>产出什么、如何被下游使用：</b>结构化工单草案，可与填单功能并行，供坐席确认或下游读取</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>智能辅助回答</strong>
+                <code>F-SVC-002</code>
+                <span class="pill pill-ghost">一期可试用</span>
+              </div>
+              <p class="feat-purpose">坐席侧维修知识问答，并标注参考资料</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Retrieve</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 knowledge。本功能实际会用到：查知识库（检索知识块、取全文、知识域列表）。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 坐席/员工发起提问，系统检索后答复，关键承诺转人工</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「智能辅助回答」能力包搭建逻辑（repair_kb · Retrieve）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>维修知识库文档块（续航/异响/绑车/充电等），一般不强制查车辆主数据</li>
+                <li><b>做什么样的处理：</b>按问题检索相关知识片段 → 把片段塞进提示 → 生成分步建议并标注引用来源</li>
+                <li><b>交给什么样的模型/办事方式：</b>知识问答模型（Retrieve）：检索 + 生成，要求可引用；无命中要说明未覆盖</li>
+                <li><b>调用哪些工具能力：</b>检索知识块、取文档、列出知识域</li>
+                <li><b>产出什么、如何被下游使用：</b>带引用的排查/处理建议；可复用于 App 问答等场景</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>维修知识库问答</strong>
+                <code>F-SVC-004</code>
+                <span class="pill pill-ghost">一期可试用</span>
+              </div>
+              <p class="feat-purpose">维修问题自助/辅助问答</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Retrieve</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 knowledge。本功能实际会用到：查知识库（检索知识块、取全文、知识域列表）。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 坐席/员工发起提问，系统检索后答复，关键承诺转人工</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「维修知识库问答」能力包搭建逻辑（repair_kb · Retrieve）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>维修知识库文档块（续航/异响/绑车/充电等），一般不强制查车辆主数据</li>
+                <li><b>做什么样的处理：</b>按问题检索相关知识片段 → 把片段塞进提示 → 生成分步建议并标注引用来源</li>
+                <li><b>交给什么样的模型/办事方式：</b>知识问答模型（Retrieve）：检索 + 生成，要求可引用；无命中要说明未覆盖</li>
+                <li><b>调用哪些工具能力：</b>检索知识块、取文档、列出知识域</li>
+                <li><b>产出什么、如何被下游使用：</b>带引用的排查/处理建议；可复用于 App 问答等场景</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>VOC 故障聚类</strong>
+                <code>F-SVC-005</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">工单聚类后反哺产品/质量洞察</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Extract</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 write_govern（结构化）。按 schema 从原文抽字段/标签；需要沉淀时再写入共用产出。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 输入原文，产出 schema 字段；写入共享属审批边界</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「VOC 故障聚类」能力包搭建逻辑（待挂载 · 建议 Extract）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>业务原文或单据文本</li>
+                <li><b>做什么样的处理：</b>按约定字段表抽取并校验完整性</li>
+                <li><b>交给什么样的模型/办事方式：</b>信息整理模型（Extract）</li>
+                <li><b>调用哪些工具能力：</b>结构化抽取；必要时写入共用产出</li>
+                <li><b>产出什么、如何被下游使用：</b>工单聚类后反哺产品/质量洞察</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>智能质检（SOP）</strong>
+                <code>F-SVC-008</code>
+                <span class="pill pill-ghost">三期</span>
+              </div>
+              <p class="feat-purpose">录音转写 → SOP 合规抽取</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Extract</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 write_govern（结构化）。按 schema 从原文抽字段/标签；需要沉淀时再写入共用产出。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 输入原文，产出 schema 字段；写入共享属审批边界</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「智能质检（SOP）」能力包搭建逻辑（待挂载 · 建议 Extract）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>业务原文或单据文本</li>
+                <li><b>做什么样的处理：</b>按约定字段表抽取并校验完整性</li>
+                <li><b>交给什么样的模型/办事方式：</b>信息整理模型（Extract）</li>
+                <li><b>调用哪些工具能力：</b>结构化抽取；必要时写入共用产出</li>
+                <li><b>产出什么、如何被下游使用：</b>录音转写 → SOP 合规抽取</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>维修客服多步辅助</strong>
+                <code>F-SVC-003</code>
+                <span class="pill pill-ghost">一期可试用</span>
+              </div>
+              <p class="feat-purpose">查车/工单/知识后给出可执行答复</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。本功能实际会用到：读业务实体（客户、车辆、车辆列表、订单、订单列表、库存、经销商、门店）。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「维修客服多步辅助」能力包搭建逻辑（crm_lookup · Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>客户、车辆、订单、库存、经销商/门店/商品等主数据</li>
+                <li><b>做什么样的处理：</b>按 ID 查询相关实体 → 汇总成简短结论（控制在少数要点内）</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）：编排查询顺序，少废话多事实</li>
+                <li><b>调用哪些工具能力：</b>读客户/车辆/订单/库存等查询工具</li>
+                <li><b>产出什么、如何被下游使用：</b>主数据核对结论，供客服或续费前查档</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+        </div>
+        <h3 class="subhead">本部门 AI 业务顺序</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">进线先用 Retrieve 查维修知识 → 可并行：Extract 整理工单字段 ∥ Act 核对客户/车辆并写共用产出 → 用户运营另开 Plan 读取投诉标签做触达把关。</p></div>
+        <h3 class="subhead">共用数字资产（本部门相关）</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">写出：工单草案、投诉/风险类标签、情感等；明确允许用户运营续费把关读取。</p></div>
+      </section>
+      <section class="logic-section dept-card">
+        <h2>用户运营 / App <span class="dept-count-inline">5 项功能</span></h2>
+        <p class="sec-note">逐功能保留 Control Loop；Skill 用「数据 → 处理 → 模型 → 工具 → 产出」说明搭建逻辑，业务主管与技术同事都能跟读。</p>
+        <div class="feat-judge-list">
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>App 智能问答</strong>
+                <code>F-UO-009</code>
+                <span class="pill pill-ghost">一期可试用</span>
+              </div>
+              <p class="feat-purpose">App 内维修/使用问答（复用 repair 域）</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Retrieve</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 knowledge。本功能实际会用到：查知识库（检索知识块、取全文、知识域列表）。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 坐席/员工发起提问，系统检索后答复，关键承诺转人工</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「App 智能问答」能力包搭建逻辑（repair_kb · Retrieve）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>维修知识库文档块（续航/异响/绑车/充电等），一般不强制查车辆主数据</li>
+                <li><b>做什么样的处理：</b>按问题检索相关知识片段 → 把片段塞进提示 → 生成分步建议并标注引用来源</li>
+                <li><b>交给什么样的模型/办事方式：</b>知识问答模型（Retrieve）：检索 + 生成，要求可引用；无命中要说明未覆盖</li>
+                <li><b>调用哪些工具能力：</b>检索知识块、取文档、列出知识域</li>
+                <li><b>产出什么、如何被下游使用：</b>带引用的排查/处理建议；可复用于 App 问答等场景</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>续费 AI 外呼任务</strong>
+                <code>F-UO-001</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">查续费池与意向后组织触达话术</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Plan</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 write_govern。先读共用标签/产出，再做放行或档位判定；不直接外呼。</p></div>
+                <div><h5>相处模式</h5><p><b>审批</b> — 必须读共享标签后判定放行/阻断，禁止静默触达</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「续费 AI 外呼任务」能力包搭建逻辑（待挂载 · 建议 Plan）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>共用标签/产出 + 本业务相关档案</li>
+                <li><b>做什么样的处理：</b>读取共享信号 → 规则或闸门判定 → 输出放行/暂缓与原因</li>
+                <li><b>交给什么样的模型/办事方式：</b>计划把关模型（Plan）</li>
+                <li><b>调用哪些工具能力：</b>读共享、闸门检查、必要的业务查询</li>
+                <li><b>产出什么、如何被下游使用：</b>查续费池与意向后组织触达话术</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>主动触达投诉把关</strong>
+                <code>F-UO-017</code>
+                <span class="pill pill-ghost">一期可试用</span>
+              </div>
+              <p class="feat-purpose">读共享投诉标签后决定是否触达；阻断时给出原因</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Plan</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 write_govern（读共享 + 闸门）。本功能实际会用到：读业务实体（续费档案、行为数据、续费评分、续费池分层、客户、车辆）；整理/写共享/把关（读共用标签、读取共用产出、触达阻断检查）。</p></div>
+                <div><h5>相处模式</h5><p><b>审批</b> — 必须读共享标签后判定放行/阻断，禁止静默触达</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「主动触达投诉把关」能力包搭建逻辑（renewal_plan · Plan）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>共用投诉/风险标签、共用产出；续费档案与行为数据（放行时）</li>
+                <li><b>做什么样的处理：</b>先读共用标签做触达阻断检查 → 若阻断则说明原因；若放行再查续费池并给出短计划</li>
+                <li><b>交给什么样的模型/办事方式：</b>计划把关模型（Plan）：先规则/工具闸门，再组织计划说明</li>
+                <li><b>调用哪些工具能力：</b>读共用标签/产出、触达阻断检查；放行后可读续费评分与分层</li>
+                <li><b>产出什么、如何被下游使用：</b>允许或暂缓触达 + 原因；放行时附续费分层与触达阶梯（仍不自动外呼）</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>统一智能客服</strong>
+                <code>F-UO-019</code>
+                <span class="pill pill-ghost">一期可试用</span>
+              </div>
+              <p class="feat-purpose">App 侧多步查主数据再答</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。本功能实际会用到：读业务实体（客户、车辆、车辆列表、订单、订单列表、库存、经销商、门店）。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「统一智能客服」能力包搭建逻辑（crm_lookup · Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>客户、车辆、订单、库存、经销商/门店/商品等主数据</li>
+                <li><b>做什么样的处理：</b>按 ID 查询相关实体 → 汇总成简短结论（控制在少数要点内）</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）：编排查询顺序，少废话多事实</li>
+                <li><b>调用哪些工具能力：</b>读客户/车辆/订单/库存等查询工具</li>
+                <li><b>产出什么、如何被下游使用：</b>主数据核对结论，供客服或续费前查档</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>续费/投诉评分闸门</strong>
+                <code>F-UO-RULE</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">规则+LLM 评定是否允许主动触达</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Plan（扩展 Rule gate）</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 write_govern。先读共用标签/产出，再做放行或档位判定；不直接外呼。</p></div>
+                <div><h5>相处模式</h5><p><b>审批</b> — 规则闸门输出是否通过/档位，供人工确认</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「续费/投诉评分闸门」能力包搭建逻辑（待挂载 · 建议 Plan（扩展 Rule gate））</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>共用标签/产出 + 本业务相关档案</li>
+                <li><b>做什么样的处理：</b>读取共享信号 → 规则或闸门判定 → 输出放行/暂缓与原因</li>
+                <li><b>交给什么样的模型/办事方式：</b>计划把关模型（Plan）</li>
+                <li><b>调用哪些工具能力：</b>读共享、闸门检查、必要的业务查询</li>
+                <li><b>产出什么、如何被下游使用：</b>规则+LLM 评定是否允许主动触达</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+        </div>
+        <h3 class="subhead">本部门 AI 业务顺序</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">App 侧 Retrieve/Act 答疑与查档 → 另开 Plan 读共用投诉标签做放行/暂缓；真实外呼任务放二期，且不与上游自动联跑。</p></div>
+        <h3 class="subhead">共用数字资产（本部门相关）</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">读取：共用投诉标签与产出；产出：是否允许触达、原因、续费短计划。</p></div>
+      </section>
+      <section class="logic-section dept-card">
+        <h2>用研 / VoC <span class="dept-count-inline">1 项功能</span></h2>
+        <p class="sec-note">逐功能保留 Control Loop；Skill 用「数据 → 处理 → 模型 → 工具 → 产出」说明搭建逻辑，业务主管与技术同事都能跟读。</p>
+        <div class="feat-judge-list">
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>客户原声整理</strong>
+                <code>F-VOC-002</code>
+                <span class="pill pill-ghost">一期可试用</span>
+              </div>
+              <p class="feat-purpose">把客户原声整理成业务标记、情绪与风险提示</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Extract</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 write_govern（结构化）。按 schema 从原文抽字段/标签；需要沉淀时再写入共用产出。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 输入原文，产出 schema 字段；写入共享属审批边界</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「客户原声整理」能力包搭建逻辑（voc_entities · Extract）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>客户原声文本</li>
+                <li><b>做什么样的处理：</b>抽取主题、情感、风险等实体并对照标签字典 → 需要时写入共用层</li>
+                <li><b>交给什么样的模型/办事方式：</b>信息整理模型（Extract）</li>
+                <li><b>调用哪些工具能力：</b>结构化抽取与校验；写共享时走共用写入</li>
+                <li><b>产出什么、如何被下游使用：</b>原声结构化结果，供服务/续费等读取</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+        </div>
+        <h3 class="subhead">本部门 AI 业务顺序</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">Extract 把客户原声整理成主题/情感等结构 → 写入共用层 → 服务与续费另行读取。</p></div>
+        <h3 class="subhead">共用数字资产（本部门相关）</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">写出：原声结构化结果（主题、实体、情感等）。</p></div>
+      </section>
+      <section class="logic-section dept-card">
+        <h2>渠道处 <span class="dept-count-inline">2 项功能</span></h2>
+        <p class="sec-note">逐功能保留 Control Loop；Skill 用「数据 → 处理 → 模型 → 工具 → 产出」说明搭建逻辑，业务主管与技术同事都能跟读。</p>
+        <div class="feat-judge-list">
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>经营健康 / 预警查询</strong>
+                <code>F-OPS-012</code>
+                <span class="pill pill-ghost">一期可试用</span>
+              </div>
+              <p class="feat-purpose">查健康指数、预警、巡检切片</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。本功能实际会用到：读业务实体（经销商、经销商健康、预警、list_sales_metrics、list_retail_daily、巡检、get_risk、政策切片）。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「经营健康 / 预警查询」能力包搭建逻辑（channel_ops · Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>经销商健康、预警、巡检、销量/零售日报、政策相关切片</li>
+                <li><b>做什么样的处理：</b>按经营问题拉取健康/预警/巡检等数据 → 整理成看板式简报</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>经销商健康、预警、巡检、销量与政策查询类工具</li>
+                <li><b>产出什么、如何被下游使用：</b>经营简报（数字 + 异常 + 建议下一步）</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>渠道看板汇合</strong>
+                <code>F-CH-PLAN</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">汇合经营查询与政策口径，生成看板建议</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Plan</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 write_govern。先读共用标签/产出，再做放行或档位判定；不直接外呼。</p></div>
+                <div><h5>相处模式</h5><p><b>审批</b> — 必须读共享标签后判定放行/阻断，禁止静默触达</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「渠道看板汇合」能力包搭建逻辑（待挂载 · 建议 Plan）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>共用标签/产出 + 本业务相关档案</li>
+                <li><b>做什么样的处理：</b>读取共享信号 → 规则或闸门判定 → 输出放行/暂缓与原因</li>
+                <li><b>交给什么样的模型/办事方式：</b>计划把关模型（Plan）</li>
+                <li><b>调用哪些工具能力：</b>读共享、闸门检查、必要的业务查询</li>
+                <li><b>产出什么、如何被下游使用：</b>汇合经营查询与政策口径，生成看板建议</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+        </div>
+        <h3 class="subhead">本部门 AI 业务顺序</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">Act 拉取经营健康/预警等出简报 → 二期看板汇合后由人工确认再发布。</p></div>
+        <h3 class="subhead">共用数字资产（本部门相关）</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">读取：经销商健康/预警等；产出：经营简报要点。</p></div>
+      </section>
+      <section class="logic-section dept-card">
+        <h2>运营管理 · 订单/政策 <span class="dept-count-inline">5 项功能</span></h2>
+        <p class="sec-note">逐功能保留 Control Loop；Skill 用「数据 → 处理 → 模型 → 工具 → 产出」说明搭建逻辑，业务主管与技术同事都能跟读。</p>
+        <div class="feat-judge-list">
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>政策口径问答</strong>
+                <code>F-POL-RAG</code>
+                <span class="pill pill-ghost">一期可试用</span>
+              </div>
+              <p class="feat-purpose">三包/返利/续费红线等政策文本问答</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Retrieve</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 knowledge。本功能实际会用到：查知识库（检索知识块、取全文、知识域列表）。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 坐席/员工发起提问，系统检索后答复，关键承诺转人工</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「政策口径问答」能力包搭建逻辑（policy_kb · Retrieve）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>政策知识库（三包/返利/触达红线/门店规范等）</li>
+                <li><b>做什么样的处理：</b>检索政策条款片段 → 生成口径说明并引用条款</li>
+                <li><b>交给什么样的模型/办事方式：</b>知识问答模型（Retrieve），禁止编造未检索到的条款</li>
+                <li><b>调用哪些工具能力：</b>检索知识块、取文档、列出知识域</li>
+                <li><b>产出什么、如何被下游使用：</b>可核对来源的政策口径答复</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>销售政策解析</strong>
+                <code>F-OPS-004</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">政策原文 → 返利档位结构</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Extract</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 write_govern（结构化）。按 schema 从原文抽字段/标签；需要沉淀时再写入共用产出。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 输入原文，产出 schema 字段；写入共享属审批边界</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「销售政策解析」能力包搭建逻辑（待挂载 · 建议 Extract）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>业务原文或单据文本</li>
+                <li><b>做什么样的处理：</b>按约定字段表抽取并校验完整性</li>
+                <li><b>交给什么样的模型/办事方式：</b>信息整理模型（Extract）</li>
+                <li><b>调用哪些工具能力：</b>结构化抽取；必要时写入共用产出</li>
+                <li><b>产出什么、如何被下游使用：</b>政策原文 → 返利档位结构</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>智能建单审单</strong>
+                <code>F-OPS-003</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">查库存→政策→替代→状态建议</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。上线前按「读哪些实体 / 是否写共享 / 是否查知识」补齐工具清单。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「智能建单审单」能力包搭建逻辑（待挂载 · 建议 Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>本功能相关的客户/订单/渠道等主数据（按目标裁剪）</li>
+                <li><b>做什么样的处理：</b>多步查询与整理 → 形成可执行结论；写共享须声明谁可读取</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>读主数据；按需写共用或打标</li>
+                <li><b>产出什么、如何被下游使用：</b>查库存→政策→替代→状态建议</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>跨部门建单审单辅助</strong>
+                <code>F-X-004</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">订单/排产/返利多步推理建议</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。上线前按「读哪些实体 / 是否写共享 / 是否查知识」补齐工具清单。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「跨部门建单审单辅助」能力包搭建逻辑（待挂载 · 建议 Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>本功能相关的客户/订单/渠道等主数据（按目标裁剪）</li>
+                <li><b>做什么样的处理：</b>多步查询与整理 → 形成可执行结论；写共享须声明谁可读取</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>读主数据；按需写共用或打标</li>
+                <li><b>产出什么、如何被下游使用：</b>订单/排产/返利多步推理建议</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>审单档位闸门</strong>
+                <code>F-OPS-RULE</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">规则判定返利/库存档位 + LLM 解释</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Plan（扩展 Rule gate）</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 write_govern。先读共用标签/产出，再做放行或档位判定；不直接外呼。</p></div>
+                <div><h5>相处模式</h5><p><b>审批</b> — 规则闸门输出是否通过/档位，供人工确认</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「审单档位闸门」能力包搭建逻辑（待挂载 · 建议 Plan（扩展 Rule gate））</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>共用标签/产出 + 本业务相关档案</li>
+                <li><b>做什么样的处理：</b>读取共享信号 → 规则或闸门判定 → 输出放行/暂缓与原因</li>
+                <li><b>交给什么样的模型/办事方式：</b>计划把关模型（Plan）</li>
+                <li><b>调用哪些工具能力：</b>读共享、闸门检查、必要的业务查询</li>
+                <li><b>产出什么、如何被下游使用：</b>规则判定返利/库存档位 + LLM 解释</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+        </div>
+        <h3 class="subhead">本部门 AI 业务顺序</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">Retrieve 答政策口径 ∥ Extract 整理政策要点 → Act/Rule 做审单或档位把关。</p></div>
+        <h3 class="subhead">共用数字资产（本部门相关）</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">知识域：政策；产出：口径答复与档位建议。</p></div>
+      </section>
+      <section class="logic-section dept-card">
+        <h2>四大战区 <span class="dept-count-inline">2 项功能</span></h2>
+        <p class="sec-note">逐功能保留 Control Loop；Skill 用「数据 → 处理 → 模型 → 工具 → 产出」说明搭建逻辑，业务主管与技术同事都能跟读。</p>
+        <div class="feat-judge-list">
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>提货 / 线下问答辅助</strong>
+                <code>F-WZ-001</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">门店侧查库存+政策给动作清单</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。上线前按「读哪些实体 / 是否写共享 / 是否查知识」补齐工具清单。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「提货 / 线下问答辅助」能力包搭建逻辑（待挂载 · 建议 Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>本功能相关的客户/订单/渠道等主数据（按目标裁剪）</li>
+                <li><b>做什么样的处理：</b>多步查询与整理 → 形成可执行结论；写共享须声明谁可读取</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>读主数据；按需写共用或打标</li>
+                <li><b>产出什么、如何被下游使用：</b>门店侧查库存+政策给动作清单</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>战区建单 / 政策档位辅助</strong>
+                <code>F-WZ-002</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">战区侧订单与政策 AI 辅助</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。上线前按「读哪些实体 / 是否写共享 / 是否查知识」补齐工具清单。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「战区建单 / 政策档位辅助」能力包搭建逻辑（待挂载 · 建议 Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>本功能相关的客户/订单/渠道等主数据（按目标裁剪）</li>
+                <li><b>做什么样的处理：</b>多步查询与整理 → 形成可执行结论；写共享须声明谁可读取</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>读主数据；按需写共用或打标</li>
+                <li><b>产出什么、如何被下游使用：</b>战区侧订单与政策 AI 辅助</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+        </div>
+        <h3 class="subhead">本部门 AI 业务顺序</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">各功能分别试跑；跨功能只经共用层另开运行。</p></div>
+        <h3 class="subhead">共用数字资产（本部门相关）</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">按功能声明谁写入、谁可读取、用哪些标签。</p></div>
+      </section>
+      <section class="logic-section dept-card">
+        <h2>新零售 <span class="dept-count-inline">2 项功能</span></h2>
+        <p class="sec-note">逐功能保留 Control Loop；Skill 用「数据 → 处理 → 模型 → 工具 → 产出」说明搭建逻辑，业务主管与技术同事都能跟读。</p>
+        <div class="feat-judge-list">
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>多平台客服自动回复</strong>
+                <code>F-RET-001</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">查订单/库存/活动后回复</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。上线前按「读哪些实体 / 是否写共享 / 是否查知识」补齐工具清单。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「多平台客服自动回复」能力包搭建逻辑（待挂载 · 建议 Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>本功能相关的客户/订单/渠道等主数据（按目标裁剪）</li>
+                <li><b>做什么样的处理：</b>多步查询与整理 → 形成可执行结论；写共享须声明谁可读取</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>读主数据；按需写共用或打标</li>
+                <li><b>产出什么、如何被下游使用：</b>查订单/库存/活动后回复</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>线上各平台销售客服</strong>
+                <code>F-RET-002</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">电商平台销售咨询 AI 承接</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。上线前按「读哪些实体 / 是否写共享 / 是否查知识」补齐工具清单。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「线上各平台销售客服」能力包搭建逻辑（待挂载 · 建议 Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>本功能相关的客户/订单/渠道等主数据（按目标裁剪）</li>
+                <li><b>做什么样的处理：</b>多步查询与整理 → 形成可执行结论；写共享须声明谁可读取</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>读主数据；按需写共用或打标</li>
+                <li><b>产出什么、如何被下游使用：</b>电商平台销售咨询 AI 承接</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+        </div>
+        <h3 class="subhead">本部门 AI 业务顺序</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">各功能分别试跑；跨功能只经共用层另开运行。</p></div>
+        <h3 class="subhead">共用数字资产（本部门相关）</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">按功能声明谁写入、谁可读取、用哪些标签。</p></div>
+      </section>
+      <section class="logic-section dept-card">
+        <h2>采购平台 <span class="dept-count-inline">3 项功能</span></h2>
+        <p class="sec-note">逐功能保留 Control Loop；Skill 用「数据 → 处理 → 模型 → 工具 → 产出」说明搭建逻辑，业务主管与技术同事都能跟读。</p>
+        <div class="feat-judge-list">
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>采购跟单 Bot</strong>
+                <code>F-PUR-001</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">逾期 PO 催货 + 物流确认</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。上线前按「读哪些实体 / 是否写共享 / 是否查知识」补齐工具清单。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「采购跟单 Bot」能力包搭建逻辑（待挂载 · 建议 Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>本功能相关的客户/订单/渠道等主数据（按目标裁剪）</li>
+                <li><b>做什么样的处理：</b>多步查询与整理 → 形成可执行结论；写共享须声明谁可读取</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>读主数据；按需写共用或打标</li>
+                <li><b>产出什么、如何被下游使用：</b>逾期 PO 催货 + 物流确认</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>智能跟单</strong>
+                <code>F-PUR-003</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">采购订单跟单自动化</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。上线前按「读哪些实体 / 是否写共享 / 是否查知识」补齐工具清单。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「智能跟单」能力包搭建逻辑（待挂载 · 建议 Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>本功能相关的客户/订单/渠道等主数据（按目标裁剪）</li>
+                <li><b>做什么样的处理：</b>多步查询与整理 → 形成可执行结论；写共享须声明谁可读取</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>读主数据；按需写共用或打标</li>
+                <li><b>产出什么、如何被下游使用：</b>采购订单跟单自动化</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>采购催货提醒</strong>
+                <code>F-PUR-004</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">多步推理触发采购跟单提醒</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。上线前按「读哪些实体 / 是否写共享 / 是否查知识」补齐工具清单。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「采购催货提醒」能力包搭建逻辑（待挂载 · 建议 Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>本功能相关的客户/订单/渠道等主数据（按目标裁剪）</li>
+                <li><b>做什么样的处理：</b>多步查询与整理 → 形成可执行结论；写共享须声明谁可读取</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>读主数据；按需写共用或打标</li>
+                <li><b>产出什么、如何被下游使用：</b>多步推理触发采购跟单提醒</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+        </div>
+        <h3 class="subhead">本部门 AI 业务顺序</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">各功能分别试跑；跨功能只经共用层另开运行。</p></div>
+        <h3 class="subhead">共用数字资产（本部门相关）</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">按功能声明谁写入、谁可读取、用哪些标签。</p></div>
+      </section>
+      <section class="logic-section dept-card">
+        <h2>IoT / 车机 <span class="dept-count-inline">2 项功能</span></h2>
+        <p class="sec-note">逐功能保留 Control Loop；Skill 用「数据 → 处理 → 模型 → 工具 → 产出」说明搭建逻辑，业务主管与技术同事都能跟读。</p>
+        <div class="feat-judge-list">
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>产线 / 质检视觉巡检</strong>
+                <code>F-IOT-VISION</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">图像理解 → 缺陷标签，供规则汇合告警</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Extract（扩展 Vision）</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>感知输入（影像/台架）→ 识别缺陷标签并上报；工具边界以只读/标注为主。</p></div>
+                <div><h5>相处模式</h5><p><b>上报</b> — 缺陷/状态标签上报质量侧，不直接闭环处罚</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「产线 / 质检视觉巡检」能力包搭建逻辑（待挂载 · 建议 Extract（扩展 Vision））</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>产线影像/台架检测数据</li>
+                <li><b>做什么样的处理：</b>识别缺陷或状态 → 生成标签并上报质量侧</li>
+                <li><b>交给什么样的模型/办事方式：</b>影像识别扩展（挂在 Extract 感知侧）</li>
+                <li><b>调用哪些工具能力：</b>感知输入与标注输出（分期实现）</li>
+                <li><b>产出什么、如何被下游使用：</b>图像理解 → 缺陷标签，供规则汇合告警</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>车况主动服务</strong>
+                <code>F-IOT-003</code>
+                <span class="pill pill-ghost">三期</span>
+              </div>
+              <p class="feat-purpose">查告警/里程→建议动作→写产出</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。上线前按「读哪些实体 / 是否写共享 / 是否查知识」补齐工具清单。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「车况主动服务」能力包搭建逻辑（待挂载 · 建议 Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>本功能相关的客户/订单/渠道等主数据（按目标裁剪）</li>
+                <li><b>做什么样的处理：</b>多步查询与整理 → 形成可执行结论；写共享须声明谁可读取</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>读主数据；按需写共用或打标</li>
+                <li><b>产出什么、如何被下游使用：</b>查告警/里程→建议动作→写产出</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+        </div>
+        <h3 class="subhead">本部门 AI 业务顺序</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">各功能分别试跑；跨功能只经共用层另开运行。</p></div>
+        <h3 class="subhead">共用数字资产（本部门相关）</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">按功能声明谁写入、谁可读取、用哪些标签。</p></div>
+      </section>
+      <section class="logic-section dept-card">
+        <h2>数据研究院 <span class="dept-count-inline">2 项功能</span></h2>
+        <p class="sec-note">逐功能保留 Control Loop；Skill 用「数据 → 处理 → 模型 → 工具 → 产出」说明搭建逻辑，业务主管与技术同事都能跟读。</p>
+        <div class="feat-judge-list">
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>智能问数</strong>
+                <code>F-DAT-003</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">澄清指标→查语义层→出数</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。上线前按「读哪些实体 / 是否写共享 / 是否查知识」补齐工具清单。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「智能问数」能力包搭建逻辑（待挂载 · 建议 Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>本功能相关的客户/订单/渠道等主数据（按目标裁剪）</li>
+                <li><b>做什么样的处理：</b>多步查询与整理 → 形成可执行结论；写共享须声明谁可读取</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>读主数据；按需写共用或打标</li>
+                <li><b>产出什么、如何被下游使用：</b>澄清指标→查语义层→出数</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>BI 语义层 + 智能问数（共用）</strong>
+                <code>F-X-002</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">统一问数与自动报表底座</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。上线前按「读哪些实体 / 是否写共享 / 是否查知识」补齐工具清单。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「BI 语义层 + 智能问数（共用）」能力包搭建逻辑（待挂载 · 建议 Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>本功能相关的客户/订单/渠道等主数据（按目标裁剪）</li>
+                <li><b>做什么样的处理：</b>多步查询与整理 → 形成可执行结论；写共享须声明谁可读取</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>读主数据；按需写共用或打标</li>
+                <li><b>产出什么、如何被下游使用：</b>统一问数与自动报表底座</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+        </div>
+        <h3 class="subhead">本部门 AI 业务顺序</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">各功能分别试跑；跨功能只经共用层另开运行。</p></div>
+        <h3 class="subhead">共用数字资产（本部门相关）</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">按功能声明谁写入、谁可读取、用哪些标签。</p></div>
+      </section>
+      <section class="logic-section dept-card">
+        <h2>人资管理平台 <span class="dept-count-inline">1 项功能</span></h2>
+        <p class="sec-note">逐功能保留 Control Loop；Skill 用「数据 → 处理 → 模型 → 工具 → 产出」说明搭建逻辑，业务主管与技术同事都能跟读。</p>
+        <div class="feat-judge-list">
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>员工 AI 助理 · 制度问答</strong>
+                <code>F-HR-001</code>
+                <span class="pill pill-ghost">一期可试用</span>
+              </div>
+              <p class="feat-purpose">人资制度 / 坐席 SOP RAG 问答</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Retrieve</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 knowledge。本功能实际会用到：查知识库（检索知识块、取全文、知识域列表）。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 坐席/员工发起提问，系统检索后答复，关键承诺转人工</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「员工 AI 助理 · 制度问答」能力包搭建逻辑（hr_rules · Retrieve）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>人资制度与坐席质检 SOP 知识库</li>
+                <li><b>做什么样的处理：</b>检索制度/SOP 要点 → 生成答复；涉及个案处分引导转人工</li>
+                <li><b>交给什么样的模型/办事方式：</b>知识问答模型（Retrieve）</li>
+                <li><b>调用哪些工具能力：</b>检索知识块、取文档、列出知识域</li>
+                <li><b>产出什么、如何被下游使用：</b>制度/质检要点答复 + 引用</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+        </div>
+        <h3 class="subhead">本部门 AI 业务顺序</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">各功能分别试跑；跨功能只经共用层另开运行。</p></div>
+        <h3 class="subhead">共用数字资产（本部门相关）</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">按功能声明谁写入、谁可读取、用哪些标签。</p></div>
+      </section>
+      <section class="logic-section dept-card">
+        <h2>跨部门共用 / 共享层 <span class="dept-count-inline">6 项功能</span></h2>
+        <p class="sec-note">逐功能保留 Control Loop；Skill 用「数据 → 处理 → 模型 → 工具 → 产出」说明搭建逻辑，业务主管与技术同事都能跟读。</p>
+        <div class="feat-judge-list">
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>智能报销 · 三单匹配抽取</strong>
+                <code>F-FIN-001</code>
+                <span class="pill pill-ghost">三期</span>
+              </div>
+              <p class="feat-purpose">发票/合同/入库单字段抽取</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Extract</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 write_govern（结构化）。按 schema 从原文抽字段/标签；需要沉淀时再写入共用产出。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 输入原文，产出 schema 字段；写入共享属审批边界</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「智能报销 · 三单匹配抽取」能力包搭建逻辑（待挂载 · 建议 Extract）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>业务原文或单据文本</li>
+                <li><b>做什么样的处理：</b>按约定字段表抽取并校验完整性</li>
+                <li><b>交给什么样的模型/办事方式：</b>信息整理模型（Extract）</li>
+                <li><b>调用哪些工具能力：</b>结构化抽取；必要时写入共用产出</li>
+                <li><b>产出什么、如何被下游使用：</b>发票/合同/入库单字段抽取</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>主数据综合查询</strong>
+                <code>F-X-CRM</code>
+                <span class="pill pill-ghost">一期可试用</span>
+              </div>
+              <p class="feat-purpose">同一套客户·车·单·工单 ID 查询</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。本功能实际会用到：读业务实体（客户、车辆、车辆列表、订单、订单列表、库存、经销商、门店）。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「主数据综合查询」能力包搭建逻辑（crm_lookup · Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>客户、车辆、订单、库存、经销商/门店/商品等主数据</li>
+                <li><b>做什么样的处理：</b>按 ID 查询相关实体 → 汇总成简短结论（控制在少数要点内）</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）：编排查询顺序，少废话多事实</li>
+                <li><b>调用哪些工具能力：</b>读客户/车辆/订单/库存等查询工具</li>
+                <li><b>产出什么、如何被下游使用：</b>主数据核对结论，供客服或续费前查档</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>共用信息写入</strong>
+                <code>F-X-WRITE</code>
+                <span class="pill pill-ghost">一期可试用</span>
+              </div>
+              <p class="feat-purpose">把结果写入共用信息，供其它能力读取</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。本功能实际会用到：整理/写共享/把关（写入共用产出、读取共用产出、get_ai_output）。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「共用信息写入」能力包搭建逻辑（shared_write · Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>业务传入的结构化结果（payload）</li>
+                <li><b>做什么样的处理：</b>校验可写范围 → 写入共用产出并返回编号，供其他功能另开运行读取</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）中的写共享步骤，逻辑以工具调用与权限为主</li>
+                <li><b>调用哪些工具能力：</b>写入/读取共用产出</li>
+                <li><b>产出什么、如何被下游使用：</b>共用产出 ID，跨部门可消费</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>共享标签 / 产出读取</strong>
+                <code>F-X-READ</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">跨 Skill 消费，阻断错误触达</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。上线前按「读哪些实体 / 是否写共享 / 是否查知识」补齐工具清单。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「共享标签 / 产出读取」能力包搭建逻辑（待挂载 · 建议 Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>本功能相关的客户/订单/渠道等主数据（按目标裁剪）</li>
+                <li><b>做什么样的处理：</b>多步查询与整理 → 形成可执行结论；写共享须声明谁可读取</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>读主数据；按需写共用或打标</li>
+                <li><b>产出什么、如何被下游使用：</b>跨 Skill 消费，阻断错误触达</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>能力目录检索</strong>
+                <code>F-X-CAP</code>
+                <span class="pill pill-ghost">二期</span>
+              </div>
+              <p class="feat-purpose">发现已有 Skill，避免重复造 Agent</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。上线前按「读哪些实体 / 是否写共享 / 是否查知识」补齐工具清单。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「能力目录检索」能力包搭建逻辑（待挂载 · 建议 Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>本功能相关的客户/订单/渠道等主数据（按目标裁剪）</li>
+                <li><b>做什么样的处理：</b>多步查询与整理 → 形成可执行结论；写共享须声明谁可读取</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>读主数据；按需写共用或打标</li>
+                <li><b>产出什么、如何被下游使用：</b>发现已有 Skill，避免重复造 Agent</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+            <article class="feat-judge">
+              <div class="feat-judge-title">
+                <strong>渠道经营查询（共用数据源）</strong>
+                <code>F-X-CH</code>
+                <span class="pill pill-ghost">一期可试用</span>
+              </div>
+              <p class="feat-purpose">经营与合规同一数据源</p>
+              <div class="feat-grid tech-grid">
+                <div><h5>Control Loop</h5><p><b>Act</b></p></div>
+                <div><h5>Tools（工具边界）</h5><p>工具类 read + write_govern。本功能实际会用到：读业务实体（经销商、经销商健康、预警、list_sales_metrics、list_retail_daily、巡检、get_risk、政策切片）。</p></div>
+                <div><h5>相处模式</h5><p><b>协作</b> — 业务发起多步查询/填单；写共享前需符合白名单</p></div>
+                <div class="feat-span"><h5>Skill 搭建逻辑</h5><div class="skill-logic">
+              <p class="skill-logic-title">「渠道经营查询（共用数据源）」能力包搭建逻辑（channel_ops · Act）</p>
+              <ol>
+                <li><b>调用哪些业务数据/知识：</b>经销商健康、预警、巡检、销量/零售日报、政策相关切片</li>
+                <li><b>做什么样的处理：</b>按经营问题拉取健康/预警/巡检等数据 → 整理成看板式简报</li>
+                <li><b>交给什么样的模型/办事方式：</b>多步办事模型（Act）</li>
+                <li><b>调用哪些工具能力：</b>经销商健康、预警、巡检、销量与政策查询类工具</li>
+                <li><b>产出什么、如何被下游使用：</b>经营简报（数字 + 异常 + 建议下一步）</li>
+              </ol>
+            </div></div>
+              </div>
+            </article>
+        </div>
+        <h3 class="subhead">本部门 AI 业务顺序</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">承接写入/读取共用产出与标签；提供能力目录查询，避免各部门重复建设同类能力。</p></div>
+        <h3 class="subhead">共用数字资产（本部门相关）</h3>
+        <div class="asset-card" style="max-width:100%"><p style="margin:0">平台资产：标签字典、共用 AI 产出、能力目录、统一工具注册。</p></div>
+      </section>
+
+      <section class="logic-section" style="border:none;padding:0;background:transparent;box-shadow:none">
+        <div class="innov-float">
+          <div class="innov-badge">我的创新点</div>
+          <h3>平台统一：4 Control Loops + 3 类工具 + 共用存储</h3>
+          <p class="innov-claim">
+            办事环：Retrieve / Act / Extract / Plan；工具类：读主数据 / 查知识 / 写共享与把关；
+            跨部门只经共用产出与标签字典协作。价值：防孤岛、统一观测、按环控成本、写共享可审计。
+          </p>
+        </div>
+      </section>
+
+      <section class="logic-section phase-roadmap-sec">
+        <h2>一期 / 二期 / 三期 · 建设路线</h2>
+        <p class="sec-note">一期打通底座与跨部门互通；二、三期按功能扩展，并给出可测 KPI。</p>
+        <div class="phase-roadmap">
+          <article class="phase-panel phase1">
+            <header class="phase-panel-head">
+              <span class="phase-num">01</span>
+              <div>
+                <h4>一期 · 底座互通</h4>
+                <p>必达 · 可试用</p>
+              </div>
+            </header>
+            <div class="phase-block">
+              <h5>平台要交付什么</h5>
+              <div class="phase-chips">
+                <span>4 个 Control Loop 可运行</span>
+                <span>统一工具注册（读 / 知识 / 写共享）</span>
+                <span>唯一取数通道</span>
+                <span>共用层：标签字典 + AI 产出</span>
+              </div>
+            </div>
+            <div class="phase-block">
+              <h5>跨部门怎么验收</h5>
+              <p>服务写入的投诉标签，用户运营 Plan 能读到并正确阻断；同一工具可被多部门能力包复用。</p>
+            </div>
+            <div class="phase-block">
+              <h5>本期可试用功能 · 15</h5>
+              <div class="phase-feat-grid"><div class="phase-feat"><strong>智能填单</strong><span class="phase-feat-dept">服务事业部</span><span class="phase-feat-kpi">可单跑验收 · 业务闭环时效↑</span></div><div class="phase-feat"><strong>智能填单 · 信息整理</strong><span class="phase-feat-dept">服务事业部</span><span class="phase-feat-kpi">可单跑验收 · 业务闭环时效↑</span></div><div class="phase-feat"><strong>智能辅助回答</strong><span class="phase-feat-dept">服务事业部</span><span class="phase-feat-kpi">可单跑验收 · 业务闭环时效↑</span></div><div class="phase-feat"><strong>维修知识库问答</strong><span class="phase-feat-dept">服务事业部</span><span class="phase-feat-kpi">可单跑验收 · 业务闭环时效↑</span></div><div class="phase-feat"><strong>政策口径问答</strong><span class="phase-feat-dept">订单/政策</span><span class="phase-feat-kpi">自助答疑占比↑ · 异常发现提前</span></div><div class="phase-feat"><strong>App 智能问答</strong><span class="phase-feat-dept">用户运营/App</span><span class="phase-feat-kpi">不当触达事故 = 0（闸门扩展）</span></div><div class="phase-feat"><strong>客户原声整理</strong><span class="phase-feat-dept">用研/VoC</span><span class="phase-feat-kpi">标签覆盖率↑</span></div><div class="phase-feat"><strong>维修客服多步辅助</strong><span class="phase-feat-dept">服务事业部</span><span class="phase-feat-kpi">可单跑验收 · 业务闭环时效↑</span></div><div class="phase-feat"><strong>主动触达投诉把关</strong><span class="phase-feat-dept">用户运营/App</span><span class="phase-feat-kpi">不当触达事故 = 0（闸门扩展）</span></div><div class="phase-feat"><strong>统一智能客服</strong><span class="phase-feat-dept">用户运营/App</span><span class="phase-feat-kpi">不当触达事故 = 0（闸门扩展）</span></div><div class="phase-feat"><strong>经营健康 / 预警查询</strong><span class="phase-feat-dept">渠道处</span><span class="phase-feat-kpi">自助答疑占比↑ · 异常发现提前</span></div><div class="phase-feat"><strong>员工 AI 助理 · 制度问答</strong><span class="phase-feat-dept">人资管理平台</span><span class="phase-feat-kpi">自助答疑占比↑ · 异常发现提前</span></div><div class="phase-feat"><strong>主数据综合查询</strong><span class="phase-feat-dept">跨部门共用/共享层</span><span class="phase-feat-kpi">共享读取稳定、可审计</span></div><div class="phase-feat"><strong>共用信息写入</strong><span class="phase-feat-dept">跨部门共用/共享层</span><span class="phase-feat-kpi">共享读取稳定、可审计</span></div><div class="phase-feat"><strong>渠道经营查询（共用数据源）</strong><span class="phase-feat-dept">跨部门共用/共享层</span><span class="phase-feat-kpi">共享读取稳定、可审计</span></div></div>
+            </div>
+            <div class="phase-block phase-kpi">
+              <h5>当期 KPI</h5>
+              <ol>
+                <li>投诉未结样本：续费把关「不允许触达」命中率 = 100%</li>
+                <li>工具调用一律走统一注册，无私有取数旁路</li>
+                <li>标签字典覆盖投诉 / 风险主标签</li>
+                <li>关键运行可在运维台按运行编号查步骤与调用链</li>
+                <li>投诉填单与续费把关两次独立运行，无自动联跑</li>
+              </ol>
+            </div>
+          </article>
+
+          <article class="phase-panel">
+            <header class="phase-panel-head">
+              <span class="phase-num">02</span>
+              <div>
+                <h4>二期 · 部门功能扩展</h4>
+                <p>按部门挂载 · 可测 ROI</p>
+              </div>
+            </header>
+            <div class="phase-block">
+              <h5>平台推进</h5>
+              <div class="phase-chips">
+                <span>补全流程说明书</span>
+                <span>扩展 Act / Extract 能力包</span>
+                <span>外呼任务仍不联跑上游</span>
+              </div>
+            </div>
+            <div class="phase-block">
+              <h5>本期功能 · 20</h5>
+              <div class="phase-feat-grid"><div class="phase-feat"><strong>VOC 故障聚类</strong><span class="phase-feat-dept">服务事业部</span><span class="phase-feat-kpi">可单跑验收 · 业务闭环时效↑</span></div><div class="phase-feat"><strong>销售政策解析</strong><span class="phase-feat-dept">订单/政策</span><span class="phase-feat-kpi">自助答疑占比↑ · 异常发现提前</span></div><div class="phase-feat"><strong>续费 AI 外呼任务</strong><span class="phase-feat-dept">用户运营/App</span><span class="phase-feat-kpi">不当触达事故 = 0（闸门扩展）</span></div><div class="phase-feat"><strong>智能建单审单</strong><span class="phase-feat-dept">订单/政策</span><span class="phase-feat-kpi">自助答疑占比↑ · 异常发现提前</span></div><div class="phase-feat"><strong>跨部门建单审单辅助</strong><span class="phase-feat-dept">订单/政策</span><span class="phase-feat-kpi">自助答疑占比↑ · 异常发现提前</span></div><div class="phase-feat"><strong>提货 / 线下问答辅助</strong><span class="phase-feat-dept">四大战区</span><span class="phase-feat-kpi">自助答疑占比↑ · 异常发现提前</span></div><div class="phase-feat"><strong>战区建单 / 政策档位辅助</strong><span class="phase-feat-dept">四大战区</span><span class="phase-feat-kpi">自助答疑占比↑ · 异常发现提前</span></div><div class="phase-feat"><strong>渠道看板汇合</strong><span class="phase-feat-dept">渠道处</span><span class="phase-feat-kpi">自助答疑占比↑ · 异常发现提前</span></div><div class="phase-feat"><strong>审单档位闸门</strong><span class="phase-feat-dept">订单/政策</span><span class="phase-feat-kpi">自助答疑占比↑ · 异常发现提前</span></div><div class="phase-feat"><strong>续费/投诉评分闸门</strong><span class="phase-feat-dept">用户运营/App</span><span class="phase-feat-kpi">不当触达事故 = 0（闸门扩展）</span></div><div class="phase-feat"><strong>产线 / 质检视觉巡检</strong><span class="phase-feat-dept">IoT/车机</span><span class="phase-feat-kpi">漏检率基线建立 / 漏检率↓</span></div><div class="phase-feat"><strong>多平台客服自动回复</strong><span class="phase-feat-dept">新零售</span><span class="phase-feat-kpi">自动回复占比↑</span></div><div class="phase-feat"><strong>线上各平台销售客服</strong><span class="phase-feat-dept">新零售</span><span class="phase-feat-kpi">自动回复占比↑</span></div><div class="phase-feat"><strong>采购跟单 Bot</strong><span class="phase-feat-dept">采购平台</span><span class="phase-feat-kpi">催货及时率↑</span></div><div class="phase-feat"><strong>智能跟单</strong><span class="phase-feat-dept">采购平台</span><span class="phase-feat-kpi">催货及时率↑</span></div><div class="phase-feat"><strong>采购催货提醒</strong><span class="phase-feat-dept">采购平台</span><span class="phase-feat-kpi">催货及时率↑</span></div><div class="phase-feat"><strong>智能问数</strong><span class="phase-feat-dept">数据研究院</span><span class="phase-feat-kpi">问数自助率↑</span></div><div class="phase-feat"><strong>BI 语义层 + 智能问数（共用）</strong><span class="phase-feat-dept">数据研究院</span><span class="phase-feat-kpi">问数自助率↑</span></div><div class="phase-feat"><strong>共享标签 / 产出读取</strong><span class="phase-feat-dept">跨部门共用/共享层</span><span class="phase-feat-kpi">共享读取稳定、可审计</span></div><div class="phase-feat"><strong>能力目录检索</strong><span class="phase-feat-dept">跨部门共用/共享层</span><span class="phase-feat-kpi">共享读取稳定、可审计</span></div></div>
+            </div>
+            <div class="phase-block phase-kpi">
+              <h5>组合 KPI</h5>
+              <ol>
+                <li>新能力包上线周期 ≤ 原烟囱项目 50%</li>
+                <li>政策 / 渠道自助答疑占比提升</li>
+                <li>重复工具实现数归零</li>
+              </ol>
+            </div>
+          </article>
+
+          <article class="phase-panel">
+            <header class="phase-panel-head">
+              <span class="phase-num">03</span>
+              <div>
+                <h4>三期 · 感知与评测</h4>
+                <p>质量闭环 · 合规基线</p>
+              </div>
+            </header>
+            <div class="phase-block">
+              <h5>平台推进</h5>
+              <div class="phase-chips">
+                <span>影像识别扩展位</span>
+                <span>金标评测集</span>
+                <span>审计报表</span>
+                <span>不建企业级单编排器</span>
+              </div>
+            </div>
+            <div class="phase-block">
+              <h5>本期功能 · 3</h5>
+              <div class="phase-feat-grid"><div class="phase-feat"><strong>智能质检（SOP）</strong><span class="phase-feat-dept">服务事业部</span><span class="phase-feat-kpi">漏检率基线建立 / 漏检率↓</span></div><div class="phase-feat"><strong>智能报销 · 三单匹配抽取</strong><span class="phase-feat-dept">跨部门共用/共享层</span><span class="phase-feat-kpi">共享读取稳定、可审计</span></div><div class="phase-feat"><strong>车况主动服务</strong><span class="phase-feat-dept">IoT/车机</span><span class="phase-feat-kpi">漏检率基线建立 / 漏检率↓</span></div></div>
+            </div>
+            <div class="phase-block phase-kpi">
+              <h5>组合 KPI</h5>
+              <ol>
+                <li>质检漏检率、停机响应达到业务基线</li>
+                <li>合规抽检通过率达标</li>
+                <li>关键业务线形成可复盘的评测基线</li>
+              </ol>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div class="logic-footer-nav">
+        <a href="/logic/architecture">← 子页一</a>
+        <a href="/logic/risk">进入子页三 →</a>
+      </div>
+
+    </div>
+
+  </body>
+</html>

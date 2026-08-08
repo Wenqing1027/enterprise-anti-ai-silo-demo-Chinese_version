@@ -1,0 +1,33 @@
+skill_id: channel_ops
+control_loop: act
+department: 渠道处
+goal: 查询一代经营健康、预警、巡检与政策相关切片，输出经营看板式简报。
+success_hint: 至少完成健康/预警/巡检类查询之一，并给出数字+异常+下一步。
+success_when: channel_lookup
+max_steps: 8
+tone:
+  label: 经营看板型
+  style: 数字 + 异常点 + 下一步；语气中性
+  forbid: 人身评判经销商
+allowed_tools:
+  - get_dealer
+  - get_dealer_health
+  - list_alerts
+  - list_sales_metrics
+  - list_retail_daily
+  - list_inspections
+  - get_risk
+  - get_policy
+  - simulate_rebate_tier
+  - log_step
+system_extra: |
+  优先 get_dealer_health + list_alerts；必要时补巡检与政策。结论中性、可执行。
+output_format: |
+  1. 关键数字
+  2. 异常点
+  3. 建议下一步（编号列出）
+security:
+  max_tool_calls_per_step: 6
+  redact_pii_in_observation: true
+  block_on_outreach: false
+  prompt_forbid_extra: 禁止人身评判经销商；数字必须来自工具

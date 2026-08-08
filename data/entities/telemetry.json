@@ -1,0 +1,402 @@
+[
+  {
+    "vin": "QS01827DF3C46DFB2",
+    "fault_code": "BMS_OT_01",
+    "iot_alert_cnt": 4,
+    "mileage_km": 11006.0,
+    "soc_pct": 52.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 88.0,
+    "ota_version": "v2.4.0"
+  },
+  {
+    "vin": "QS05A9E0E6199180C",
+    "fault_code": "MCU_OC_02",
+    "iot_alert_cnt": 0,
+    "mileage_km": 9472.0,
+    "soc_pct": 78.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 86.0,
+    "ota_version": "v2.2.3"
+  },
+  {
+    "vin": "QS0E77BACE7841214",
+    "fault_code": "MCU_OC_02",
+    "iot_alert_cnt": 5,
+    "mileage_km": 11310.0,
+    "soc_pct": 58.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 82.0,
+    "ota_version": "v2.1.0"
+  },
+  {
+    "vin": "QS097F3BE21F7C0E0",
+    "fault_code": "MCU_OC_02",
+    "iot_alert_cnt": 5,
+    "mileage_km": 3293.0,
+    "soc_pct": 99.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 79.0,
+    "ota_version": "v2.4.0"
+  },
+  {
+    "vin": "QS07AEF9135EAF7CE",
+    "fault_code": "GPS_DRIFT",
+    "iot_alert_cnt": 0,
+    "mileage_km": 3091.0,
+    "soc_pct": 73.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 99.0,
+    "ota_version": "v2.1.0"
+  },
+  {
+    "vin": "QS0D39BB376D8F5A1",
+    "fault_code": "BMS_OT_01",
+    "iot_alert_cnt": 4,
+    "mileage_km": 8218.0,
+    "soc_pct": 28.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 90.0,
+    "ota_version": "v2.2.3"
+  },
+  {
+    "vin": "QS074F8F8F7405A74",
+    "fault_code": null,
+    "iot_alert_cnt": 0,
+    "mileage_km": 6965.0,
+    "soc_pct": 98.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 79.0,
+    "ota_version": "v2.4.0"
+  },
+  {
+    "vin": "QS08C9031B645A73A",
+    "fault_code": null,
+    "iot_alert_cnt": 4,
+    "mileage_km": 2641.0,
+    "soc_pct": 85.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 81.0,
+    "ota_version": "v2.2.3"
+  },
+  {
+    "vin": "QS0DEF24CBBA9600F",
+    "fault_code": "GPS_DRIFT",
+    "iot_alert_cnt": 3,
+    "mileage_km": 5187.0,
+    "soc_pct": 46.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 81.0,
+    "ota_version": "v2.3.1"
+  },
+  {
+    "vin": "QS01396F0E94E0BD5",
+    "fault_code": "MCU_OC_02",
+    "iot_alert_cnt": 1,
+    "mileage_km": 5711.0,
+    "soc_pct": 58.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 92.0,
+    "ota_version": "v2.1.0"
+  },
+  {
+    "vin": "QS0FBEBA1A3E767AD",
+    "fault_code": "CHG_TIMEOUT",
+    "iot_alert_cnt": 3,
+    "mileage_km": 4209.0,
+    "soc_pct": 62.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 86.0,
+    "ota_version": "v2.3.1"
+  },
+  {
+    "vin": "QS0BAB933EE8CC61C",
+    "fault_code": "GPS_DRIFT",
+    "iot_alert_cnt": 2,
+    "mileage_km": 4074.0,
+    "soc_pct": 57.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 84.0,
+    "ota_version": "v2.4.0"
+  },
+  {
+    "vin": "QS0B2F25F0D31403B",
+    "fault_code": null,
+    "iot_alert_cnt": 5,
+    "mileage_km": 7806.0,
+    "soc_pct": 16.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 96.0,
+    "ota_version": "v2.3.1"
+  },
+  {
+    "vin": "QS0BE77790BA28BDB",
+    "fault_code": "CHG_TIMEOUT",
+    "iot_alert_cnt": 0,
+    "mileage_km": 2842.0,
+    "soc_pct": 68.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 80.0,
+    "ota_version": "v2.3.1"
+  },
+  {
+    "vin": "QS01452ABE60E73C5",
+    "fault_code": "BMS_OT_01",
+    "iot_alert_cnt": 0,
+    "mileage_km": 3407.0,
+    "soc_pct": 35.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 90.0,
+    "ota_version": "v2.4.0"
+  },
+  {
+    "vin": "QS0B15DEFEEEC77B4",
+    "fault_code": "MCU_OC_02",
+    "iot_alert_cnt": 1,
+    "mileage_km": 2003.0,
+    "soc_pct": 56.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 84.0,
+    "ota_version": "v2.4.0"
+  },
+  {
+    "vin": "QS043EECADBE8E36E",
+    "fault_code": null,
+    "iot_alert_cnt": 3,
+    "mileage_km": 4647.0,
+    "soc_pct": 52.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 95.0,
+    "ota_version": "v2.1.0"
+  },
+  {
+    "vin": "QS0724A571CB45AB2",
+    "fault_code": null,
+    "iot_alert_cnt": 1,
+    "mileage_km": 7291.0,
+    "soc_pct": 94.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 95.0,
+    "ota_version": "v2.4.0"
+  },
+  {
+    "vin": "QS0636CBBC5F8F281",
+    "fault_code": "BMS_OT_01",
+    "iot_alert_cnt": 0,
+    "mileage_km": 9531.0,
+    "soc_pct": 44.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 91.0,
+    "ota_version": "v2.4.0"
+  },
+  {
+    "vin": "QS0CE0C0BC679AA6D",
+    "fault_code": "GPS_DRIFT",
+    "iot_alert_cnt": 3,
+    "mileage_km": 10442.0,
+    "soc_pct": 65.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 82.0,
+    "ota_version": "v2.2.3"
+  },
+  {
+    "vin": "QS0FABD8C5BE80101",
+    "fault_code": "GPS_DRIFT",
+    "iot_alert_cnt": 2,
+    "mileage_km": 3758.0,
+    "soc_pct": 50.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 98.0,
+    "ota_version": "v2.2.3"
+  },
+  {
+    "vin": "QS054A03893754811",
+    "fault_code": null,
+    "iot_alert_cnt": 3,
+    "mileage_km": 5314.0,
+    "soc_pct": 17.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 94.0,
+    "ota_version": "v2.2.3"
+  },
+  {
+    "vin": "QS0D94DBD3CE96C2F",
+    "fault_code": "CHG_TIMEOUT",
+    "iot_alert_cnt": 4,
+    "mileage_km": 5165.0,
+    "soc_pct": 16.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 80.0,
+    "ota_version": "v2.2.3"
+  },
+  {
+    "vin": "QS09A07E6FD4B94F6",
+    "fault_code": "GPS_DRIFT",
+    "iot_alert_cnt": 0,
+    "mileage_km": 8632.0,
+    "soc_pct": 56.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 95.0,
+    "ota_version": "v2.3.1"
+  },
+  {
+    "vin": "QS083DEDF91FD52E2",
+    "fault_code": "BMS_OT_01",
+    "iot_alert_cnt": 2,
+    "mileage_km": 4577.0,
+    "soc_pct": 34.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 85.0,
+    "ota_version": "v2.1.0"
+  },
+  {
+    "vin": "QS0100B306EBB884F",
+    "fault_code": null,
+    "iot_alert_cnt": 3,
+    "mileage_km": 2065.0,
+    "soc_pct": 100.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 89.0,
+    "ota_version": "v2.3.1"
+  },
+  {
+    "vin": "QS0E9C90431DE5D92",
+    "fault_code": "GPS_DRIFT",
+    "iot_alert_cnt": 0,
+    "mileage_km": 11793.0,
+    "soc_pct": 15.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 78.0,
+    "ota_version": "v2.4.0"
+  },
+  {
+    "vin": "QS026899D0FB42C0A",
+    "fault_code": null,
+    "iot_alert_cnt": 2,
+    "mileage_km": 8278.0,
+    "soc_pct": 30.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 81.0,
+    "ota_version": "v2.4.0"
+  },
+  {
+    "vin": "QS0D384705DD19174",
+    "fault_code": "CHG_TIMEOUT",
+    "iot_alert_cnt": 1,
+    "mileage_km": 2208.0,
+    "soc_pct": 72.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 87.0,
+    "ota_version": "v2.2.3"
+  },
+  {
+    "vin": "QS07EECA68A02B4B1",
+    "fault_code": null,
+    "iot_alert_cnt": 1,
+    "mileage_km": 8729.0,
+    "soc_pct": 35.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 87.0,
+    "ota_version": "v2.2.3"
+  },
+  {
+    "vin": "QS0F05B87747D8A91",
+    "fault_code": "CHG_TIMEOUT",
+    "iot_alert_cnt": 2,
+    "mileage_km": 6093.0,
+    "soc_pct": 28.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 97.0,
+    "ota_version": "v2.4.0"
+  },
+  {
+    "vin": "QS01A8BF6E44BCF42",
+    "fault_code": null,
+    "iot_alert_cnt": 2,
+    "mileage_km": 9558.0,
+    "soc_pct": 93.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 79.0,
+    "ota_version": "v2.2.3"
+  },
+  {
+    "vin": "QS0E5D7871E03B1CA",
+    "fault_code": null,
+    "iot_alert_cnt": 5,
+    "mileage_km": 3353.0,
+    "soc_pct": 65.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 91.0,
+    "ota_version": "v2.1.0"
+  },
+  {
+    "vin": "QS0377BE9B6C0FF71",
+    "fault_code": "BMS_OT_01",
+    "iot_alert_cnt": 5,
+    "mileage_km": 4477.0,
+    "soc_pct": 58.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 90.0,
+    "ota_version": "v2.1.0"
+  },
+  {
+    "vin": "QS02ED7B86175875B",
+    "fault_code": "GPS_DRIFT",
+    "iot_alert_cnt": 5,
+    "mileage_km": 793.0,
+    "soc_pct": 20.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 97.0,
+    "ota_version": "v2.4.0"
+  },
+  {
+    "vin": "QS0C8FF031F3A744E",
+    "fault_code": "CHG_TIMEOUT",
+    "iot_alert_cnt": 2,
+    "mileage_km": 5367.0,
+    "soc_pct": 57.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 88.0,
+    "ota_version": "v2.2.3"
+  },
+  {
+    "vin": "QS0940286F22E0645",
+    "fault_code": "CHG_TIMEOUT",
+    "iot_alert_cnt": 2,
+    "mileage_km": 5118.0,
+    "soc_pct": 74.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 94.0,
+    "ota_version": "v2.1.0"
+  },
+  {
+    "vin": "QS0194E2928D41060",
+    "fault_code": "MCU_OC_02",
+    "iot_alert_cnt": 1,
+    "mileage_km": 3876.0,
+    "soc_pct": 16.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 90.0,
+    "ota_version": "v2.3.1"
+  },
+  {
+    "vin": "QS02B05B563F0F915",
+    "fault_code": "CHG_TIMEOUT",
+    "iot_alert_cnt": 4,
+    "mileage_km": 671.0,
+    "soc_pct": 61.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 85.0,
+    "ota_version": "v2.4.0"
+  },
+  {
+    "vin": "QS03D0D0CE3E7F899",
+    "fault_code": null,
+    "iot_alert_cnt": 0,
+    "mileage_km": 9066.0,
+    "soc_pct": 43.0,
+    "telemetry_coverage_rate": 81.0,
+    "battery_health_pct": 90.0,
+    "ota_version": "v2.4.0"
+  }
+]

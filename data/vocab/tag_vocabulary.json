@@ -1,0 +1,194 @@
+{
+  "version": "voc-tags-2026.08",
+  "tags": [
+    {
+      "tag_id": "TAG-ROOT-PRODUCT",
+      "tag_name": "整车体验",
+      "tag_domain": "product",
+      "tag_parent_id": null,
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-续航短",
+      "tag_name": "续航短",
+      "tag_domain": "product",
+      "tag_parent_id": "TAG-ROOT-PRODUCT",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-动力弱",
+      "tag_name": "动力弱",
+      "tag_domain": "product",
+      "tag_parent_id": "TAG-ROOT-PRODUCT",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-异响",
+      "tag_name": "异响/减震",
+      "tag_domain": "product",
+      "tag_parent_id": "TAG-ROOT-PRODUCT",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-刹车",
+      "tag_name": "刹车问题",
+      "tag_domain": "product",
+      "tag_parent_id": "TAG-ROOT-PRODUCT",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-充电慢",
+      "tag_name": "充电慢",
+      "tag_domain": "product",
+      "tag_parent_id": "TAG-ROOT-PRODUCT",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-控制器",
+      "tag_name": "控制器故障",
+      "tag_domain": "product",
+      "tag_parent_id": "TAG-ROOT-PRODUCT",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-电池鼓包",
+      "tag_name": "电池鼓包/温升",
+      "tag_domain": "product",
+      "tag_parent_id": "TAG-ROOT-PRODUCT",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-仪表黑屏",
+      "tag_name": "仪表黑屏",
+      "tag_domain": "product",
+      "tag_parent_id": "TAG-ROOT-PRODUCT",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-ROOT-SERVICE",
+      "tag_name": "服务体验",
+      "tag_domain": "service",
+      "tag_parent_id": null,
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-三包争议",
+      "tag_name": "三包争议",
+      "tag_domain": "service",
+      "tag_parent_id": "TAG-ROOT-SERVICE",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-上门慢",
+      "tag_name": "上门维修慢",
+      "tag_domain": "service",
+      "tag_parent_id": "TAG-ROOT-SERVICE",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-态度差",
+      "tag_name": "服务态度",
+      "tag_domain": "service",
+      "tag_parent_id": "TAG-ROOT-SERVICE",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-配件缺货",
+      "tag_name": "配件缺货",
+      "tag_domain": "service",
+      "tag_parent_id": "TAG-ROOT-SERVICE",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-ROOT-APP",
+      "tag_name": "App/车联",
+      "tag_domain": "app",
+      "tag_parent_id": null,
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-绑车失败",
+      "tag_name": "绑车失败",
+      "tag_domain": "app",
+      "tag_parent_id": "TAG-ROOT-APP",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-定位飘",
+      "tag_name": "定位不准",
+      "tag_domain": "app",
+      "tag_parent_id": "TAG-ROOT-APP",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-续费入口",
+      "tag_name": "续费入口难找",
+      "tag_domain": "app",
+      "tag_parent_id": "TAG-ROOT-APP",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-推送骚扰",
+      "tag_name": "推送过多",
+      "tag_domain": "app",
+      "tag_parent_id": "TAG-ROOT-APP",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-ROOT-CHANNEL",
+      "tag_name": "渠道终端",
+      "tag_domain": "channel",
+      "tag_parent_id": null,
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-非专卖",
+      "tag_name": "非专卖陈列",
+      "tag_domain": "channel",
+      "tag_parent_id": "TAG-ROOT-CHANNEL",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-VI违规",
+      "tag_name": "VI违规",
+      "tag_domain": "channel",
+      "tag_parent_id": "TAG-ROOT-CHANNEL",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-压货",
+      "tag_name": "压货未动销",
+      "tag_domain": "channel",
+      "tag_parent_id": "TAG-ROOT-CHANNEL",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-ROOT-RISK",
+      "tag_name": "风险舆情",
+      "tag_domain": "risk",
+      "tag_parent_id": null,
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-投诉未结",
+      "tag_name": "投诉未结",
+      "tag_domain": "risk",
+      "tag_parent_id": "TAG-ROOT-RISK",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-舆情风险",
+      "tag_name": "舆情风险",
+      "tag_domain": "risk",
+      "tag_parent_id": "TAG-ROOT-RISK",
+      "tag_vocab_version": "voc-tags-2026.08"
+    },
+    {
+      "tag_id": "TAG-安全隐患",
+      "tag_name": "安全隐患",
+      "tag_domain": "risk",
+      "tag_parent_id": "TAG-ROOT-RISK",
+      "tag_vocab_version": "voc-tags-2026.08"
+    }
+  ]
+}

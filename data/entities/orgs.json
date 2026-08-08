@@ -1,0 +1,58 @@
+[
+  {
+    "org_id": "NATION-CN",
+    "org_name": "青枢出行-全国",
+    "org_level": "nation",
+    "parent_org_id": null,
+    "org_path": "全国"
+  },
+  {
+    "org_id": "WZ-EAST",
+    "org_name": "东区战区",
+    "org_level": "warzone",
+    "parent_org_id": "NATION-CN",
+    "org_path": "全国/东区"
+  },
+  {
+    "org_id": "WZ-SOUTH",
+    "org_name": "南区战区",
+    "org_level": "warzone",
+    "parent_org_id": "NATION-CN",
+    "org_path": "全国/南区"
+  },
+  {
+    "org_id": "WZ-WEST",
+    "org_name": "西区战区",
+    "org_level": "warzone",
+    "parent_org_id": "NATION-CN",
+    "org_path": "全国/西区"
+  },
+  {
+    "org_id": "WZ-NORTH",
+    "org_name": "北区战区",
+    "org_level": "warzone",
+    "parent_org_id": "NATION-CN",
+    "org_path": "全国/北区"
+  },
+  {
+    "org_id": "SZ-EAST-SN",
+    "org_name": "东区-苏南小战区",
+    "org_level": "subzone",
+    "parent_org_id": "WZ-EAST",
+    "org_path": "全国/东区/苏南"
+  },
+  {
+    "org_id": "SZ-EAST-ZJ",
+    "org_name": "东区-浙北小战区",
+    "org_level": "subzone",
+    "parent_org_id": "WZ-EAST",
+    "org_path": "全国/东区/浙北"
+  },
+  {
+    "org_id": "SZ-SOUTH-GD",
+    "org_name": "南区-粤中小战区",
+    "org_level": "subzone",
+    "parent_org_id": "WZ-SOUTH",
+    "org_path": "全国/南区/粤中"
+  }
+]

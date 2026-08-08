@@ -1,0 +1,21 @@
+# flow: voc_entities_to_shared
+# produces_for: renewal_plan；与 fill_ticket 跨部门只靠 AIOutput（见 department_flows.json）
+skill_id: voc_tagging
+control_loop: extract
+department: 服务 / 用研
+goal: VoC 打标与情感分析并资产化（与 voc_entities 同 Schema，Story1 命名别名）。
+success_hint: 通过 voc_entities_v1；写入 AIOutput 供续费等 Skill 消费。
+payload_schema: voc_entities_v1
+write_ai_output: true
+consumer_allow:
+  - renewal_plan
+  - voc_weekly
+tone:
+  label: 中性标注腔
+  style: 结构化打标；阻断标签零漏报
+  forbid: 自造 TAG；输出非 JSON
+max_schema_retries: 1
+max_input_chars: 4000
+security:
+  redact_pii: true
+  prompt_forbid_extra: 与 voc_entities 同源约束

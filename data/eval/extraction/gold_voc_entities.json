@@ -1,0 +1,705 @@
+{
+  "version": "2026-08-05-v2",
+  "skill_id": "voc_entities",
+  "payload_schema": "voc_entities_v1",
+  "thresholds": {
+    "schema_ok_rate": 1.0,
+    "tag_id_acc": 0.8,
+    "blocking_miss": 0,
+    "sentiment_acc": 0.85,
+    "tag_domain_acc": 0.9,
+    "oov_tag_rate_max": 0.05
+  },
+  "cases": [
+    {
+      "id": "V01",
+      "input": {
+        "text": "充满电跑不到说明书一半，准备去媒体曝光，已经投诉超过7天一直没处理。",
+        "customer_id": "CUS-10057"
+      },
+      "gold": {
+        "tag_id": "TAG-续航短",
+        "tag_id_accept": [
+          "TAG-续航短",
+          "TAG-投诉未结",
+          "TAG-舆情风险"
+        ],
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": true,
+        "blocking_any_of": [
+          "TAG-投诉未结",
+          "TAG-舆情风险"
+        ]
+      }
+    },
+    {
+      "id": "V02",
+      "input": {
+        "text": "续航掉电特别快，冬天更离谱。"
+      },
+      "gold": {
+        "tag_id": "TAG-续航短",
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V03",
+      "input": {
+        "text": "爬坡没力，动力弱得不像话。"
+      },
+      "gold": {
+        "tag_id": "TAG-动力弱",
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V04",
+      "input": {
+        "text": "前叉吱吱异响，减震噪音大。"
+      },
+      "gold": {
+        "tag_id": "TAG-异响",
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V05",
+      "input": {
+        "text": "刹车偏软刹不住，很危险。"
+      },
+      "gold": {
+        "tag_id": "TAG-刹车",
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V06",
+      "input": {
+        "text": "充电慢到崩溃，通宵都充不满。"
+      },
+      "gold": {
+        "tag_id": "TAG-充电慢",
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V07",
+      "input": {
+        "text": "控制器故障灯狂闪，车突然断电。"
+      },
+      "gold": {
+        "tag_id": "TAG-控制器",
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V08",
+      "input": {
+        "text": "电池鼓包还发烫，担心自燃起火。"
+      },
+      "gold": {
+        "tag_id": "TAG-安全隐患",
+        "tag_id_accept": [
+          "TAG-安全隐患",
+          "TAG-电池鼓包"
+        ],
+        "tag_domain": "risk",
+        "tag_domain_accept": [
+          "risk",
+          "product"
+        ],
+        "sentiment": "neg",
+        "blocking_required": true,
+        "blocking_any_of": [
+          "TAG-安全隐患"
+        ]
+      }
+    },
+    {
+      "id": "V09",
+      "input": {
+        "text": "仪表黑屏重启没用。"
+      },
+      "gold": {
+        "tag_id": "TAG-仪表黑屏",
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V10",
+      "input": {
+        "text": "三包拒保不给换电池，太离谱。"
+      },
+      "gold": {
+        "tag_id": "TAG-三包争议",
+        "tag_domain": "service",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V11",
+      "input": {
+        "text": "约了上门一直不来，上门慢到离谱。"
+      },
+      "gold": {
+        "tag_id": "TAG-上门慢",
+        "tag_domain": "service",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V12",
+      "input": {
+        "text": "客服态度差还骂人。"
+      },
+      "gold": {
+        "tag_id": "TAG-态度差",
+        "tag_domain": "service",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V13",
+      "input": {
+        "text": "配件缺货要等很久。"
+      },
+      "gold": {
+        "tag_id": "TAG-配件缺货",
+        "tag_domain": "service",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V14",
+      "input": {
+        "text": "App 绑车失败，提示设备离线。"
+      },
+      "gold": {
+        "tag_id": "TAG-绑车失败",
+        "tag_domain": "app",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V15",
+      "input": {
+        "text": "定位飘了几百米，导航不准。"
+      },
+      "gold": {
+        "tag_id": "TAG-定位飘",
+        "tag_domain": "app",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V16",
+      "input": {
+        "text": "请问续费入口在哪里？"
+      },
+      "gold": {
+        "tag_id": "TAG-续费入口",
+        "tag_domain": "app",
+        "sentiment": "neu",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V17",
+      "input": {
+        "text": "推送骚扰太频繁了关掉吧。"
+      },
+      "gold": {
+        "tag_id": "TAG-推送骚扰",
+        "tag_domain": "app",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V18",
+      "input": {
+        "text": "门店非专卖还卖别的牌子。"
+      },
+      "gold": {
+        "tag_id": "TAG-非专卖",
+        "tag_domain": "channel",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V19",
+      "input": {
+        "text": "VI 违规海报乱贴，品牌形象差。"
+      },
+      "gold": {
+        "tag_id": "TAG-VI违规",
+        "tag_domain": "channel",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V20",
+      "input": {
+        "text": "一代压货严重，库存颜色不对。"
+      },
+      "gold": {
+        "tag_id": "TAG-压货",
+        "tag_domain": "channel",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V21",
+      "input": {
+        "text": "投诉未结超过7天，多次投诉没人理。"
+      },
+      "gold": {
+        "tag_id": "TAG-投诉未结",
+        "tag_domain": "risk",
+        "sentiment": "neg",
+        "blocking_required": true,
+        "blocking_any_of": [
+          "TAG-投诉未结"
+        ]
+      }
+    },
+    {
+      "id": "V22",
+      "input": {
+        "text": "要去媒体曝光并报警，也已打 12315。"
+      },
+      "gold": {
+        "tag_id": "TAG-舆情风险",
+        "tag_domain": "risk",
+        "sentiment": "neg",
+        "blocking_required": true,
+        "blocking_any_of": [
+          "TAG-舆情风险"
+        ]
+      }
+    },
+    {
+      "id": "V23",
+      "input": {
+        "text": "冬天续航打五折，掉电太快了。"
+      },
+      "gold": {
+        "tag_id": "TAG-续航短",
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V24",
+      "input": {
+        "text": "载人上坡完全没力。"
+      },
+      "gold": {
+        "tag_id": "TAG-动力弱",
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V25",
+      "input": {
+        "text": "过减速带吱吱异响明显。"
+      },
+      "gold": {
+        "tag_id": "TAG-异响",
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V26",
+      "input": {
+        "text": "雨天刹车距离变长，刹不住。"
+      },
+      "gold": {
+        "tag_id": "TAG-刹车",
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V27",
+      "input": {
+        "text": "用原装充电器也充电慢。"
+      },
+      "gold": {
+        "tag_id": "TAG-充电慢",
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V28",
+      "input": {
+        "text": "控制器指示灯乱闪后熄火。"
+      },
+      "gold": {
+        "tag_id": "TAG-控制器",
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V29",
+      "input": {
+        "text": "电池鼓包鼓出一块，温升很快。"
+      },
+      "gold": {
+        "tag_id": "TAG-电池鼓包",
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V30",
+      "input": {
+        "text": "仪表黑屏，钥匙拧了没显示。"
+      },
+      "gold": {
+        "tag_id": "TAG-仪表黑屏",
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V31",
+      "input": {
+        "text": "门店说三包过了拒保，我觉得不合理。"
+      },
+      "gold": {
+        "tag_id": "TAG-三包争议",
+        "tag_domain": "service",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V32",
+      "input": {
+        "text": "师傅说今天上门，结果放鸽子。"
+      },
+      "gold": {
+        "tag_id": "TAG-上门慢",
+        "tag_domain": "service",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V33",
+      "input": {
+        "text": "热线客服不耐烦还甩锅。"
+      },
+      "gold": {
+        "tag_id": "TAG-态度差",
+        "tag_domain": "service",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V34",
+      "input": {
+        "text": "刹车皮缺货，门店让我再等等。"
+      },
+      "gold": {
+        "tag_id": "TAG-配件缺货",
+        "tag_domain": "service",
+        "sentiment": "neu",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V35",
+      "input": {
+        "text": "新车 App 绑车失败三次。"
+      },
+      "gold": {
+        "tag_id": "TAG-绑车失败",
+        "tag_domain": "app",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V36",
+      "input": {
+        "text": "骑行轨迹定位飘到河对岸。"
+      },
+      "gold": {
+        "tag_id": "TAG-定位飘",
+        "tag_domain": "app",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V37",
+      "input": {
+        "text": "车联到期了，续费入口找不到。"
+      },
+      "gold": {
+        "tag_id": "TAG-续费入口",
+        "tag_domain": "app",
+        "sentiment": "neu",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V38",
+      "input": {
+        "text": "活动推送刷屏，属于推送骚扰。"
+      },
+      "gold": {
+        "tag_id": "TAG-推送骚扰",
+        "tag_domain": "app",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V39",
+      "input": {
+        "text": "专卖店里摆着竞品车，非专卖。"
+      },
+      "gold": {
+        "tag_id": "TAG-非专卖",
+        "tag_domain": "channel",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V40",
+      "input": {
+        "text": "灯箱广告颜色乱套，VI违规。"
+      },
+      "gold": {
+        "tag_id": "TAG-VI违规",
+        "tag_domain": "channel",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V41",
+      "input": {
+        "text": "一代被压货，库存周转不动。"
+      },
+      "gold": {
+        "tag_id": "TAG-压货",
+        "tag_domain": "channel",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V42",
+      "input": {
+        "text": "充电口冒烟了，差点起火自燃。"
+      },
+      "gold": {
+        "tag_id": "TAG-安全隐患",
+        "tag_id_accept": [
+          "TAG-安全隐患",
+          "TAG-充电慢"
+        ],
+        "tag_domain": "risk",
+        "tag_domain_accept": [
+          "risk",
+          "product"
+        ],
+        "sentiment": "neg",
+        "blocking_required": true,
+        "blocking_any_of": [
+          "TAG-安全隐患"
+        ]
+      }
+    },
+    {
+      "id": "V43",
+      "input": {
+        "text": "准备报警并找媒体曝光。"
+      },
+      "gold": {
+        "tag_id": "TAG-舆情风险",
+        "tag_domain": "risk",
+        "sentiment": "neg",
+        "blocking_required": true,
+        "blocking_any_of": [
+          "TAG-舆情风险"
+        ]
+      }
+    },
+    {
+      "id": "V44",
+      "input": {
+        "text": "投诉超过7天未结，一直没处理。"
+      },
+      "gold": {
+        "tag_id": "TAG-投诉未结",
+        "tag_domain": "risk",
+        "sentiment": "neg",
+        "blocking_required": true,
+        "blocking_any_of": [
+          "TAG-投诉未结"
+        ]
+      }
+    },
+    {
+      "id": "V45",
+      "input": {
+        "text": "续航短还三包扯皮，又准备12315。",
+        "customer_id": "CUS-10666"
+      },
+      "gold": {
+        "tag_id": "TAG-舆情风险",
+        "tag_id_accept": [
+          "TAG-舆情风险",
+          "TAG-三包争议",
+          "TAG-续航短"
+        ],
+        "tag_domain": "risk",
+        "tag_domain_accept": [
+          "risk",
+          "service",
+          "product"
+        ],
+        "sentiment": "neg",
+        "blocking_required": true,
+        "blocking_any_of": [
+          "TAG-舆情风险",
+          "TAG-投诉未结"
+        ]
+      }
+    },
+    {
+      "id": "V46",
+      "input": {
+        "text": "整体满意，想问下配件保养多久做一次。"
+      },
+      "gold": {
+        "tag_id": "TAG-配件缺货",
+        "tag_id_accept": [
+          "TAG-配件缺货",
+          "TAG-三包争议",
+          "TAG-上门慢"
+        ],
+        "tag_domain": "service",
+        "tag_domain_accept": [
+          "service",
+          "product"
+        ],
+        "sentiment": "pos",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V47",
+      "input": {
+        "text": "电机异响伴随限速，动力也偏弱。"
+      },
+      "gold": {
+        "tag_id": "TAG-异响",
+        "tag_id_accept": [
+          "TAG-异响",
+          "TAG-动力弱"
+        ],
+        "tag_domain": "product",
+        "sentiment": "neg",
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "V48",
+      "input": {
+        "text": "漏电触电麻手，有安全隐患。"
+      },
+      "gold": {
+        "tag_id": "TAG-安全隐患",
+        "tag_domain": "risk",
+        "sentiment": "neg",
+        "blocking_required": true,
+        "blocking_any_of": [
+          "TAG-安全隐患"
+        ]
+      }
+    },
+    {
+      "id": "V49",
+      "input": {
+        "text": "多次投诉未结，门店态度还差。"
+      },
+      "gold": {
+        "tag_id": "TAG-投诉未结",
+        "tag_id_accept": [
+          "TAG-投诉未结",
+          "TAG-态度差"
+        ],
+        "tag_domain": "risk",
+        "tag_domain_accept": [
+          "risk",
+          "service"
+        ],
+        "sentiment": "neg",
+        "blocking_required": true,
+        "blocking_any_of": [
+          "TAG-投诉未结"
+        ]
+      }
+    },
+    {
+      "id": "V50",
+      "input": {
+        "text": "App 很好用，续费入口也清晰。"
+      },
+      "gold": {
+        "tag_id": "TAG-续费入口",
+        "tag_domain": "app",
+        "sentiment": "pos",
+        "blocking_required": false
+      }
+    }
+  ],
+  "meta": {
+    "expanded_to": 50,
+    "note": "扩容：全标签复盖+阻断强化+pos样例"
+  }
+}

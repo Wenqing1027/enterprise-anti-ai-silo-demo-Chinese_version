@@ -1,0 +1,58 @@
+[
+  {
+    "region_id": "REG-320115",
+    "province": "江苏",
+    "city": "南京",
+    "county_code": "320115",
+    "county_name": "江宁区"
+  },
+  {
+    "region_id": "REG-320505",
+    "province": "江苏",
+    "city": "苏州",
+    "county_code": "320505",
+    "county_name": "虎丘区"
+  },
+  {
+    "region_id": "REG-330106",
+    "province": "浙江",
+    "city": "杭州",
+    "county_code": "330106",
+    "county_name": "西湖区"
+  },
+  {
+    "region_id": "REG-330212",
+    "province": "浙江",
+    "city": "宁波",
+    "county_code": "330212",
+    "county_name": "鄞州区"
+  },
+  {
+    "region_id": "REG-340104",
+    "province": "安徽",
+    "city": "合肥",
+    "county_code": "340104",
+    "county_name": "蜀山区"
+  },
+  {
+    "region_id": "REG-370102",
+    "province": "山东",
+    "city": "济南",
+    "county_code": "370102",
+    "county_name": "历下区"
+  },
+  {
+    "region_id": "REG-510107",
+    "province": "四川",
+    "city": "成都",
+    "county_code": "510107",
+    "county_name": "武侯区"
+  },
+  {
+    "region_id": "REG-440106",
+    "province": "广东",
+    "city": "广州",
+    "county_code": "440106",
+    "county_name": "天河区"
+  }
+]

@@ -1,0 +1,422 @@
+[
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "E40",
+    "color": "哑光黑",
+    "color_plan_qty": 40,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "E40",
+    "color": "星空灰",
+    "color_plan_qty": 138,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "E40",
+    "color": "极光白",
+    "color_plan_qty": 0,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "E40",
+    "color": "烈焰红",
+    "color_plan_qty": 18,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "E60",
+    "color": "哑光黑",
+    "color_plan_qty": 112,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "E60",
+    "color": "星空灰",
+    "color_plan_qty": 94,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "E60",
+    "color": "极光白",
+    "color_plan_qty": 47,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "E60",
+    "color": "烈焰红",
+    "color_plan_qty": 32,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "E80",
+    "color": "哑光黑",
+    "color_plan_qty": 108,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "E80",
+    "color": "星空灰",
+    "color_plan_qty": 142,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "E80",
+    "color": "极光白",
+    "color_plan_qty": 67,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "E80",
+    "color": "烈焰红",
+    "color_plan_qty": 19,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "S7",
+    "color": "哑光黑",
+    "color_plan_qty": 85,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "S7",
+    "color": "星空灰",
+    "color_plan_qty": 42,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "S7",
+    "color": "极光白",
+    "color_plan_qty": 69,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "S7",
+    "color": "烈焰红",
+    "color_plan_qty": 150,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "S9",
+    "color": "哑光黑",
+    "color_plan_qty": 6,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "S9",
+    "color": "星空灰",
+    "color_plan_qty": 66,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "S9",
+    "color": "极光白",
+    "color_plan_qty": 135,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W30",
+    "vehicle_model": "S9",
+    "color": "烈焰红",
+    "color_plan_qty": 61,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "E40",
+    "color": "哑光黑",
+    "color_plan_qty": 77,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "E40",
+    "color": "星空灰",
+    "color_plan_qty": 28,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "E40",
+    "color": "极光白",
+    "color_plan_qty": 94,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "E40",
+    "color": "烈焰红",
+    "color_plan_qty": 46,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "E60",
+    "color": "哑光黑",
+    "color_plan_qty": 29,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "E60",
+    "color": "星空灰",
+    "color_plan_qty": 27,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "E60",
+    "color": "极光白",
+    "color_plan_qty": 53,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "E60",
+    "color": "烈焰红",
+    "color_plan_qty": 70,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "E80",
+    "color": "哑光黑",
+    "color_plan_qty": 133,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "E80",
+    "color": "星空灰",
+    "color_plan_qty": 117,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "E80",
+    "color": "极光白",
+    "color_plan_qty": 47,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "E80",
+    "color": "烈焰红",
+    "color_plan_qty": 88,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "S7",
+    "color": "哑光黑",
+    "color_plan_qty": 111,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "S7",
+    "color": "星空灰",
+    "color_plan_qty": 27,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "S7",
+    "color": "极光白",
+    "color_plan_qty": 51,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "S7",
+    "color": "烈焰红",
+    "color_plan_qty": 99,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "S9",
+    "color": "哑光黑",
+    "color_plan_qty": 68,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "S9",
+    "color": "星空灰",
+    "color_plan_qty": 41,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "S9",
+    "color": "极光白",
+    "color_plan_qty": 67,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W31",
+    "vehicle_model": "S9",
+    "color": "烈焰红",
+    "color_plan_qty": 54,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "E40",
+    "color": "哑光黑",
+    "color_plan_qty": 110,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "E40",
+    "color": "星空灰",
+    "color_plan_qty": 38,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "E40",
+    "color": "极光白",
+    "color_plan_qty": 13,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "E40",
+    "color": "烈焰红",
+    "color_plan_qty": 103,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "E60",
+    "color": "哑光黑",
+    "color_plan_qty": 9,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "E60",
+    "color": "星空灰",
+    "color_plan_qty": 26,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "E60",
+    "color": "极光白",
+    "color_plan_qty": 90,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "E60",
+    "color": "烈焰红",
+    "color_plan_qty": 27,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "E80",
+    "color": "哑光黑",
+    "color_plan_qty": 47,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "E80",
+    "color": "星空灰",
+    "color_plan_qty": 9,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "E80",
+    "color": "极光白",
+    "color_plan_qty": 31,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "E80",
+    "color": "烈焰红",
+    "color_plan_qty": 67,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "S7",
+    "color": "哑光黑",
+    "color_plan_qty": 73,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "S7",
+    "color": "星空灰",
+    "color_plan_qty": 28,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "S7",
+    "color": "极光白",
+    "color_plan_qty": 128,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "S7",
+    "color": "烈焰红",
+    "color_plan_qty": 33,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "S9",
+    "color": "哑光黑",
+    "color_plan_qty": 86,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "S9",
+    "color": "星空灰",
+    "color_plan_qty": 4,
+    "plant": "华东一厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "S9",
+    "color": "极光白",
+    "color_plan_qty": 109,
+    "plant": "华南二厂"
+  },
+  {
+    "color_plan_week": "2026-W32",
+    "vehicle_model": "S9",
+    "color": "烈焰红",
+    "color_plan_qty": 57,
+    "plant": "华南二厂"
+  }
+]

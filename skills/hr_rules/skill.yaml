@@ -1,0 +1,40 @@
+# flow: hr_policy_qa（planned）
+# agent: RAG — 制度 / SOP 问答；跨部门只读同域，不复制库
+# feature: F-HR-001 / F-HR-003
+skill_id: hr_rules
+control_loop: retrieve
+agent_type: rag
+department: 人资管理平台
+goal: 基于人资制度与坐席质检 SOP 知识库，回答员工制度与质检红线类问题，并给出可引用片段。
+success_hint: 终答含制度/SOP 要点与 kb_chunk_id 引用；涉及个案处分须提示转人工 HRBP。
+success_when: cited_answer
+kb_domains_allow:
+  - hr
+top_k: 5
+max_context_chars: 2000
+cite_required: true
+allow_no_hit_answer: true
+tone:
+  label: 友好中立型
+  style: 中性表述；先答常见问题；个案与处分边界清晰
+  forbid: 代替 HR 做处分决定；泄露他人绩效；编造未入库条款
+allowed_tools:
+  - search_kb
+  - get_kb_document
+  - list_kb_domains
+  - log_step
+system_extra: |
+  【分治标注】招聘岗位匹配抽取属 Extraction；本 Skill 只做制度/SOP 问答。
+  检索域仅限 hr；维修/政策问题应引导 repair_kb / policy_kb。
+  坐席质检风险词命中时，明确「质检失败进入辅导清单」口径，不做人事处分。
+output_format: |
+  1. 问题复述
+  2. 制度或 SOP 要点
+  3. 引用：kb_chunk_id + 文档标题
+  4. 若属个案：建议联系 HRBP / 主管（不代替处分）
+security:
+  kb_domains_allow:
+    - hr
+  redact_pii: true
+  prompt_forbid_extra: 不得输出他人隐私；不得编造制度条款；不得做处分裁决
+write_ai_output: false

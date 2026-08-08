@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>青枢出行 · 子页一 · 公司架构拆解</title>
+    <link rel="stylesheet" href="/static/styles.css?v=20260808-logic4" />
+    <link rel="stylesheet" href="/static/logic.css?v=20260808-logic4" />
+  </head>
+  <body class="page-logic">
+    <nav class="mode-switch" aria-label="界面切换">
+      <a href="/business">业务主管</a>
+      <a href="/ops">IT 运维</a>
+      <a class="active" href="/logic" aria-current="page">逻辑讲解</a>
+    </nav>
+    <div class="shell shell-wide shell-logic">
+
+      <header class="topbar">
+        <div class="topbar-brand">
+          <div class="eyebrow">Qingshu Mobility</div>
+          <h1>子页一 · 公司架构拆解</h1>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-meta">部门连线流程 · 业务主线 · 规划功能与 KPI<br />战略：效率优化与业务拓展</div>
+        </div>
+      </header>
+      <nav class="logic-subnav" aria-label="逻辑子页">
+        <a href="/logic">总览</a>
+        <a class="active" href="/logic/architecture">子页一 · 公司架构拆解</a>
+        <a href="/logic/solution">子页二 · AI 方案设计</a>
+        <a href="/logic/risk">子页三 · 风险管控</a>
+      </nav>
+      <div class="logic-hero">
+        <p class="logic-lead">
+          在五年战略「引入 AI，转型内部架构与产品线」之下：先用<strong>部门节点 + 分色业务连线</strong>看清协作关系，
+          再沿四条业务主线展开产出入与 AI 将承担的功能，最后用规划功能清单对齐部门 KPI。
+        </p>
+      </div>
+
+      <section class="logic-section">
+        <h2>部门流程图（节点 = 部门 · 连线 = 业务主线）</h2>
+        <p class="sec-note">共规划 <strong>38</strong> 项功能。默认只显示主线 A；点选色点切换连线。</p>
+        
+        <div class="dept-flow-wrap" id="dept-flow">
+          <div class="line-dot-bar" role="tablist" aria-label="切换业务主线连线">
+            <button type="button" class="line-dot active" data-line="a" aria-pressed="true">
+              <i class="dot a"></i><span>主线 A · 商城/渠道销售</span>
+            </button>
+            <button type="button" class="line-dot" data-line="b" aria-pressed="false">
+              <i class="dot b"></i><span>主线 B · App 续费</span>
+            </button>
+            <button type="button" class="line-dot" data-line="c" aria-pressed="false">
+              <i class="dot c"></i><span>主线 C · 售后服务</span>
+            </button>
+            <button type="button" class="line-dot" data-line="d" aria-pressed="false">
+              <i class="dot d"></i><span>主线 D · 生产制造</span>
+            </button>
+            <button type="button" class="line-dot line-dot-all" data-line="all" aria-pressed="false">
+              <i class="dot all"></i><span>全部（淡显）</span>
+            </button>
+          </div>
+          <svg class="dept-flow-svg" viewBox="0 0 1100 460" role="img" aria-label="部门业务连线流程图">
+            <path class="flow-edge line-a" data-line="a" d="M90,50 Q191.6,22.0 310,50" fill="none"/><path class="flow-edge line-a" data-line="a" d="M310,50 Q411.6,22.0 530,50" fill="none"/><path class="flow-edge line-a" data-line="a" d="M530,50 Q631.6,22.0 750,50" fill="none"/><path class="flow-edge line-a" data-line="a" d="M750,50 Q851.6,22.0 970,50" fill="none"/><path class="flow-edge line-a" data-line="a" d="M310,50 Q526.6,187.0 760,380" fill="none"/><path class="flow-edge line-a" data-line="a" d="M530,50 Q636.6,187.0 760,380" fill="none"/><path class="flow-edge line-b" data-line="b" d="M200,210 Q477.6,287.0 760,380" fill="none"/><path class="flow-edge line-b" data-line="b" d="M420,210 Q587.6,287.0 760,380" fill="none"/><path class="flow-edge line-b" data-line="b" d="M760,380 Q697.6,287.0 640,210" fill="none"/><path class="flow-edge line-b" data-line="b" d="M640,210 Q417.6,202.0 200,210" fill="none"/><path class="flow-edge line-c" data-line="c" d="M200,210 Q313.6,222.0 420,210" fill="none"/><path class="flow-edge line-c" data-line="c" d="M200,210 Q533.6,222.0 860,210" fill="none"/><path class="flow-edge line-c" data-line="c" d="M860,210 Q813.6,307.0 760,380" fill="none"/><path class="flow-edge line-d" data-line="d" d="M200,380 Q333.4,408.0 450,380" fill="none"/><path class="flow-edge line-d" data-line="d" d="M450,380 Q718.4,243.0 970,50" fill="none"/><path class="flow-edge line-d" data-line="d" d="M450,380 Q613.4,408.0 760,380" fill="none"/><path class="flow-edge line-d" data-line="d" d="M200,380 Q488.4,408.0 760,380" fill="none"/>
+            <g class="flow-node" data-lines="a" transform="translate(90,50)">
+  <rect x="-74" y="-30" width="148" height="60" rx="10"/>
+  <text class="flow-node-title" y="-2" text-anchor="middle">四大战区</text>
+  <text class="flow-node-meta" y="18" text-anchor="middle">2 项功能</text>
+</g><g class="flow-node" data-lines="a" transform="translate(310,50)">
+  <rect x="-74" y="-30" width="148" height="60" rx="10"/>
+  <text class="flow-node-title" y="-2" text-anchor="middle">渠道处</text>
+  <text class="flow-node-meta" y="18" text-anchor="middle">2 项功能</text>
+</g><g class="flow-node" data-lines="a" transform="translate(530,50)">
+  <rect x="-74" y="-30" width="148" height="60" rx="10"/>
+  <text class="flow-node-title" y="-2" text-anchor="middle">订单/政策</text>
+  <text class="flow-node-meta" y="18" text-anchor="middle">5 项功能</text>
+</g><g class="flow-node" data-lines="a" transform="translate(750,50)">
+  <rect x="-74" y="-30" width="148" height="60" rx="10"/>
+  <text class="flow-node-title" y="-2" text-anchor="middle">新零售</text>
+  <text class="flow-node-meta" y="18" text-anchor="middle">2 项功能</text>
+</g><g class="flow-node" data-lines="ad" transform="translate(970,50)">
+  <rect x="-74" y="-30" width="148" height="60" rx="10"/>
+  <text class="flow-node-title" y="-2" text-anchor="middle">数据研究院</text>
+  <text class="flow-node-meta" y="18" text-anchor="middle">2 项功能</text>
+</g><g class="flow-node" data-lines="bc" transform="translate(200,210)">
+  <rect x="-74" y="-30" width="148" height="60" rx="10"/>
+  <text class="flow-node-title" y="-2" text-anchor="middle">服务事业部</text>
+  <text class="flow-node-meta" y="18" text-anchor="middle">7 项功能</text>
+</g><g class="flow-node" data-lines="bc" transform="translate(420,210)">
+  <rect x="-74" y="-30" width="148" height="60" rx="10"/>
+  <text class="flow-node-title" y="-2" text-anchor="middle">用研/VoC</text>
+  <text class="flow-node-meta" y="18" text-anchor="middle">1 项功能</text>
+</g><g class="flow-node" data-lines="b" transform="translate(640,210)">
+  <rect x="-74" y="-30" width="148" height="60" rx="10"/>
+  <text class="flow-node-title" y="-2" text-anchor="middle">用户运营/App</text>
+  <text class="flow-node-meta" y="18" text-anchor="middle">5 项功能</text>
+</g><g class="flow-node" data-lines="c" transform="translate(860,210)">
+  <rect x="-74" y="-30" width="148" height="60" rx="10"/>
+  <text class="flow-node-title" y="-2" text-anchor="middle">人资管理平台</text>
+  <text class="flow-node-meta" y="18" text-anchor="middle">1 项功能</text>
+</g><g class="flow-node" data-lines="d" transform="translate(200,380)">
+  <rect x="-74" y="-30" width="148" height="60" rx="10"/>
+  <text class="flow-node-title" y="-2" text-anchor="middle">采购平台</text>
+  <text class="flow-node-meta" y="18" text-anchor="middle">3 项功能</text>
+</g><g class="flow-node" data-lines="d" transform="translate(450,380)">
+  <rect x="-74" y="-30" width="148" height="60" rx="10"/>
+  <text class="flow-node-title" y="-2" text-anchor="middle">IoT/车机</text>
+  <text class="flow-node-meta" y="18" text-anchor="middle">2 项功能</text>
+</g><g class="flow-node" data-lines="abcd" transform="translate(760,380)">
+  <rect x="-74" y="-30" width="148" height="60" rx="10"/>
+  <text class="flow-node-title" y="-2" text-anchor="middle">跨部门共用/共享层</text>
+  <text class="flow-node-meta" y="18" text-anchor="middle">6 项功能</text>
+</g>
+          </svg>
+          <p class="card-note" style="margin:8px 0 0">
+            点击上方色点只显示该业务主线的连线，避免重叠。节点为部门；跨部门共用层承接标签与产出读写。
+          </p>
+        </div>
+      </section>
+
+      <section class="logic-section">
+        <h2>四条业务主线 · 流程与各部门将获 AI 功能</h2>
+        <p class="sec-note">绿色文字表示 AI 将为相关部门承担的功能（业务语言）。</p>
+        <div class="logic-legend">
+          <span>步骤 = 业务环节</span>
+          <span class="lg-io">棕色 = 投入 / 产出</span>
+          <span class="lg-ai">绿色 = AI 将承担的功能</span>
+        </div>
+        <div class="flow-grid">
+          <article class="flow-card">
+            <h3>主线 A · 商城 / 渠道销售</h3>
+            <p class="flow-meta">战区 → 渠道 → 订单政策 → 新零售 / 数据研究院（见图连线青色）</p>
+            <ol class="flow-steps">
+              <li class="flow-step"><div class="n">1</div><div class="body"><strong>开店与提货推进</strong><div class="io">投入：战区目标、门店档案 · 产出：开店进度、提货计划</div></div></li>
+              <li class="flow-step ai-hot"><div class="n">2</div><div class="body"><strong>渠道经营与异常发现</strong><div class="io">投入：销量、库存、巡检 · 产出：健康情况、异常清单</div><div class="ai-need">AI 功能：经营健康查询、异常提醒、渠道相关问数</div></div></li>
+              <li class="flow-step ai-hot"><div class="n">3</div><div class="body"><strong>政策答疑与审单辅助</strong><div class="io">投入：政策文件、订单 · 产出：口径说明、审单建议</div><div class="ai-need">AI 功能：政策口径问答、销售政策整理、建单审单辅助、档位把关</div></div></li>
+              <li class="flow-step"><div class="n">4</div><div class="body"><strong>经营结果回流</strong><div class="io">投入：战区汇总 · 产出：经营复盘输入</div></div></li>
+            </ol>
+          </article>
+          <article class="flow-card">
+            <h3>主线 B · App 续费</h3>
+            <p class="flow-meta">服务 / 用研 → 共用层 → 用户运营（见图连线琥珀色）</p>
+            <ol class="flow-steps">
+              <li class="flow-step"><div class="n">1</div><div class="body"><strong>续费客户分层</strong><div class="io">投入：到期日、活跃度 · 产出：分层名单</div></div></li>
+              <li class="flow-step ai-hot"><div class="n">2</div><div class="body"><strong>触达前合规判断</strong><div class="io">投入：客户、车辆、共用投诉信息 · 产出：允许或暂缓触达</div><div class="ai-need">AI 功能：主动触达投诉把关；续费/投诉评分把关</div></div></li>
+              <li class="flow-step ai-hot"><div class="n">3</div><div class="body"><strong>组织触达任务</strong><div class="io">投入：放行名单 · 产出：外呼或推送任务</div><div class="ai-need">AI 功能：续费外呼任务组织（二期）；统一智能客服查询辅助</div></div></li>
+              <li class="flow-step"><div class="n">4</div><div class="body"><strong>续费结果回流</strong><div class="io">投入：成交/拒访 · 产出：漏斗复盘</div></div></li>
+            </ol>
+          </article>
+          <article class="flow-card">
+            <h3>主线 C · 售后服务</h3>
+            <p class="flow-meta">服务 ↔ 用研 / 人资 ↔ 共用层（见图连线绿色）</p>
+            <ol class="flow-steps">
+              <li class="flow-step ai-hot"><div class="n">1</div><div class="body"><strong>进线接待与知识答复</strong><div class="io">投入：用户问题 · 产出：可核对来源的答复</div><div class="ai-need">AI 功能：维修知识问答、智能辅助回答、App 侧同类问答</div></div></li>
+              <li class="flow-step ai-hot"><div class="n">2</div><div class="body"><strong>工单信息整理与填单</strong><div class="io">投入：沟通原文 · 产出：工单草案、情绪与主题</div><div class="ai-need">AI 功能：智能填单、工单信息整理、维修多步查询辅助</div></div></li>
+              <li class="flow-step ai-hot"><div class="n">3</div><div class="body"><strong>投诉与主题沉淀</strong><div class="io">投入：工单草案、客户原声 · 产出：可供其他部门使用的共用信息</div><div class="ai-need">AI 功能：客户原声整理、故障主题聚类、共用信息写入</div></div></li>
+              <li class="flow-step ai-hot"><div class="n">4</div><div class="body"><strong>结案与质检复盘</strong><div class="io">投入：服务过程材料 · 产出：质检结论</div><div class="ai-need">AI 功能：智能质检（三期）；制度问答支撑人资侧辅导</div></div></li>
+            </ol>
+          </article>
+          <article class="flow-card">
+            <h3>主线 D · 生产制造</h3>
+            <p class="flow-meta">采购 → IoT → 数据研究院 / 共用层（见图连线紫色）</p>
+            <ol class="flow-steps">
+              <li class="flow-step ai-hot"><div class="n">1</div><div class="body"><strong>排产与采购跟单</strong><div class="io">投入：订单与交期 · 产出：跟单状态、催货提醒</div><div class="ai-need">AI 功能：采购跟单、智能跟单、催货提醒</div></div></li>
+              <li class="flow-step ai-hot"><div class="n">2</div><div class="body"><strong>产线质检与追溯</strong><div class="io">投入：台架/画面 · 产出：合格判定、问题记录</div><div class="ai-need">AI 功能：产线/质检视觉巡检（二期）</div></div></li>
+              <li class="flow-step ai-hot"><div class="n">3</div><div class="body"><strong>车况与主动服务</strong><div class="io">投入：车况数据 · 产出：服务提醒</div><div class="ai-need">AI 功能：车况主动服务（三期）</div></div></li>
+              <li class="flow-step ai-hot"><div class="n">4</div><div class="body"><strong>经营与质量问数</strong><div class="io">投入：指标语义 · 产出：经营问答结论</div><div class="ai-need">AI 功能：智能问数、语义层问数（二期）</div></div></li>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <section class="logic-section">
+        <h2>公司五年战略基座</h2>
+        <div class="strategy-strip">
+          <div class="strategy-cell"><h4>战略方向</h4><p>引入 AI，对公司内部架构与产品线进行转型；形成可复用、可管理的企业能力。</p></div>
+          <div class="strategy-cell"><h4>引入模式</h4><p><strong>效率优化与业务拓展</strong>：缩短处理时长、提升转化与体验；不以减少人力作为目标表述。</p></div>
+          <div class="strategy-cell"><h4>对齐方式</h4><p>数字化基座 + 部门规划功能 + 部门 KPI，共同服务公司战略。</p></div>
+        </div>
+      </section>
+
+      <section class="logic-section">
+        <h2>部门功能需求（与规划清单一致 · 共 38 项）</h2>
+        <p class="sec-note">相同部门单元格已合并居中；逐条对应规划功能。</p>
+        <div class="kpi-table-wrap">
+          <table class="kpi-table">
+            <thead>
+              <tr>
+                <th>部门</th>
+                <th>规划功能</th>
+                <th>当前痛点</th>
+                <th>未来功能说明</th>
+                <th>阶段</th>
+                <th>部门 KPI 关注</th>
+                <th>价值测定方向</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="dept-merge" rowspan="7">服务事业部</td>
+                <td><code>F-SVC-001</code> 智能填单</td>
+                <td>填单慢、知识分散、投诉难沉淀到下游</td>
+                <td>智能填单：对话生成工单草案并写入共享产出</td>
+                <td>一期可试用</td>
+                <td>首次解决率 · 填单时长 · 投诉闭环时效</td>
+                <td>单均处理时长下降；投诉信息被续费等场景复用</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-SVC-001-EXT</code> 智能填单 · 信息整理</td>
+                <td>填单慢、知识分散、投诉难沉淀到下游</td>
+                <td>智能填单 · 信息整理：纯结构化抽取工单草案并写入共享产出</td>
+                <td>一期可试用</td>
+                <td>首次解决率 · 填单时长 · 投诉闭环时效</td>
+                <td>单均处理时长下降；投诉信息被续费等场景复用</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-SVC-002</code> 智能辅助回答</td>
+                <td>填单慢、知识分散、投诉难沉淀到下游</td>
+                <td>智能辅助回答：坐席侧维修知识问答，并标注参考资料</td>
+                <td>一期可试用</td>
+                <td>首次解决率 · 填单时长 · 投诉闭环时效</td>
+                <td>单均处理时长下降；投诉信息被续费等场景复用</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-SVC-004</code> 维修知识库问答</td>
+                <td>填单慢、知识分散、投诉难沉淀到下游</td>
+                <td>维修知识库问答：维修问题自助/辅助问答</td>
+                <td>一期可试用</td>
+                <td>首次解决率 · 填单时长 · 投诉闭环时效</td>
+                <td>单均处理时长下降；投诉信息被续费等场景复用</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-SVC-005</code> VOC 故障聚类</td>
+                <td>填单慢、知识分散、投诉难沉淀到下游</td>
+                <td>VOC 故障聚类：工单聚类后反哺产品/质量洞察</td>
+                <td>二期</td>
+                <td>首次解决率 · 填单时长 · 投诉闭环时效</td>
+                <td>单均处理时长下降；投诉信息被续费等场景复用</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-SVC-008</code> 智能质检（SOP）</td>
+                <td>填单慢、知识分散、投诉难沉淀到下游</td>
+                <td>智能质检（SOP）：录音转写 → SOP 合规抽取</td>
+                <td>三期</td>
+                <td>首次解决率 · 填单时长 · 投诉闭环时效</td>
+                <td>单均处理时长下降；投诉信息被续费等场景复用</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-SVC-003</code> 维修客服多步辅助</td>
+                <td>填单慢、知识分散、投诉难沉淀到下游</td>
+                <td>维修客服多步辅助：查车/工单/知识后给出可执行答复</td>
+                <td>一期可试用</td>
+                <td>首次解决率 · 填单时长 · 投诉闭环时效</td>
+                <td>单均处理时长下降；投诉信息被续费等场景复用</td>
+              </tr>
+              <tr>
+                <td class="dept-merge" rowspan="5">用户运营 / App</td>
+                <td><code>F-UO-009</code> App 智能问答</td>
+                <td>续费触达与投诉风险未打通</td>
+                <td>App 智能问答：App 内维修/使用问答（复用 repair 域）</td>
+                <td>一期可试用</td>
+                <td>续费率 · 不当触达次数 · 放行准确率</td>
+                <td>不当外呼趋近于零；放行名单转化可对比</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-UO-001</code> 续费 AI 外呼任务</td>
+                <td>续费触达与投诉风险未打通</td>
+                <td>续费 AI 外呼任务：查续费池与意向后组织触达话术</td>
+                <td>二期</td>
+                <td>续费率 · 不当触达次数 · 放行准确率</td>
+                <td>不当外呼趋近于零；放行名单转化可对比</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-UO-017</code> 主动触达投诉把关</td>
+                <td>续费触达与投诉风险未打通</td>
+                <td>主动触达投诉把关：读取共用投诉信息后决定是否允许触达；暂缓时说明原因</td>
+                <td>一期可试用</td>
+                <td>续费率 · 不当触达次数 · 放行准确率</td>
+                <td>不当外呼趋近于零；放行名单转化可对比</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-UO-019</code> 统一智能客服</td>
+                <td>续费触达与投诉风险未打通</td>
+                <td>统一智能客服：App 侧多步查主数据再答</td>
+                <td>一期可试用</td>
+                <td>续费率 · 不当触达次数 · 放行准确率</td>
+                <td>不当外呼趋近于零；放行名单转化可对比</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-UO-RULE</code> 续费/投诉评分闸门</td>
+                <td>续费触达与投诉风险未打通</td>
+                <td>续费/投诉评分闸门：规则+LLM 评定是否允许主动触达</td>
+                <td>二期</td>
+                <td>续费率 · 不当触达次数 · 放行准确率</td>
+                <td>不当外呼趋近于零；放行名单转化可对比</td>
+              </tr>
+              <tr>
+                <td class="dept-merge" rowspan="1">用研 / VoC</td>
+                <td><code>F-VOC-002</code> 客户原声整理</td>
+                <td>客户原声难结构化、难被其他部门使用</td>
+                <td>客户原声整理：把客户原声整理成业务标记、情绪与风险提示</td>
+                <td>一期可试用</td>
+                <td>标签覆盖率 · 原声到可用信息时延</td>
+                <td>原声利用次数上升；主题发现周期缩短</td>
+              </tr>
+              <tr>
+                <td class="dept-merge" rowspan="2">渠道处</td>
+                <td><code>F-OPS-012</code> 经营健康 / 预警查询</td>
+                <td>经营数据分散、异常发现偏晚</td>
+                <td>经营健康 / 预警查询：查健康指数、预警、巡检切片</td>
+                <td>一期可试用</td>
+                <td>异常门店覆盖 · 经营问数自助占比</td>
+                <td>异常更早发现；报表拼数工时下降</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-CH-PLAN</code> 渠道看板汇合</td>
+                <td>经营数据分散、异常发现偏晚</td>
+                <td>渠道看板汇合：汇合经营查询与政策口径，生成看板建议</td>
+                <td>二期</td>
+                <td>异常门店覆盖 · 经营问数自助占比</td>
+                <td>异常更早发现；报表拼数工时下降</td>
+              </tr>
+              <tr>
+                <td class="dept-merge" rowspan="5">运营管理 · 订单/政策</td>
+                <td><code>F-POL-RAG</code> 政策口径问答</td>
+                <td>政策口径不一、审单依赖经验</td>
+                <td>政策口径问答：三包/返利/续费红线等政策文本问答</td>
+                <td>一期可试用</td>
+                <td>政策答疑时效 · 审单一致性</td>
+                <td>答疑自助占比提升；审单返工下降</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-OPS-004</code> 销售政策解析</td>
+                <td>政策口径不一、审单依赖经验</td>
+                <td>销售政策解析：政策原文 → 返利档位结构</td>
+                <td>二期</td>
+                <td>政策答疑时效 · 审单一致性</td>
+                <td>答疑自助占比提升；审单返工下降</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-OPS-003</code> 智能建单审单</td>
+                <td>政策口径不一、审单依赖经验</td>
+                <td>智能建单审单：查库存→政策→替代→状态建议</td>
+                <td>二期</td>
+                <td>政策答疑时效 · 审单一致性</td>
+                <td>答疑自助占比提升；审单返工下降</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-X-004</code> 跨部门建单审单辅助</td>
+                <td>政策口径不一、审单依赖经验</td>
+                <td>跨部门建单审单辅助：订单/排产/返利多步推理建议</td>
+                <td>二期</td>
+                <td>政策答疑时效 · 审单一致性</td>
+                <td>答疑自助占比提升；审单返工下降</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-OPS-RULE</code> 审单档位闸门</td>
+                <td>政策口径不一、审单依赖经验</td>
+                <td>审单档位闸门：规则判定返利/库存档位 + LLM 解释</td>
+                <td>二期</td>
+                <td>政策答疑时效 · 审单一致性</td>
+                <td>答疑自助占比提升；审单返工下降</td>
+              </tr>
+              <tr>
+                <td class="dept-merge" rowspan="2">四大战区</td>
+                <td><code>F-WZ-001</code> 提货 / 线下问答辅助</td>
+                <td>一线答疑与建单缺少统一辅助</td>
+                <td>提货 / 线下问答辅助：门店侧查库存+政策给动作清单</td>
+                <td>二期</td>
+                <td>一线响应时效 · 建单一次通过率</td>
+                <td>一线等待时间下降</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-WZ-002</code> 战区建单 / 政策档位辅助</td>
+                <td>一线答疑与建单缺少统一辅助</td>
+                <td>战区建单 / 政策档位辅助：战区侧订单与政策 AI 辅助</td>
+                <td>二期</td>
+                <td>一线响应时效 · 建单一次通过率</td>
+                <td>一线等待时间下降</td>
+              </tr>
+              <tr>
+                <td class="dept-merge" rowspan="2">新零售</td>
+                <td><code>F-RET-001</code> 多平台客服自动回复</td>
+                <td>多平台客服话术与查询重复劳动</td>
+                <td>多平台客服自动回复：查订单/库存/活动后回复</td>
+                <td>二期</td>
+                <td>自动回复占比 · 转人工率</td>
+                <td>人工重复答复下降</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-RET-002</code> 线上各平台销售客服</td>
+                <td>多平台客服话术与查询重复劳动</td>
+                <td>线上各平台销售客服：电商平台销售咨询 AI 承接</td>
+                <td>二期</td>
+                <td>自动回复占比 · 转人工率</td>
+                <td>人工重复答复下降</td>
+              </tr>
+              <tr>
+                <td class="dept-merge" rowspan="3">采购平台</td>
+                <td><code>F-PUR-001</code> 采购跟单 Bot</td>
+                <td>跟单催货依赖人工盯梢</td>
+                <td>采购跟单 Bot：逾期 PO 催货 + 物流确认</td>
+                <td>二期</td>
+                <td>逾期 PO 处理时效</td>
+                <td>催货及时率提升</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-PUR-003</code> 智能跟单</td>
+                <td>跟单催货依赖人工盯梢</td>
+                <td>智能跟单：采购订单跟单自动化</td>
+                <td>二期</td>
+                <td>逾期 PO 处理时效</td>
+                <td>催货及时率提升</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-PUR-004</code> 采购催货提醒</td>
+                <td>跟单催货依赖人工盯梢</td>
+                <td>采购催货提醒：多步推理触发采购跟单提醒</td>
+                <td>二期</td>
+                <td>逾期 PO 处理时效</td>
+                <td>催货及时率提升</td>
+              </tr>
+              <tr>
+                <td class="dept-merge" rowspan="2">IoT / 车机</td>
+                <td><code>F-IOT-VISION</code> 产线 / 质检视觉巡检</td>
+                <td>质检与车况告警依赖专人经验</td>
+                <td>产线 / 质检视觉巡检：图像理解 → 缺陷标签，供规则汇合告警</td>
+                <td>二期</td>
+                <td>一次交检合格率 · 告警响应时长</td>
+                <td>漏检与停机损失下降（分期测定）</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-IOT-003</code> 车况主动服务</td>
+                <td>质检与车况告警依赖专人经验</td>
+                <td>车况主动服务：查告警/里程→建议动作→写产出</td>
+                <td>三期</td>
+                <td>一次交检合格率 · 告警响应时长</td>
+                <td>漏检与停机损失下降（分期测定）</td>
+              </tr>
+              <tr>
+                <td class="dept-merge" rowspan="2">数据研究院</td>
+                <td><code>F-DAT-003</code> 智能问数</td>
+                <td>问数门槛高、口径不统一</td>
+                <td>智能问数：澄清指标→查语义层→出数</td>
+                <td>二期</td>
+                <td>问数自助率 · 口径争议次数</td>
+                <td>取数等待缩短；口径统一</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-X-002</code> BI 语义层 + 智能问数（共用）</td>
+                <td>问数门槛高、口径不统一</td>
+                <td>BI 语义层 + 智能问数（共用）：统一问数与自动报表底座</td>
+                <td>二期</td>
+                <td>问数自助率 · 口径争议次数</td>
+                <td>取数等待缩短；口径统一</td>
+              </tr>
+              <tr>
+                <td class="dept-merge" rowspan="1">人资管理平台</td>
+                <td><code>F-HR-001</code> 员工 AI 助理 · 制度问答</td>
+                <td>制度问答占用人资重复解答</td>
+                <td>员工 AI 助理 · 制度问答：人资制度 / 坐席 SOP RAG 问答</td>
+                <td>一期可试用</td>
+                <td>制度自助解答占比</td>
+                <td>重复咨询量下降</td>
+              </tr>
+              <tr>
+                <td class="dept-merge" rowspan="6">跨部门共用 / 共享层</td>
+                <td><code>F-FIN-001</code> 智能报销 · 三单匹配抽取</td>
+                <td>跨部门缺少统一写入与读取约定</td>
+                <td>智能报销 · 三单匹配抽取：发票/合同/入库单字段抽取</td>
+                <td>三期</td>
+                <td>共用信息被消费次数 · 重复建设项</td>
+                <td>跨部门对接成本下降；排障可追溯</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-X-CRM</code> 主数据综合查询</td>
+                <td>跨部门缺少统一写入与读取约定</td>
+                <td>主数据综合查询：同一套客户·车·单·工单 ID 查询</td>
+                <td>一期可试用</td>
+                <td>共用信息被消费次数 · 重复建设项</td>
+                <td>跨部门对接成本下降；排障可追溯</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-X-WRITE</code> 共用信息写入</td>
+                <td>跨部门缺少统一写入与读取约定</td>
+                <td>共用信息写入：把结果写入共用信息，供其它能力读取</td>
+                <td>一期可试用</td>
+                <td>共用信息被消费次数 · 重复建设项</td>
+                <td>跨部门对接成本下降；排障可追溯</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-X-READ</code> 共享标签 / 产出读取</td>
+                <td>跨部门缺少统一写入与读取约定</td>
+                <td>共享标签 / 产出读取：供其他功能读取共用信息，用于阻止不当触达</td>
+                <td>二期</td>
+                <td>共用信息被消费次数 · 重复建设项</td>
+                <td>跨部门对接成本下降；排障可追溯</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-X-CAP</code> 能力目录检索</td>
+                <td>跨部门缺少统一写入与读取约定</td>
+                <td>能力目录检索：查找公司已有能力，避免各部门重复建设</td>
+                <td>二期</td>
+                <td>共用信息被消费次数 · 重复建设项</td>
+                <td>跨部门对接成本下降；排障可追溯</td>
+              </tr>
+              <tr>
+                
+                <td><code>F-X-CH</code> 渠道经营查询（共用数据源）</td>
+                <td>跨部门缺少统一写入与读取约定</td>
+                <td>渠道经营查询（共用数据源）：经营与合规同一数据源</td>
+                <td>一期可试用</td>
+                <td>共用信息被消费次数 · 重复建设项</td>
+                <td>跨部门对接成本下降；排障可追溯</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="logic-footer-nav">
+        <a href="/logic">← 总览</a>
+        <a href="/logic/solution">进入子页二 →</a>
+      </div>
+
+    </div>
+    <script src="/static/logic-flow.js?v=20260808-logic4"></script>
+
+  </body>
+</html>

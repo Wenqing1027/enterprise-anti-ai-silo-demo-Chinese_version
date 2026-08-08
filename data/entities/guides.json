@@ -1,0 +1,242 @@
+[
+  {
+    "guide_id": "GD-30011",
+    "store_id": "ST-30011",
+    "channel_account_id": "DY-13622",
+    "guide_name": "周欣怡"
+  },
+  {
+    "guide_id": "GD-30012",
+    "store_id": "ST-30012",
+    "channel_account_id": "DY-47122",
+    "guide_name": "施明轩"
+  },
+  {
+    "guide_id": "GD-30021",
+    "store_id": "ST-30021",
+    "channel_account_id": "DY-96378",
+    "guide_name": "曹一诺"
+  },
+  {
+    "guide_id": "GD-30022",
+    "store_id": "ST-30022",
+    "channel_account_id": "DY-11881",
+    "guide_name": "施天佑"
+  },
+  {
+    "guide_id": "GD-30031",
+    "store_id": "ST-30031",
+    "channel_account_id": "DY-74446",
+    "guide_name": "韩博文"
+  },
+  {
+    "guide_id": "GD-30032",
+    "store_id": "ST-30032",
+    "channel_account_id": "DY-22794",
+    "guide_name": "朱嘉怡"
+  },
+  {
+    "guide_id": "GD-30041",
+    "store_id": "ST-30041",
+    "channel_account_id": "DY-50129",
+    "guide_name": "严若曦"
+  },
+  {
+    "guide_id": "GD-30042",
+    "store_id": "ST-30042",
+    "channel_account_id": "DY-75703",
+    "guide_name": "冯天佑"
+  },
+  {
+    "guide_id": "GD-30051",
+    "store_id": "ST-30051",
+    "channel_account_id": "DY-19071",
+    "guide_name": "曹子轩"
+  },
+  {
+    "guide_id": "GD-30052",
+    "store_id": "ST-30052",
+    "channel_account_id": "DY-59918",
+    "guide_name": "赵博文"
+  },
+  {
+    "guide_id": "GD-30061",
+    "store_id": "ST-30061",
+    "channel_account_id": "DY-68121",
+    "guide_name": "何语嫣"
+  },
+  {
+    "guide_id": "GD-30062",
+    "store_id": "ST-30062",
+    "channel_account_id": "DY-59721",
+    "guide_name": "华志强"
+  },
+  {
+    "guide_id": "GD-30071",
+    "store_id": "ST-30071",
+    "channel_account_id": "DY-49492",
+    "guide_name": "朱志强"
+  },
+  {
+    "guide_id": "GD-30072",
+    "store_id": "ST-30072",
+    "channel_account_id": "DY-77787",
+    "guide_name": "孔清扬"
+  },
+  {
+    "guide_id": "GD-30081",
+    "store_id": "ST-30081",
+    "channel_account_id": "DY-42705",
+    "guide_name": "许清扬"
+  },
+  {
+    "guide_id": "GD-30082",
+    "store_id": "ST-30082",
+    "channel_account_id": "DY-29533",
+    "guide_name": "施婉清"
+  },
+  {
+    "guide_id": "GD-30091",
+    "store_id": "ST-30091",
+    "channel_account_id": "DY-44537",
+    "guide_name": "孙清扬"
+  },
+  {
+    "guide_id": "GD-30092",
+    "store_id": "ST-30092",
+    "channel_account_id": "DY-76266",
+    "guide_name": "金清扬"
+  },
+  {
+    "guide_id": "GD-30101",
+    "store_id": "ST-30101",
+    "channel_account_id": "DY-48387",
+    "guide_name": "朱子轩"
+  },
+  {
+    "guide_id": "GD-30102",
+    "store_id": "ST-30102",
+    "channel_account_id": "DY-50198",
+    "guide_name": "沈雨桐"
+  },
+  {
+    "guide_id": "GD-30111",
+    "store_id": "ST-30111",
+    "channel_account_id": "DY-16182",
+    "guide_name": "李一诺"
+  },
+  {
+    "guide_id": "GD-30112",
+    "store_id": "ST-30112",
+    "channel_account_id": "DY-78671",
+    "guide_name": "王志强"
+  },
+  {
+    "guide_id": "GD-30121",
+    "store_id": "ST-30121",
+    "channel_account_id": "DY-87413",
+    "guide_name": "沈语嫣"
+  },
+  {
+    "guide_id": "GD-30122",
+    "store_id": "ST-30122",
+    "channel_account_id": "DY-88611",
+    "guide_name": "王子轩"
+  },
+  {
+    "guide_id": "GD-30131",
+    "store_id": "ST-30131",
+    "channel_account_id": "DY-97112",
+    "guide_name": "王俊杰"
+  },
+  {
+    "guide_id": "GD-30132",
+    "store_id": "ST-30132",
+    "channel_account_id": "DY-21707",
+    "guide_name": "严佳宁"
+  },
+  {
+    "guide_id": "GD-30141",
+    "store_id": "ST-30141",
+    "channel_account_id": "DY-71153",
+    "guide_name": "吕佳宁"
+  },
+  {
+    "guide_id": "GD-30142",
+    "store_id": "ST-30142",
+    "channel_account_id": "DY-70051",
+    "guide_name": "杨志强"
+  },
+  {
+    "guide_id": "GD-30151",
+    "store_id": "ST-30151",
+    "channel_account_id": "DY-89848",
+    "guide_name": "尤承泽"
+  },
+  {
+    "guide_id": "GD-30152",
+    "store_id": "ST-30152",
+    "channel_account_id": "DY-97610",
+    "guide_name": "沈若曦"
+  },
+  {
+    "guide_id": "GD-30161",
+    "store_id": "ST-30161",
+    "channel_account_id": "DY-13085",
+    "guide_name": "李语嫣"
+  },
+  {
+    "guide_id": "GD-30162",
+    "store_id": "ST-30162",
+    "channel_account_id": "DY-88282",
+    "guide_name": "郑承泽"
+  },
+  {
+    "guide_id": "GD-30171",
+    "store_id": "ST-30171",
+    "channel_account_id": "DY-13763",
+    "guide_name": "郑天佑"
+  },
+  {
+    "guide_id": "GD-30172",
+    "store_id": "ST-30172",
+    "channel_account_id": "DY-63692",
+    "guide_name": "曹欣怡"
+  },
+  {
+    "guide_id": "GD-30181",
+    "store_id": "ST-30181",
+    "channel_account_id": "DY-70276",
+    "guide_name": "严俊杰"
+  },
+  {
+    "guide_id": "GD-30182",
+    "store_id": "ST-30182",
+    "channel_account_id": "DY-54071",
+    "guide_name": "施俊杰"
+  },
+  {
+    "guide_id": "GD-30191",
+    "store_id": "ST-30191",
+    "channel_account_id": "DY-42500",
+    "guide_name": "何浩然"
+  },
+  {
+    "guide_id": "GD-30192",
+    "store_id": "ST-30192",
+    "channel_account_id": "DY-79691",
+    "guide_name": "杨诗涵"
+  },
+  {
+    "guide_id": "GD-30201",
+    "store_id": "ST-30201",
+    "channel_account_id": "DY-33160",
+    "guide_name": "陶博文"
+  },
+  {
+    "guide_id": "GD-30202",
+    "store_id": "ST-30202",
+    "channel_account_id": "DY-65229",
+    "guide_name": "蒋浩然"
+  }
+]

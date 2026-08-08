@@ -1,0 +1,555 @@
+{
+  "generated_at": "2026-08-05T15:49:50+08:00",
+  "overall_pass": true,
+  "ticket": {
+    "metrics": {
+      "n": 22,
+      "schema_ok_rate": 1.0,
+      "ticket_type_acc": 0.9091,
+      "fault_category_acc": 0.9,
+      "fault_n": 10,
+      "tag_id_acc": 1.0,
+      "blocking_miss": 0,
+      "sentiment_acc": 0.5,
+      "sentiment_acc_tolerant": 1.0,
+      "id_recall": 1.0,
+      "id_need": 5
+    },
+    "rows": [
+      {
+        "id": "T01",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.63,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neg",
+        "tag_id_pred": "TAG-投诉未结",
+        "blocking_ok": true
+      },
+      {
+        "id": "T02",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.33,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neu",
+        "tag_id_pred": "TAG-续航短",
+        "blocking_ok": null
+      },
+      {
+        "id": "T03",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.18,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neu",
+        "tag_id_pred": "TAG-异响",
+        "blocking_ok": null
+      },
+      {
+        "id": "T04",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.31,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neg",
+        "tag_id_pred": "TAG-刹车",
+        "blocking_ok": null
+      },
+      {
+        "id": "T05",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.46,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neu",
+        "tag_id_pred": "TAG-充电慢",
+        "blocking_ok": null
+      },
+      {
+        "id": "T06",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.29,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neu",
+        "tag_id_pred": "TAG-仪表黑屏",
+        "blocking_ok": null
+      },
+      {
+        "id": "T07",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.38,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neu",
+        "tag_id_pred": "TAG-绑车失败",
+        "blocking_ok": null
+      },
+      {
+        "id": "T08",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.22,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neu",
+        "tag_id_pred": "TAG-三包争议",
+        "blocking_ok": null
+      },
+      {
+        "id": "T09",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.22,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neg",
+        "tag_id_pred": "TAG-上门慢",
+        "blocking_ok": null
+      },
+      {
+        "id": "T10",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.43,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neg",
+        "tag_id_pred": "TAG-态度差",
+        "blocking_ok": null
+      },
+      {
+        "id": "T11",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.17,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neg",
+        "tag_id_pred": "TAG-安全隐患",
+        "blocking_ok": true
+      },
+      {
+        "id": "T12",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.4,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neg",
+        "tag_id_pred": "TAG-舆情风险",
+        "blocking_ok": true
+      },
+      {
+        "id": "T13",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.26,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neu",
+        "tag_id_pred": "TAG-动力弱",
+        "blocking_ok": null
+      },
+      {
+        "id": "T14",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.2,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neu",
+        "tag_id_pred": "TAG-控制器",
+        "blocking_ok": null
+      },
+      {
+        "id": "T15",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.29,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neg",
+        "tag_id_pred": "TAG-VI违规",
+        "blocking_ok": null
+      },
+      {
+        "id": "T16",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.06,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neu",
+        "tag_id_pred": "TAG-续费入口",
+        "blocking_ok": null
+      },
+      {
+        "id": "T17",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.25,
+        "ticket_type_hit": false,
+        "tag_hit": true,
+        "sentiment_pred": "neu",
+        "tag_id_pred": "TAG-定位飘",
+        "blocking_ok": null
+      },
+      {
+        "id": "T18",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.18,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neu",
+        "tag_id_pred": "TAG-配件缺货",
+        "blocking_ok": null
+      },
+      {
+        "id": "T19",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.03,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neg",
+        "tag_id_pred": "TAG-投诉未结",
+        "blocking_ok": true
+      },
+      {
+        "id": "T20",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.29,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neu",
+        "tag_id_pred": "TAG-异响",
+        "blocking_ok": null
+      },
+      {
+        "id": "T21",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.15,
+        "ticket_type_hit": true,
+        "tag_hit": true,
+        "sentiment_pred": "neu",
+        "tag_id_pred": "TAG-推送骚扰",
+        "blocking_ok": null
+      },
+      {
+        "id": "T22",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.25,
+        "ticket_type_hit": false,
+        "tag_hit": true,
+        "sentiment_pred": "neu",
+        "tag_id_pred": "TAG-压货",
+        "blocking_ok": null
+      }
+    ],
+    "thresholds": {
+      "schema_ok_rate": 1.0,
+      "ticket_type_acc": 0.8,
+      "fault_category_acc": 0.75,
+      "tag_id_acc": 0.75,
+      "blocking_miss": 0,
+      "sentiment_acc": 0.8,
+      "id_recall": 0.95
+    },
+    "checks": {
+      "schema_ok_rate": true,
+      "ticket_type_acc": true,
+      "fault_category_acc": true,
+      "tag_id_acc": true,
+      "blocking_miss": true,
+      "sentiment_acc": true,
+      "id_recall": true
+    },
+    "pass_all": true
+  },
+  "voc": {
+    "metrics": {
+      "n": 22,
+      "schema_ok_rate": 1.0,
+      "tag_id_acc": 1.0,
+      "blocking_miss": 0,
+      "sentiment_acc": 0.9545,
+      "tag_domain_acc": 1.0,
+      "oov_tag_rate": 0.0
+    },
+    "rows": [
+      {
+        "id": "V01",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.69,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-续航短",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "product",
+        "blocking_ok": true
+      },
+      {
+        "id": "V02",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.47,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-续航短",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "product",
+        "blocking_ok": null
+      },
+      {
+        "id": "V03",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.66,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-动力弱",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "product",
+        "blocking_ok": null
+      },
+      {
+        "id": "V04",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.03,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-异响",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "product",
+        "blocking_ok": null
+      },
+      {
+        "id": "V05",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.39,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-刹车",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "product",
+        "blocking_ok": null
+      },
+      {
+        "id": "V06",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.47,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-充电慢",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "product",
+        "blocking_ok": null
+      },
+      {
+        "id": "V07",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.31,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-控制器",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "product",
+        "blocking_ok": null
+      },
+      {
+        "id": "V08",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.31,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-电池鼓包",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "product",
+        "blocking_ok": true
+      },
+      {
+        "id": "V09",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.26,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-仪表黑屏",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "product",
+        "blocking_ok": null
+      },
+      {
+        "id": "V10",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.3,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-三包争议",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "service",
+        "blocking_ok": null
+      },
+      {
+        "id": "V11",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.42,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-上门慢",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "service",
+        "blocking_ok": null
+      },
+      {
+        "id": "V12",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.36,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-态度差",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "service",
+        "blocking_ok": null
+      },
+      {
+        "id": "V13",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.37,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-配件缺货",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "service",
+        "blocking_ok": null
+      },
+      {
+        "id": "V14",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.47,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-绑车失败",
+        "sentiment_pred": "neu",
+        "tag_domain_pred": "app",
+        "blocking_ok": null
+      },
+      {
+        "id": "V15",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.34,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-定位飘",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "app",
+        "blocking_ok": null
+      },
+      {
+        "id": "V16",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.1,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-续费入口",
+        "sentiment_pred": "neu",
+        "tag_domain_pred": "app",
+        "blocking_ok": null
+      },
+      {
+        "id": "V17",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.36,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-推送骚扰",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "app",
+        "blocking_ok": null
+      },
+      {
+        "id": "V18",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.39,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-非专卖",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "channel",
+        "blocking_ok": null
+      },
+      {
+        "id": "V19",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.19,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-VI违规",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "channel",
+        "blocking_ok": null
+      },
+      {
+        "id": "V20",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.45,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-压货",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "channel",
+        "blocking_ok": null
+      },
+      {
+        "id": "V21",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.49,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-投诉未结",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "risk",
+        "blocking_ok": true
+      },
+      {
+        "id": "V22",
+        "ok": true,
+        "stop_reason": "validated",
+        "elapsed_s": 1.58,
+        "tag_hit": true,
+        "tag_id_pred": "TAG-舆情风险",
+        "sentiment_pred": "neg",
+        "tag_domain_pred": "risk",
+        "blocking_ok": true
+      }
+    ],
+    "thresholds": {
+      "schema_ok_rate": 1.0,
+      "tag_id_acc": 0.8,
+      "blocking_miss": 0,
+      "sentiment_acc": 0.85,
+      "tag_domain_acc": 0.9,
+      "oov_tag_rate_max": 0.05
+    },
+    "checks": {
+      "schema_ok_rate": true,
+      "tag_id_acc": true,
+      "blocking_miss": true,
+      "sentiment_acc": true,
+      "tag_domain_acc": true,
+      "oov_tag_rate": true
+    },
+    "pass_all": true
+  },
+  "note": "sentiment gate uses stage-1 tolerant neu↔neg for non-complaint"
+}

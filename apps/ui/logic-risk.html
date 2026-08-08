@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>青枢出行 · 子页三 · 风险管控</title>
+    <link rel="stylesheet" href="/static/styles.css?v=20260808-logic4" />
+    <link rel="stylesheet" href="/static/logic.css?v=20260808-logic4" />
+  </head>
+  <body class="page-logic">
+    <nav class="mode-switch" aria-label="界面切换">
+      <a href="/business">业务主管</a>
+      <a href="/ops">IT 运维</a>
+      <a class="active" href="/logic" aria-current="page">逻辑讲解</a>
+    </nav>
+    <div class="shell shell-wide shell-logic">
+      <header class="topbar">
+        <div class="topbar-brand">
+          <div class="eyebrow">Qingshu Mobility</div>
+          <h1>子页三 · 风险管控</h1>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-meta">治理与合规 · 边界<br />先定规则再扩功能</div>
+        </div>
+      </header>
+      <nav class="logic-subnav" aria-label="逻辑子页">
+        <a  href="/logic">总览</a>
+        <a  href="/logic/architecture">子页一 · 公司架构拆解</a>
+        <a  href="/logic/solution">子页二 · AI 方案设计</a>
+        <a class="active" href="/logic/risk">子页三 · 风险管控</a>
+      </nav>
+      <div class="logic-hero">
+        <p class="logic-lead">
+          风险管控是方案成立的前提：谁能读业务数据、谁能写共用信息、谁能发起触达，必须可批准、可核对、可追溯。
+          同时用边界说明本期承诺范围，避免被理解为「所有规划功能均已上线」。
+        </p>
+      </div>
+      <section class="logic-section">
+        <h2>治理与合规</h2>
+        <div class="risk-grid">
+          <article class="risk-card"><h3>数据与工具权限</h3><ul>
+            <li>工具按三类管理：读业务数据 / 查知识库 / 写共用与把关</li>
+            <li>每个功能只能使用批准范围内的能力，禁止部门私接数据源</li>
+            <li>主数据与指标口径走统一入口</li>
+          </ul></article>
+          <article class="risk-card"><h3>写共用与触达红线</h3><ul>
+            <li>写入共用信息须声明生产者与可使用者范围</li>
+            <li>续费等触达前须检查投诉类共用信息</li>
+            <li>暂缓触达时保留原因，便于复核</li>
+          </ul></article>
+          <article class="risk-card"><h3>运行可追溯</h3><ul>
+            <li>每次运行保留编号、所属办事方式、功能名称与步骤记录</li>
+            <li>运维侧可查看指标、关联变更与处理链路</li>
+            <li>跨部门协作以共用信息为准，不依赖口头交接</li>
+          </ul></article>
+          <article class="risk-card"><h3>人机责任</h3><ul>
+            <li>协作：AI 协助执行，业务对对外结果负责</li>
+            <li>审批：高风险写入与触达不可静默自动放行</li>
+            <li>上报：风险信号进入共用层，由规则或人工决定后果</li>
+          </ul></article>
+        </div>
+      </section>
+      <section class="logic-section">
+        <h2>边界</h2>
+        <div class="risk-grid">
+          <article class="risk-card boundary"><h3>架构上不采用</h3><ul>
+            <li>全公司一个万能对话入口包办一切</li>
+            <li>各部门各建互不相通的 AI 与私有数据访问</li>
+            <li>把「共用一个人设」当作已经解决跨部门协作</li>
+            <li>以多角色自动转交作为默认协作方式</li>
+          </ul></article>
+          <article class="risk-card boundary"><h3>本期范围说明</h3><ul>
+            <li>青枢出行为作品集参考实现，不代表客户生产系统交付</li>
+            <li>外呼线路、坐席质检引擎、产线视觉等：规划功能，分期兑现</li>
+            <li>一期重点证明：多类型功能可运行、共用信息可消费、触达可把关、运行可观测</li>
+            <li>演示数据为合成数据，不使用真实客户合同或真实工单原文</li>
+          </ul></article>
+        </div>
+      </section>
+      <section class="logic-section">
+        <h2>进入可运行界面</h2>
+        <div class="route-board">
+          <a class="route-card" href="/business?department=service" style="text-decoration:none;color:inherit">
+            <h4>业务主管界面</h4>
+            <p class="card-note" style="margin:0">按部门试用功能；服务写出投诉信息后，再在用户运营做触达把关。</p>
+          </a>
+          <a class="route-card" href="/ops" style="text-decoration:none;color:inherit">
+            <h4>IT 运维界面</h4>
+            <p class="card-note" style="margin:0">健康情况、关键指标、关联事件与处理链路，支撑治理与排障。</p>
+          </a>
+        </div>
+      </section>
+      <div class="logic-footer-nav">
+        <a href="/logic/solution">← 子页二</a>
+        <a href="/business">打开业务界面 →</a>
+      </div>
+
+    </div>
+  </body>
+</html>

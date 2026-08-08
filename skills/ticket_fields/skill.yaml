@@ -1,0 +1,22 @@
+# flow: service_ticket_to_shared
+# parallel_with: ReAct fill_ticket（F-SVC-001）；sequence → shared / renewal gate
+# agent: Extraction（POST /v1/extraction/runs）— 勿与 ReAct 工具 extract_ticket_fields 混淆
+skill_id: ticket_fields
+control_loop: extract
+department: 服务事业部
+goal: 从客服/用户文本生成工单草案 ticket_draft_v1，供坐席确认或写入共享产出。
+success_hint: 输出通过 ticket_draft_v1；ticket_type/tag_id/sentiment/desc_text/is_complaint 齐全；无臆造 ID。
+payload_schema: ticket_draft_v1
+write_ai_output: true
+consumer_allow:
+  - renewal_plan
+  - voc_tagging
+tone:
+  label: 稳妥确认型
+  style: 字段表述客观；短句确认事实；不承诺必赔/修好
+  forbid: 超权承诺「一定能修好/必赔」；输出安抚话术
+max_schema_retries: 1
+max_input_chars: 4000
+security:
+  redact_pii: true
+  prompt_forbid_extra: 不得写入明文手机号或 API Key；不得承诺必赔/必修好

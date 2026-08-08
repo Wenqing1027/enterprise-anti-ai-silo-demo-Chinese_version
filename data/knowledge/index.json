@@ -1,0 +1,112 @@
+{
+  "brand": "Qingshu Mobility",
+  "documents": [
+    {
+      "kb_domain": "repair",
+      "kb_doc_id": "repair__续航异常排查",
+      "path": "knowledge/repair/续航异常排查.md",
+      "title": "续航异常排查",
+      "chars": 872
+    },
+    {
+      "kb_domain": "repair",
+      "kb_doc_id": "repair__电机异响与限速",
+      "path": "knowledge/repair/电机异响与限速.md",
+      "title": "电机异响与限速",
+      "chars": 375
+    },
+    {
+      "kb_domain": "repair",
+      "kb_doc_id": "repair__App绑车失败",
+      "path": "knowledge/repair/App绑车失败.md",
+      "title": "App绑车失败",
+      "chars": 315
+    },
+    {
+      "kb_domain": "repair",
+      "kb_doc_id": "repair__刹车异响与刹车皮",
+      "path": "knowledge/repair/刹车异响与刹车皮.md",
+      "title": "刹车异响与刹车皮",
+      "chars": 222
+    },
+    {
+      "kb_domain": "repair",
+      "kb_doc_id": "repair__充电口与充电器兼容",
+      "path": "knowledge/repair/充电口与充电器兼容.md",
+      "title": "充电口与充电器兼容",
+      "chars": 214
+    },
+    {
+      "kb_domain": "policy",
+      "kb_doc_id": "policy__三包与电池政策",
+      "path": "knowledge/policy/三包与电池政策.md",
+      "title": "三包与电池政策",
+      "chars": 343
+    },
+    {
+      "kb_domain": "policy",
+      "kb_doc_id": "policy__2026Q3提货返利",
+      "path": "knowledge/policy/2026Q3提货返利.md",
+      "title": "2026Q3提货返利",
+      "chars": 444
+    },
+    {
+      "kb_domain": "policy",
+      "kb_doc_id": "policy__续费触达红线",
+      "path": "knowledge/policy/续费触达红线.md",
+      "title": "续费触达红线",
+      "chars": 325
+    },
+    {
+      "kb_domain": "policy",
+      "kb_doc_id": "policy__门店VI与非专卖红线",
+      "path": "knowledge/policy/门店VI与非专卖红线.md",
+      "title": "门店VI与非专卖红线",
+      "chars": 203
+    },
+    {
+      "kb_domain": "hr",
+      "kb_doc_id": "hr__员工制度问答摘要",
+      "path": "knowledge/hr/员工制度问答摘要.md",
+      "title": "员工制度问答摘要",
+      "chars": 205
+    },
+    {
+      "kb_domain": "hr",
+      "kb_doc_id": "hr__坐席质检SOP要点",
+      "path": "knowledge/hr/坐席质检SOP要点.md",
+      "title": "坐席质检SOP要点",
+      "chars": 164
+    },
+    {
+      "kb_domain": "product",
+      "kb_doc_id": "product__车型卖点与竞品口径",
+      "path": "knowledge/product/车型卖点与竞品口径.md",
+      "title": "车型卖点与竞品口径",
+      "chars": 258
+    },
+    {
+      "kb_domain": "product",
+      "kb_doc_id": "product__OTA版本说明-v2",
+      "path": "knowledge/product/OTA版本说明-v2.md",
+      "title": "OTA版本说明-v2",
+      "chars": 240
+    },
+    {
+      "kb_domain": "channel",
+      "kb_doc_id": "channel__一代提货与颜色缺货话术",
+      "path": "knowledge/channel/一代提货与颜色缺货话术.md",
+      "title": "一代提货与颜色缺货话术",
+      "chars": 178
+    },
+    {
+      "kb_domain": "channel",
+      "kb_doc_id": "channel__开店推进检查清单",
+      "path": "knowledge/channel/开店推进检查清单.md",
+      "title": "开店推进检查清单",
+      "chars": 128
+    }
+  ],
+  "total_docs": 15,
+  "total_chars": 4486
+}

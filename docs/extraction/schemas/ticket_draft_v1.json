@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ticket_draft_v1",
+  "title": "ticket_draft_v1",
+  "description": "Extraction Agent · 智能填单工单草案（F-SVC-001 / skill ticket_fields）",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ticket_type",
+    "ticket_channel",
+    "ticket_status",
+    "tag_id",
+    "sentiment",
+    "desc_text",
+    "is_complaint"
+  ],
+  "properties": {
+    "customer_id": {
+      "type": ["string", "null"],
+      "pattern": "^CUS-\\d+$",
+      "description": "客户ID；抽不到可为 null，此时 needs_human_review 应为 true"
+    },
+    "vin": {
+      "type": ["string", "null"],
+      "pattern": "^QS0[A-Z0-9]{14}$",
+      "description": "合成 VIN；抽不到可为 null"
+    },
+    "ticket_type": {
+      "type": "string",
+      "enum": ["fault", "consult", "complaint", "other"]
+    },
+    "fault_category": {
+      "type": ["string", "null"],
+      "enum": [
+        "battery",
+        "motor",
+        "brake",
+        "controller",
+        "charging",
+        "dashboard",
+        "frame",
+        "lighting",
+        "tire",
+        "other",
+        null
+      ]
+    },
+    "consult_category": {
+      "type": ["string", "null"],
+      "maxLength": 64
+    },
+    "ticket_channel": {
+      "type": "string",
+      "enum": ["400", "App", "电商", "门店", "community"]
+    },
+    "ticket_status": {
+      "type": "string",
+      "enum": ["open", "processing", "closed"],
+      "default": "open"
+    },
+    "tag_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "必须属于 TagVocabulary"
+    },
+    "sentiment": {
+      "type": "string",
+      "enum": ["pos", "neu", "neg"]
+    },
+    "desc_text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "is_complaint": {
+      "type": "boolean"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "needs_human_review": {
+      "type": "boolean"
+    }
+  }
+}

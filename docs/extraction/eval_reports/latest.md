@@ -1,0 +1,39 @@
+# Extraction 金标评测报告
+
+> 生成时间：2026-08-05T16:00:44+08:00
+> 脚本：`scripts/eval_extraction.py`
+
+## 总览
+
+- 总体通过：**PASS**
+- ticket_fields：PASS
+- voc_entities：PASS
+
+## ticket_fields
+
+| 指标 | 实测 | 门槛 | 结果 |
+|------|------|------|------|
+| Schema 合规率 | 1.0 | 1.0 | ✅ |
+| ticket_type 准确率 | 0.86 | 0.8 | ✅ |
+| fault_category 准确率 | 0.8636 | 0.75 | ✅ |
+| tag_id Top-1 | 0.98 | 0.75 | ✅ |
+| 阻断漏报数 | 0 | 0 | ✅ |
+| sentiment 准确率 | 0.68（严格）/ 1.0（容忍，验收用） | 0.8 | ✅ |
+| ID 召回 | 1.0 | 0.95 | ✅ |
+
+> ticket sentiment 验收口径：阶段一允许非投诉句 `neu↔neg` 一档容忍。
+
+## voc_entities
+
+| 指标 | 实测 | 门槛 | 结果 |
+|------|------|------|------|
+| Schema 合规率 | 1.0 | 1.0 | ✅ |
+| tag_id 命中 | 1.0 | 0.8 | ✅ |
+| 阻断漏报数 | 0 | 0 | ✅ |
+| sentiment 准确率 | 0.92 | 0.85 | ✅ |
+| tag_domain 准确率 | 1.0 | 0.9 | ✅ |
+| 字典外标签率 | 0.0 | 0.05 | ✅ |
+
+## 失败/告警样例
+
+- `T50` stop=validated tag=TAG-续费入口 sent=pos tag_hit=False blocking_ok=None

@@ -1,0 +1,30 @@
+{
+  "story": "Story2-跨类型消费并阻断触达",
+  "agent_type": "planning",
+  "skill_id": "renewal_plan",
+  "input": {
+    "customer_id": "CUS-10057",
+    "vin": "QS0F65B984410D7B6"
+  },
+  "renewal_snapshot": {
+    "customer_id": "CUS-10057",
+    "vin": "QS0F65B984410D7B6",
+    "service_expire_date": "2026-08-16",
+    "due_renew_flag": true,
+    "paid_flag": false,
+    "paid_type": "unknown",
+    "active_t30_flag": false,
+    "active_t7_flag": false,
+    "sleep_90d_app_flag": false,
+    "active_90d_4g_flag": true,
+    "renew_intent_score": 0.62,
+    "renew_pool_layer": "T-30",
+    "outreach_channel": "ai_call",
+    "intent_level": "mid"
+  },
+  "expect": {
+    "allow_outreach": false,
+    "block_reason_contains": "投诉未结",
+    "read_from_shared": true
+  }
+}

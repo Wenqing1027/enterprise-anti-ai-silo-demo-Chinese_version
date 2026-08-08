@@ -1,0 +1,202 @@
+[
+  {
+    "dealer_id": "DLR-3001",
+    "period": "2026-07",
+    "sales_score": 90.0,
+    "retail_score": 71.0,
+    "compliance_score": 64.0,
+    "complaint_score": 56.0,
+    "inventory_turn_score": 88.0,
+    "health_index": 68.0
+  },
+  {
+    "dealer_id": "DLR-3002",
+    "period": "2026-07",
+    "sales_score": 87.0,
+    "retail_score": 65.0,
+    "compliance_score": 87.0,
+    "complaint_score": 89.0,
+    "inventory_turn_score": 55.0,
+    "health_index": 90.0
+  },
+  {
+    "dealer_id": "DLR-3003",
+    "period": "2026-07",
+    "sales_score": 52.0,
+    "retail_score": 79.0,
+    "compliance_score": 94.0,
+    "complaint_score": 94.0,
+    "inventory_turn_score": 47.0,
+    "health_index": 90.0
+  },
+  {
+    "dealer_id": "DLR-3004",
+    "period": "2026-07",
+    "sales_score": 75.0,
+    "retail_score": 48.0,
+    "compliance_score": 77.0,
+    "complaint_score": 40.0,
+    "inventory_turn_score": 76.0,
+    "health_index": 58.0
+  },
+  {
+    "dealer_id": "DLR-3005",
+    "period": "2026-07",
+    "sales_score": 81.0,
+    "retail_score": 45.0,
+    "compliance_score": 88.0,
+    "complaint_score": 63.0,
+    "inventory_turn_score": 46.0,
+    "health_index": 78.0
+  },
+  {
+    "dealer_id": "DLR-3006",
+    "period": "2026-07",
+    "sales_score": 82.0,
+    "retail_score": 90.0,
+    "compliance_score": 62.0,
+    "complaint_score": 89.0,
+    "inventory_turn_score": 66.0,
+    "health_index": 72.0
+  },
+  {
+    "dealer_id": "DLR-3007",
+    "period": "2026-07",
+    "sales_score": 58.0,
+    "retail_score": 64.0,
+    "compliance_score": 99.0,
+    "complaint_score": 92.0,
+    "inventory_turn_score": 45.0,
+    "health_index": 86.0
+  },
+  {
+    "dealer_id": "DLR-3008",
+    "period": "2026-07",
+    "sales_score": 64.0,
+    "retail_score": 51.0,
+    "compliance_score": 80.0,
+    "complaint_score": 72.0,
+    "inventory_turn_score": 56.0,
+    "health_index": 87.0
+  },
+  {
+    "dealer_id": "DLR-3009",
+    "period": "2026-07",
+    "sales_score": 81.0,
+    "retail_score": 62.0,
+    "compliance_score": 75.0,
+    "complaint_score": 76.0,
+    "inventory_turn_score": 79.0,
+    "health_index": 55.0
+  },
+  {
+    "dealer_id": "DLR-3010",
+    "period": "2026-07",
+    "sales_score": 63.0,
+    "retail_score": 63.0,
+    "compliance_score": 66.0,
+    "complaint_score": 58.0,
+    "inventory_turn_score": 72.0,
+    "health_index": 63.0
+  },
+  {
+    "dealer_id": "DLR-3011",
+    "period": "2026-07",
+    "sales_score": 90.0,
+    "retail_score": 85.0,
+    "compliance_score": 84.0,
+    "complaint_score": 84.0,
+    "inventory_turn_score": 40.0,
+    "health_index": 79.0
+  },
+  {
+    "dealer_id": "DLR-3012",
+    "period": "2026-07",
+    "sales_score": 62.0,
+    "retail_score": 83.0,
+    "compliance_score": 60.0,
+    "complaint_score": 84.0,
+    "inventory_turn_score": 61.0,
+    "health_index": 82.0
+  },
+  {
+    "dealer_id": "DLR-3013",
+    "period": "2026-07",
+    "sales_score": 79.0,
+    "retail_score": 51.0,
+    "compliance_score": 62.0,
+    "complaint_score": 89.0,
+    "inventory_turn_score": 69.0,
+    "health_index": 60.0
+  },
+  {
+    "dealer_id": "DLR-3014",
+    "period": "2026-07",
+    "sales_score": 59.0,
+    "retail_score": 75.0,
+    "compliance_score": 62.0,
+    "complaint_score": 86.0,
+    "inventory_turn_score": 57.0,
+    "health_index": 50.0
+  },
+  {
+    "dealer_id": "DLR-3015",
+    "period": "2026-07",
+    "sales_score": 66.0,
+    "retail_score": 62.0,
+    "compliance_score": 78.0,
+    "complaint_score": 83.0,
+    "inventory_turn_score": 50.0,
+    "health_index": 67.0
+  },
+  {
+    "dealer_id": "DLR-3016",
+    "period": "2026-07",
+    "sales_score": 80.0,
+    "retail_score": 54.0,
+    "compliance_score": 93.0,
+    "complaint_score": 62.0,
+    "inventory_turn_score": 80.0,
+    "health_index": 58.0
+  },
+  {
+    "dealer_id": "DLR-3017",
+    "period": "2026-07",
+    "sales_score": 74.0,
+    "retail_score": 45.0,
+    "compliance_score": 90.0,
+    "complaint_score": 69.0,
+    "inventory_turn_score": 82.0,
+    "health_index": 68.0
+  },
+  {
+    "dealer_id": "DLR-3018",
+    "period": "2026-07",
+    "sales_score": 88.0,
+    "retail_score": 67.0,
+    "compliance_score": 56.0,
+    "complaint_score": 51.0,
+    "inventory_turn_score": 90.0,
+    "health_index": 87.0
+  },
+  {
+    "dealer_id": "DLR-3019",
+    "period": "2026-07",
+    "sales_score": 65.0,
+    "retail_score": 73.0,
+    "compliance_score": 90.0,
+    "complaint_score": 48.0,
+    "inventory_turn_score": 47.0,
+    "health_index": 53.0
+  },
+  {
+    "dealer_id": "DLR-3020",
+    "period": "2026-07",
+    "sales_score": 59.0,
+    "retail_score": 58.0,
+    "compliance_score": 90.0,
+    "complaint_score": 63.0,
+    "inventory_turn_score": 82.0,
+    "health_index": 69.0
+  }
+]

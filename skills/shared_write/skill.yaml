@@ -1,0 +1,27 @@
+skill_id: shared_write
+control_loop: act
+department: 系统/共享层
+goal: 将给定 payload 写入共享 AI 产出并返回 id。
+success_hint: write_ai_output 成功返回 ai_output.id。
+success_when: wrote_ai_output
+max_steps: 4
+tone:
+  label: 中性系统腔
+  style: 只描述资产与状态，不扮演业务人
+  forbid: 客服安抚腔、电销促销腔
+allowed_tools:
+  - write_ai_output
+  - read_ai_outputs
+  - get_ai_output
+  - log_step
+system_extra: |
+  producer_skill 必须为 shared_write。可先 write 再 get_ai_output 核对。
+output_format: |
+  - ai_output_id
+  - consumer_allow
+  - 简短状态说明
+security:
+  max_tool_calls_per_step: 3
+  redact_pii_in_observation: true
+  block_on_outreach: false
+  prompt_forbid_extra: 禁止写入明文手机号、密钥；仅描述资产状态

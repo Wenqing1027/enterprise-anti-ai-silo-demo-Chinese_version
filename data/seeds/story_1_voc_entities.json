@@ -1,0 +1,23 @@
+{
+  "story": "Story1-Extraction-voc_entities",
+  "agent_type": "extraction",
+  "skill_id": "voc_entities",
+  "input": {
+    "text": "充满电跑不到说明书一半，准备去媒体曝光，已经投诉超过7天一直没处理。",
+    "customer_id": "CUS-10057"
+  },
+  "expect": {
+    "payload_schema": "voc_entities_v1",
+    "stop_reason": "validated",
+    "blocking_tag_required": true,
+    "payload_keys": [
+      "tag_id",
+      "tag_name",
+      "tag_domain",
+      "sentiment",
+      "problem_theme",
+      "sample_voice",
+      "needs_human_review"
+    ]
+  }
+}

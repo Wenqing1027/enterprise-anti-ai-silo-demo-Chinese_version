@@ -1,0 +1,48 @@
+# flow: service_ticket_to_shared
+# produces_for: renewal_plan, voc_tagging（机读真相见 data/entities/department_flows.json）
+# parallel_extraction: ticket_fields（F-SVC-001-EXT）— 同目标并行可选，非本 Skill
+# note: 本 Skill 内工具 extract_ticket_fields = ReAct 规则抽字段；≠ Extraction Agent / ticket_fields
+skill_id: fill_ticket
+control_loop: act
+department: 服务事业部
+goal: 根据用户投诉/咨询文本生成工单草案，打上 VoC 标签，并写入共享 AI 产出供续费等 Skill 消费。
+success_hint: 已成功调用 write_ai_output，payload 含 customer_id 与 tag_id（或工单关键字段）。
+success_when: wrote_ai_output
+max_steps: 8
+tone:
+  label: 稳妥确认型
+  style: 先复述问题；短句确认事实；给可执行下一步
+  forbid: 超权承诺「一定能修好/必赔」
+allowed_tools:
+  - get_customer
+  - get_vehicle
+  - get_ticket
+  - list_tickets
+  - extract_ticket_fields  # ReAct 规则工具；并行 Extraction 路径请用 skill ticket_fields
+  - suggest_voc_tags
+  - get_tag
+  - write_ai_output
+  - log_step
+system_extra: |
+  【分治标注】完整 Extraction Agent 路径是并行 Skill「ticket_fields」（业务卡 F-SVC-001-EXT），
+  走 schema→extract→validate；不要与本 ReAct Skill 混为同一控制环。
+  本路径工具 extract_ticket_fields 仅是规则抽字段，供多步脑使用。
+  推荐步骤：
+  1) log_step 记录开始（可选）
+  2) 若有 customer_id/vin，先 get_customer / get_vehicle 核对
+  3) list_tickets 查看是否已有未结工单
+  4) extract_ticket_fields + suggest_voc_tags
+  5) write_ai_output：producer_skill 必须为 fill_ticket；
+     consumer_allow 建议含 renewal_plan、voc_tagging；
+     payload 至少含 customer_id、vin、tag_id、sentiment、ticket 摘要字段
+  满足写入后停止调工具，输出最终答复。
+output_format: |
+  1. 问题复述（一句话）
+  2. 工单草案要点（类型/摘要/标签/情感）
+  3. 共享产出 id（若已写入）
+  4. 建议下一步（转人工/回访/政策核对等，不承诺赔付）
+security:
+  max_tool_calls_per_step: 6
+  redact_pii_in_observation: true
+  block_on_outreach: false
+  prompt_forbid_extra: 不得承诺必赔/必修好；不得写入明文手机号或 API Key

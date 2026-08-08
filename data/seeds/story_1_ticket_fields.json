@@ -1,0 +1,28 @@
+{
+  "story": "Story1-Extraction-ticket_fields",
+  "agent_type": "extraction",
+  "skill_id": "ticket_fields",
+  "input": {
+    "text": "投诉门店未按三包政策处理电池更换，工单已超过7天未结。客户 CUS-10057，车辆 QS0F65B984410D7B6。",
+    "customer_id": "CUS-10057",
+    "vin": "QS0F65B984410D7B6",
+    "channel": "400"
+  },
+  "expect": {
+    "payload_schema": "ticket_draft_v1",
+    "stop_reason": "validated",
+    "payload_keys": [
+      "ticket_type",
+      "tag_id",
+      "sentiment",
+      "desc_text",
+      "is_complaint",
+      "customer_id",
+      "vin"
+    ],
+    "consumer_allow": [
+      "renewal_plan",
+      "voc_tagging"
+    ]
+  }
+}

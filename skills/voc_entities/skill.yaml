@@ -1,0 +1,22 @@
+# flow: voc_entities_to_shared
+# produces_for: renewal_plan, voc_tagging（见 department_flows.json）
+skill_id: voc_entities
+control_loop: extract
+department: 用研 / 运营
+goal: 从原声文本抽出 VoC 实体 voc_entities_v1（标签、情感、主题、风险）并资产化。
+success_hint: 通过 voc_entities_v1；tag_id∈字典；情感准确；阻断类零漏报。
+payload_schema: voc_entities_v1
+write_ai_output: true
+consumer_allow:
+  - renewal_plan
+  - voc_tagging
+  - voc_weekly
+tone:
+  label: 中性标注腔
+  style: 只做结构化标注；不做安抚；不给运营话术
+  forbid: 客服安抚话术；臆造字典外标签
+max_schema_retries: 1
+max_input_chars: 4000
+security:
+  redact_pii: true
+  prompt_forbid_extra: 字典外 tag 禁止写共享阻断逻辑；PII 必须脱敏

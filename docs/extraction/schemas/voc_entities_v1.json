@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "voc_entities_v1",
+  "title": "voc_entities_v1",
+  "description": "Extraction Agent · VoC 实体/打标/情感（F-VOC-002 / skill voc_entities · voc_tagging）",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sample_voice",
+    "tag_id",
+    "tag_name",
+    "tag_domain",
+    "sentiment",
+    "problem_theme",
+    "clue_confidence",
+    "needs_human_review"
+  ],
+  "properties": {
+    "feedback_id": {
+      "type": ["string", "null"],
+      "description": "无则运行时生成 FB-*"
+    },
+    "sample_voice": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "tag_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tag_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tag_domain": {
+      "type": "string",
+      "enum": ["product", "service", "app", "channel", "risk"]
+    },
+    "sentiment": {
+      "type": "string",
+      "enum": ["pos", "neu", "neg"]
+    },
+    "sentiment_score": {
+      "type": ["number", "null"],
+      "minimum": -1,
+      "maximum": 1
+    },
+    "problem_theme": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "severity_risk_level": {
+      "type": ["string", "null"],
+      "enum": ["P0", "P1", "P2", null]
+    },
+    "clue_confidence": {
+      "type": "string",
+      "enum": ["weak", "medium"]
+    },
+    "customer_id": {
+      "type": ["string", "null"],
+      "pattern": "^CUS-\\d+$"
+    },
+    "vin": {
+      "type": ["string", "null"],
+      "pattern": "^QS0[A-Z0-9]{14}$"
+    },
+    "secondary_tag_ids": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "needs_human_review": {
+      "type": "boolean"
+    },
+    "nps": {
+      "type": ["number", "null"],
+      "description": "可选；来自表单而非模型臆造（F-BRD-017 复用）"
+    },
+    "module_name": {
+      "type": ["string", "null"],
+      "enum": ["app", "miniapp", "website", "hotline", "aftersales", null],
+      "description": "可选扩展（F-VOC-025 等）"
+    }
+  }
+}

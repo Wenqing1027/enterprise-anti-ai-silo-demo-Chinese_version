@@ -1,0 +1,45 @@
+# flow: user_ops_renewal_gate
+# also_in: story2_outreach_gate（跨部门关系说明，分步不联跑）
+# feature: F-UO-017
+# consumes_from: fill_ticket, ticket_fields, voc_entities（另次独立运行写出共享层）
+# parallel_after_allow: crm_lookup（F-UO-019，另次独立跑；非本 Skill 管道）
+# note: 一次 Plan 运行覆盖「闸门 +（放行时）短触达计划」；不接上游 Agent 话筒
+skill_id: renewal_plan
+control_loop: plan
+agent_type: planning
+department: 用户运营 / App
+goal: 读共享投诉/风险标签后决定是否允许续费触达；阻断时给出原因与下一步，放行时给出续费池分层与触达阶梯短计划。
+success_hint: gate.allow_outreach 已判定；阻断时 reason 含投诉类标签；放行时 plan.channels 非空。
+success_when: gate_decided
+flow_ids:
+  - user_ops_renewal_gate
+  - story2_outreach_gate
+consumes_from:
+  - fill_ticket
+  - ticket_fields
+  - voc_entities
+tone:
+  label: 促而不逼型
+  style: 先闸门结论，再短计划；阻断时语气冷静、可执行
+  forbid: 绕过投诉未结强推续费；承诺必赔/必修好；联跑上游 Agent
+allowed_tools:
+  - read_shared_tags
+  - read_ai_outputs
+  - check_outreach_block
+  - get_renewal
+  - get_user_behavior
+  - score_renewal
+  - route_renewal_pool
+  - get_customer
+  - get_vehicle
+  - log_step
+system_extra: |
+  【Story2 / user_ops_renewal_gate】
+  1) 读共享：read_shared_tags / read_ai_outputs（消费上游 fill_ticket|ticket_fields|voc_entities）
+  2) 闸门：check_outreach_block；TAG-投诉未结 → allow_outreach=false
+  3) 放行后：get_renewal + score_renewal + route_renewal_pool → 短触达计划
+  查数 crm_lookup 是并行可选的另一功能（F-UO-019），不在本 Skill 内调用。
+output_format: |
+  1. 闸门结论（阻断/放行）+ reason + tag_ids
+  2. 若放行：renew_pool_layer / intent / channels / next_steps
+  3. 明确「本运行只读共享层」

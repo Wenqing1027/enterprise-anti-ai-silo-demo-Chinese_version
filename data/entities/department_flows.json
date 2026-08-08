@@ -1,0 +1,585 @@
+{
+  "version": "v2",
+  "description": "部门内功能关系说明书（机读）。节点 = 可独立运行的 Skill/功能（或共享层读写点/占位），不是 Agent 管道。边 mode=sequence 表示数据依赖（经共享层）；parallel 表示可独立演示。手工维护；generate_synthetic_data.py 不得覆盖。",
+  "node_kinds": [
+    "skill",
+    "placeholder",
+    "store_read",
+    "store_write"
+  ],
+  "control_loops": [
+    "retrieve",
+    "act",
+    "extract",
+    "plan"
+  ],
+  "flows": [
+    {
+      "flow_id": "service_ticket_to_shared",
+      "department_id": "service",
+      "name": "客服填单资产化",
+      "demo_ready": true,
+      "feature_ids": [
+        "F-SVC-001",
+        "F-SVC-001-EXT"
+      ],
+      "edges": [
+        {
+          "from": "n1",
+          "to": "n2",
+          "mode": "parallel",
+          "via": "AIOutput · Story1 二选一或都跑"
+        }
+      ],
+      "notes": "Story1 并行可选路径：Extraction ticket_fields 与 ReAct fill_ticket 都可独立写共享（不必先抽后填）。ReAct 路径内部也可调 extract tool。网页上两张 Demo 卡并排可跑。",
+      "nodes": [
+        {
+          "node_id": "n1",
+          "kind": "skill",
+          "skill_id": "ticket_fields",
+          "control_loop": "extract",
+          "label": "Extraction 纯抽工单"
+        },
+        {
+          "node_id": "n2",
+          "kind": "skill",
+          "skill_id": "fill_ticket",
+          "control_loop": "act",
+          "label": "ReAct 多步填单"
+        }
+      ],
+      "parallel_groups": [
+        {
+          "group_id": "pg_story1_alt",
+          "node_ids": [
+            "n1",
+            "n2"
+          ],
+          "label": "Story1 并行可选大脑"
+        }
+      ]
+    },
+    {
+      "flow_id": "service_repair_qa",
+      "department_id": "service",
+      "name": "维修知识库 RAG 问答",
+      "demo_ready": true,
+      "feature_ids": [
+        "F-SVC-002",
+        "F-SVC-004"
+      ],
+      "edges": [],
+      "notes": "单节点 RAG · repair_kb；与 Story1 填单流并行存在（正交/并行可选），不串进 write_ai_output 主路径。API=POST /v1/rag/runs。",
+      "nodes": [
+        {
+          "node_id": "n_rag",
+          "kind": "skill",
+          "skill_id": "repair_kb",
+          "control_loop": "retrieve",
+          "label": "RAG 维修问答"
+        }
+      ],
+      "parallel_groups": []
+    },
+    {
+      "flow_id": "user_ops_app_qa",
+      "department_id": "user_ops",
+      "name": "App 智能问答（复用 repair 域）",
+      "demo_ready": true,
+      "feature_ids": [
+        "F-UO-009"
+      ],
+      "edges": [],
+      "notes": "单节点 RAG · repair_kb；与 user_ops_renewal_gate 并行无关（续费闸门不读 RAG）。",
+      "nodes": [
+        {
+          "node_id": "n_rag",
+          "kind": "skill",
+          "skill_id": "repair_kb",
+          "control_loop": "retrieve",
+          "label": "App RAG 问答"
+        }
+      ],
+      "parallel_groups": []
+    },
+    {
+      "flow_id": "order_policy_qa",
+      "department_id": "order_policy",
+      "name": "政策口径 RAG 问答",
+      "demo_ready": true,
+      "feature_ids": [
+        "F-POL-RAG"
+      ],
+      "edges": [],
+      "notes": "单节点 RAG · policy_kb；与 order_policy_review（审单串行示意）并列，不替代 Rule 档位闸门。",
+      "nodes": [
+        {
+          "node_id": "n_rag",
+          "kind": "skill",
+          "skill_id": "policy_kb",
+          "control_loop": "retrieve",
+          "label": "RAG 政策问答"
+        }
+      ],
+      "parallel_groups": []
+    },
+    {
+      "flow_id": "hr_policy_qa",
+      "department_id": "hr",
+      "name": "人资制度 / SOP RAG 问答",
+      "demo_ready": true,
+      "feature_ids": [
+        "F-HR-001"
+      ],
+      "edges": [],
+      "notes": "单节点 RAG · hr_rules；跨部门只读同 hr 域，不复制库。",
+      "nodes": [
+        {
+          "node_id": "n_rag",
+          "kind": "skill",
+          "skill_id": "hr_rules",
+          "control_loop": "retrieve",
+          "label": "RAG 制度问答"
+        }
+      ],
+      "parallel_groups": []
+    },
+    {
+      "flow_id": "user_ops_renewal_gate",
+      "department_id": "user_ops",
+      "name": "续费触达投诉闸门",
+      "demo_ready": true,
+      "feature_ids": [
+        "F-UO-001",
+        "F-UO-017",
+        "F-UO-019"
+      ],
+      "edges": [
+        {
+          "from": "n_read",
+          "to": "n_gate",
+          "mode": "sequence",
+          "via": "tag_id:TAG-投诉未结"
+        },
+        {
+          "from": "n_gate",
+          "to": "n_plan_out",
+          "mode": "sequence",
+          "via": "同次 plan 字段（放行时）"
+        },
+        {
+          "from": "n_gate",
+          "to": "n_crm",
+          "mode": "sequence",
+          "via": "allow_outreach=true · 另次独立跑"
+        },
+        {
+          "from": "n_gate",
+          "to": "n_score",
+          "mode": "sequence",
+          "via": "allow_outreach=true · 示意并行"
+        },
+        {
+          "from": "n_crm",
+          "to": "n_score",
+          "mode": "parallel",
+          "via": null
+        }
+      ],
+      "notes": "Story2：读共享 → 另跑 renewal_plan（闸门+放行时短计划同次产出）。crm_lookup / 评分占位为放行后可选并行，须另次独立跑，不二次调用 renewal_plan。",
+      "nodes": [
+        {
+          "node_id": "n_read",
+          "kind": "store_read",
+          "skill_id": null,
+          "control_loop": null,
+          "label": "read_shared_tags / AIOutput",
+          "note": "共享层读写点（非 Skill 运行节点）"
+        },
+        {
+          "node_id": "n_gate",
+          "kind": "skill",
+          "skill_id": "renewal_plan",
+          "control_loop": "plan",
+          "label": "续费触达闸门+计划 · renewal_plan",
+          "note": "一次运行：读共享 → check_outreach_block →（放行）route/score 短计划"
+        },
+        {
+          "node_id": "n_plan_out",
+          "kind": "placeholder",
+          "skill_id": null,
+          "control_loop": "plan",
+          "label": "触达计划产出（同次）",
+          "note": "非独立 Skill；放行时由 n_gate 同次 plan.channels / renew_pool_layer 给出。勿二次跑 renewal_plan。"
+        },
+        {
+          "node_id": "n_crm",
+          "kind": "skill",
+          "skill_id": "crm_lookup",
+          "control_loop": "act",
+          "label": "crm_lookup",
+          "note": "F-UO-019；闸门放行后另次独立跑，非 Plan 管道步骤"
+        },
+        {
+          "node_id": "n_score",
+          "kind": "placeholder",
+          "skill_id": null,
+          "control_loop": "plan",
+          "label": "续费池/意向评分（示意）",
+          "note": "功能占位；评分工具已在 renewal_plan 放行路径内调用。扩展子模式 rule_llm → 归入 plan",
+          "extension_type": "rule_llm"
+        }
+      ],
+      "parallel_groups": [
+        {
+          "group_id": "pg_lookup",
+          "node_ids": [
+            "n_crm",
+            "n_score"
+          ]
+        }
+      ]
+    },
+    {
+      "flow_id": "channel_ops_board",
+      "department_id": "channel",
+      "name": "渠道经营看板准备",
+      "demo_ready": false,
+      "feature_ids": [],
+      "edges": [
+        {
+          "from": "n_ops",
+          "to": "n_rag",
+          "mode": "parallel",
+          "via": null
+        },
+        {
+          "from": "n_ops",
+          "to": "n_board",
+          "mode": "sequence",
+          "via": "AIOutput"
+        },
+        {
+          "from": "n_rag",
+          "to": "n_board",
+          "mode": "sequence",
+          "via": "citations / AIOutput"
+        }
+      ],
+      "notes": "ReAct channel_ops ∥ RAG policy_kb 可并行准备；看板汇合仍 planned（不自动联跑）。RAG 节点已挂 policy_kb（渠道专用 channel_kb 未建，一期复用政策域口径）。",
+      "nodes": [
+        {
+          "node_id": "n_ops",
+          "kind": "skill",
+          "skill_id": "channel_ops",
+          "control_loop": "act",
+          "label": "渠道经营查数"
+        },
+        {
+          "node_id": "n_rag",
+          "kind": "skill",
+          "skill_id": "policy_kb",
+          "control_loop": "retrieve",
+          "label": "政策/渠道口径 RAG"
+        },
+        {
+          "node_id": "n_board",
+          "kind": "placeholder",
+          "skill_id": null,
+          "control_loop": "plan",
+          "label": "看板/简报汇合",
+          "note": "功能占位（尚无 skill_id）；非 Agent 管道步骤"
+        }
+      ],
+      "parallel_groups": [
+        {
+          "group_id": "pg_channel_prep",
+          "node_ids": [
+            "n_ops",
+            "n_rag"
+          ],
+          "label": "查数 ∥ 知识问答"
+        }
+      ]
+    },
+    {
+      "flow_id": "order_policy_review",
+      "department_id": "order_policy",
+      "name": "审单与政策档位",
+      "demo_ready": false,
+      "feature_ids": [],
+      "edges": [
+        {
+          "from": "n_ext",
+          "to": "n_rule",
+          "mode": "sequence",
+          "via": "payload_schema:order_draft_v1"
+        },
+        {
+          "from": "n_rule",
+          "to": "n_react",
+          "mode": "sequence",
+          "via": "AIOutput"
+        }
+      ],
+      "notes": "示意：抽字段 → 规则闸门 → 审单辅助",
+      "nodes": [
+        {
+          "node_id": "n_ext",
+          "kind": "placeholder",
+          "skill_id": null,
+          "control_loop": "extract",
+          "label": "订单字段抽取",
+          "note": "功能占位（尚无 skill_id）；非 Agent 管道步骤"
+        },
+        {
+          "node_id": "n_rule",
+          "kind": "placeholder",
+          "skill_id": null,
+          "control_loop": "plan",
+          "label": "政策档位闸门",
+          "note": "功能占位（尚无 skill_id）；非 Agent 管道步骤；扩展子模式 rule_llm → 归入 plan",
+          "extension_type": "rule_llm"
+        },
+        {
+          "node_id": "n_react",
+          "kind": "placeholder",
+          "skill_id": null,
+          "control_loop": "act",
+          "label": "审单辅助查数",
+          "note": "功能占位（尚无 skill_id）；非 Agent 管道步骤"
+        }
+      ],
+      "parallel_groups": []
+    },
+    {
+      "flow_id": "voc_entities_to_shared",
+      "department_id": "voc",
+      "name": "VoC 打标资产化",
+      "demo_ready": true,
+      "feature_ids": [
+        "F-VOC-002"
+      ],
+      "edges": [
+        {
+          "from": "n_voc",
+          "to": "n_tag",
+          "mode": "parallel",
+          "via": "payload_schema:voc_entities_v1"
+        },
+        {
+          "from": "n_voc",
+          "to": "n_shared",
+          "mode": "sequence",
+          "via": "AIOutput"
+        },
+        {
+          "from": "n_tag",
+          "to": "n_shared",
+          "mode": "sequence",
+          "via": "AIOutput"
+        }
+      ],
+      "notes": "Extraction voc_entities 与 voc_tagging 为同 Schema 别名，运维可并行试跑；资产化后供续费闸门串行消费。",
+      "nodes": [
+        {
+          "node_id": "n_voc",
+          "kind": "skill",
+          "skill_id": "voc_entities",
+          "control_loop": "extract",
+          "label": "VoC 实体抽取"
+        },
+        {
+          "node_id": "n_tag",
+          "kind": "skill",
+          "skill_id": "voc_tagging",
+          "control_loop": "extract",
+          "label": "VoC 打标别名"
+        },
+        {
+          "node_id": "n_shared",
+          "kind": "store_write",
+          "skill_id": null,
+          "control_loop": null,
+          "label": "write_ai_output 共享层",
+          "note": "共享层读写点（非 Skill 运行节点）"
+        }
+      ],
+      "parallel_groups": [
+        {
+          "group_id": "pg_voc",
+          "node_ids": [
+            "n_voc",
+            "n_tag"
+          ],
+          "label": "同 Schema 并行别名"
+        }
+      ]
+    },
+    {
+      "flow_id": "story2_outreach_gate",
+      "department_id": "shared",
+      "name": "Story2 跨部门串行：投诉标签→续费阻断",
+      "demo_ready": true,
+      "feature_ids": [
+        "F-SVC-001",
+        "F-SVC-001-EXT",
+        "F-VOC-002",
+        "F-UO-017"
+      ],
+      "edges": [
+        {
+          "from": "n_up_ext",
+          "to": "n_up_react",
+          "mode": "parallel",
+          "via": null
+        },
+        {
+          "from": "n_up_ext",
+          "to": "n_up_voc",
+          "mode": "parallel",
+          "via": null
+        },
+        {
+          "from": "n_up_ext",
+          "to": "n_store",
+          "mode": "sequence",
+          "via": "write_ai_output"
+        },
+        {
+          "from": "n_up_react",
+          "to": "n_store",
+          "mode": "sequence",
+          "via": "write_ai_output"
+        },
+        {
+          "from": "n_up_voc",
+          "to": "n_store",
+          "mode": "sequence",
+          "via": "write_ai_output"
+        },
+        {
+          "from": "n_store",
+          "to": "n_down",
+          "mode": "sequence",
+          "via": "tag_id 阻断类"
+        }
+      ],
+      "notes": "线性关系说明：先另跑上游填单/VoC 写出阻断标签 → 共享层 → 再另跑 Plan renewal_plan。网页分步说明，不自动联跑。",
+      "nodes": [
+        {
+          "node_id": "n_up_ext",
+          "kind": "skill",
+          "skill_id": "ticket_fields",
+          "control_loop": "extract",
+          "label": "上游 Extraction 填单"
+        },
+        {
+          "node_id": "n_up_react",
+          "kind": "skill",
+          "skill_id": "fill_ticket",
+          "control_loop": "act",
+          "label": "上游 ReAct 填单"
+        },
+        {
+          "node_id": "n_up_voc",
+          "kind": "skill",
+          "skill_id": "voc_entities",
+          "control_loop": "extract",
+          "label": "上游 VoC 打标"
+        },
+        {
+          "node_id": "n_store",
+          "kind": "store_read",
+          "skill_id": null,
+          "control_loop": null,
+          "label": "共享标签 / AIOutput",
+          "note": "共享层读写点（非 Skill 运行节点）"
+        },
+        {
+          "node_id": "n_down",
+          "kind": "skill",
+          "skill_id": "renewal_plan",
+          "control_loop": "plan",
+          "label": "下游续费闸门 · renewal_plan"
+        }
+      ],
+      "parallel_groups": [
+        {
+          "group_id": "pg_upstream",
+          "node_ids": [
+            "n_up_ext",
+            "n_up_react",
+            "n_up_voc"
+          ],
+          "label": "上游可并行产出"
+        }
+      ]
+    },
+    {
+      "flow_id": "iot_quality_inspect",
+      "department_id": "iot",
+      "name": "质检图文汇合告警",
+      "demo_ready": false,
+      "feature_ids": [],
+      "edges": [
+        {
+          "from": "n_vision",
+          "to": "n_ext",
+          "mode": "parallel",
+          "via": null
+        },
+        {
+          "from": "n_vision",
+          "to": "n_merge",
+          "mode": "sequence",
+          "via": "AIOutput"
+        },
+        {
+          "from": "n_ext",
+          "to": "n_merge",
+          "mode": "sequence",
+          "via": "AIOutput"
+        }
+      ],
+      "notes": "示意制造质检：Vision ∥ Extraction → 汇合写告警/共享标签",
+      "nodes": [
+        {
+          "node_id": "n_vision",
+          "kind": "placeholder",
+          "skill_id": null,
+          "control_loop": "extract",
+          "label": "巡检/质检 Vision",
+          "note": "功能占位（尚无 skill_id）；非 Agent 管道步骤；扩展子模式 vision → 归入 extract",
+          "extension_type": "vision"
+        },
+        {
+          "node_id": "n_ext",
+          "kind": "placeholder",
+          "skill_id": null,
+          "control_loop": "extract",
+          "label": "OBD/质检字段",
+          "note": "功能占位（尚无 skill_id）；非 Agent 管道步骤"
+        },
+        {
+          "node_id": "n_merge",
+          "kind": "placeholder",
+          "skill_id": null,
+          "control_loop": "plan",
+          "label": "汇合告警",
+          "note": "功能占位（尚无 skill_id）；非 Agent 管道步骤；扩展子模式 rule_llm → 归入 plan",
+          "extension_type": "rule_llm"
+        }
+      ],
+      "parallel_groups": [
+        {
+          "group_id": "pg_inspect",
+          "node_ids": [
+            "n_vision",
+            "n_ext"
+          ]
+        }
+      ]
+    }
+  ]
+}

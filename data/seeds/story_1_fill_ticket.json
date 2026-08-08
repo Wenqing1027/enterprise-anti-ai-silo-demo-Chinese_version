@@ -1,0 +1,26 @@
+{
+  "story": "Story1-产出资产化",
+  "agent_type": "react",
+  "skill_id": "fill_ticket",
+  "input": {
+    "text": "投诉门店未按三包政策处理电池更换，工单已超过7天未结。",
+    "customer_id": "CUS-10057",
+    "vin": "QS0F65B984410D7B6",
+    "channel": "400"
+  },
+  "expect_write_ai_output": {
+    "producer_skill": "fill_ticket",
+    "consumer_allow": [
+      "renewal_plan",
+      "voc_tagging"
+    ],
+    "payload_keys": [
+      "ticket_id",
+      "tag_id",
+      "sentiment",
+      "customer_id",
+      "vin"
+    ]
+  },
+  "fixture_ticket_id": "TK-2026070001"
+}

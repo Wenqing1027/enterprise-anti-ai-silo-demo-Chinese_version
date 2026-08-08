@@ -1,0 +1,112 @@
+{
+  "version": "v2",
+  "tool_classes": [
+    "read",
+    "knowledge",
+    "write_govern"
+  ],
+  "knowledge_tools": [
+    "get_kb_document",
+    "list_kb_domains",
+    "search_kb"
+  ],
+  "write_govern_tools": [
+    "check_outreach_block",
+    "get_ai_output",
+    "get_capability",
+    "list_capabilities",
+    "list_run_logs",
+    "log_step",
+    "read_ai_outputs",
+    "read_shared_tags",
+    "write_ai_output"
+  ],
+  "note": "未列入上两表的工具默认 tool_class=read；业务域见 ToolSpec.category。",
+  "description": "平台工具治理三类台账。运行时真相源 shared/tools/governance.py；注册时映射到 ToolSpec.tool_class。业务域仍在 ToolSpec.category。",
+  "tool_class_meta": {
+    "read": {
+      "name": "Read（只读业务）",
+      "blurb": "主数据 / 交易 / 服务 / 续费 / 渠道 / IoT 等只读查询与规则演算。"
+    },
+    "knowledge": {
+      "name": "Knowledge（知识检索）",
+      "blurb": "知识库检索与文档读取；Retrieve 环主用。"
+    },
+    "write_govern": {
+      "name": "Write/Govern（写共享与治理）",
+      "blurb": "写共享产出、读共享标签、触达闸门、能力目录、运行日志。"
+    }
+  },
+  "counts": {
+    "read": 36,
+    "knowledge": 3,
+    "write_govern": 9
+  },
+  "by_class": {
+    "read": [
+      "extract_ticket_fields",
+      "get_customer",
+      "get_dealer",
+      "get_dealer_health",
+      "get_order",
+      "get_org",
+      "get_policy",
+      "get_renewal",
+      "get_risk",
+      "get_sku",
+      "get_store",
+      "get_tag",
+      "get_telemetry",
+      "get_ticket",
+      "get_user_behavior",
+      "get_vehicle",
+      "list_alerts",
+      "list_campaigns",
+      "list_color_plans",
+      "list_competitors",
+      "list_inspections",
+      "list_inventory",
+      "list_orders",
+      "list_quality_checks",
+      "list_regions",
+      "list_retail_daily",
+      "list_sales_metrics",
+      "list_stores",
+      "list_tags",
+      "list_tickets",
+      "list_vehicles",
+      "list_voc",
+      "route_renewal_pool",
+      "score_renewal",
+      "simulate_rebate_tier",
+      "suggest_voc_tags"
+    ],
+    "knowledge": [
+      "get_kb_document",
+      "list_kb_domains",
+      "search_kb"
+    ],
+    "write_govern": [
+      "check_outreach_block",
+      "get_ai_output",
+      "get_capability",
+      "list_capabilities",
+      "list_run_logs",
+      "log_step",
+      "read_ai_outputs",
+      "read_shared_tags",
+      "write_ai_output"
+    ]
+  },
+  "total": 48,
+  "domains_secondary": [
+    "channel",
+    "commerce",
+    "iot",
+    "knowledge",
+    "master",
+    "renewal",
+    "service",
+    "shared"
+  ]
+}

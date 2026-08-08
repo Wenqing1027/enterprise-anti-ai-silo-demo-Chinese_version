@@ -1,0 +1,452 @@
+[
+  {
+    "sku_id": "SKU-E40-BK",
+    "sku_name": "E40 哑光黑",
+    "vehicle_model": "E40",
+    "color": "哑光黑",
+    "asp_cny": 2599.0,
+    "hot_slow_flag": "hot",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-E40-GY",
+    "sku_name": "E40 星空灰",
+    "vehicle_model": "E40",
+    "color": "星空灰",
+    "asp_cny": 4299.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-E40-WH",
+    "sku_name": "E40 极光白",
+    "vehicle_model": "E40",
+    "color": "极光白",
+    "asp_cny": 3299.0,
+    "hot_slow_flag": "hot",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-E40-RD",
+    "sku_name": "E40 烈焰红",
+    "vehicle_model": "E40",
+    "color": "烈焰红",
+    "asp_cny": 3999.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": "SKU-E40-GY"
+  },
+  {
+    "sku_id": "SKU-E40-GN",
+    "sku_name": "E40 薄荷绿",
+    "vehicle_model": "E40",
+    "color": "薄荷绿",
+    "asp_cny": 2599.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-E60-BK",
+    "sku_name": "E60 哑光黑",
+    "vehicle_model": "E60",
+    "color": "哑光黑",
+    "asp_cny": 3299.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-E60-GY",
+    "sku_name": "E60 星空灰",
+    "vehicle_model": "E60",
+    "color": "星空灰",
+    "asp_cny": 2999.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-E60-WH",
+    "sku_name": "E60 极光白",
+    "vehicle_model": "E60",
+    "color": "极光白",
+    "asp_cny": 2999.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-E60-RD",
+    "sku_name": "E60 烈焰红",
+    "vehicle_model": "E60",
+    "color": "烈焰红",
+    "asp_cny": 2999.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": "SKU-E60-GY"
+  },
+  {
+    "sku_id": "SKU-E60-GN",
+    "sku_name": "E60 薄荷绿",
+    "vehicle_model": "E60",
+    "color": "薄荷绿",
+    "asp_cny": 2599.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-E80-BK",
+    "sku_name": "E80 哑光黑",
+    "vehicle_model": "E80",
+    "color": "哑光黑",
+    "asp_cny": 2599.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-E80-GY",
+    "sku_name": "E80 星空灰",
+    "vehicle_model": "E80",
+    "color": "星空灰",
+    "asp_cny": 3999.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-E80-WH",
+    "sku_name": "E80 极光白",
+    "vehicle_model": "E80",
+    "color": "极光白",
+    "asp_cny": 2999.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-E80-RD",
+    "sku_name": "E80 烈焰红",
+    "vehicle_model": "E80",
+    "color": "烈焰红",
+    "asp_cny": 2599.0,
+    "hot_slow_flag": "hot",
+    "substitute_sku_id": "SKU-E80-GY"
+  },
+  {
+    "sku_id": "SKU-E80-GN",
+    "sku_name": "E80 薄荷绿",
+    "vehicle_model": "E80",
+    "color": "薄荷绿",
+    "asp_cny": 3999.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-S7-BK",
+    "sku_name": "S7 哑光黑",
+    "vehicle_model": "S7",
+    "color": "哑光黑",
+    "asp_cny": 2599.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-S7-GY",
+    "sku_name": "S7 星空灰",
+    "vehicle_model": "S7",
+    "color": "星空灰",
+    "asp_cny": 2599.0,
+    "hot_slow_flag": "hot",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-S7-WH",
+    "sku_name": "S7 极光白",
+    "vehicle_model": "S7",
+    "color": "极光白",
+    "asp_cny": 2599.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-S7-RD",
+    "sku_name": "S7 烈焰红",
+    "vehicle_model": "S7",
+    "color": "烈焰红",
+    "asp_cny": 3299.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": "SKU-S7-GY"
+  },
+  {
+    "sku_id": "SKU-S7-GN",
+    "sku_name": "S7 薄荷绿",
+    "vehicle_model": "S7",
+    "color": "薄荷绿",
+    "asp_cny": 3599.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-S9-BK",
+    "sku_name": "S9 哑光黑",
+    "vehicle_model": "S9",
+    "color": "哑光黑",
+    "asp_cny": 3299.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-S9-GY",
+    "sku_name": "S9 星空灰",
+    "vehicle_model": "S9",
+    "color": "星空灰",
+    "asp_cny": 3599.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-S9-WH",
+    "sku_name": "S9 极光白",
+    "vehicle_model": "S9",
+    "color": "极光白",
+    "asp_cny": 2599.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-S9-RD",
+    "sku_name": "S9 烈焰红",
+    "vehicle_model": "S9",
+    "color": "烈焰红",
+    "asp_cny": 2599.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": "SKU-S9-GY"
+  },
+  {
+    "sku_id": "SKU-S9-GN",
+    "sku_name": "S9 薄荷绿",
+    "vehicle_model": "S9",
+    "color": "薄荷绿",
+    "asp_cny": 4299.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-C3-BK",
+    "sku_name": "C3 哑光黑",
+    "vehicle_model": "C3",
+    "color": "哑光黑",
+    "asp_cny": 4299.0,
+    "hot_slow_flag": "hot",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-C3-GY",
+    "sku_name": "C3 星空灰",
+    "vehicle_model": "C3",
+    "color": "星空灰",
+    "asp_cny": 3599.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-C3-WH",
+    "sku_name": "C3 极光白",
+    "vehicle_model": "C3",
+    "color": "极光白",
+    "asp_cny": 3599.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-C3-RD",
+    "sku_name": "C3 烈焰红",
+    "vehicle_model": "C3",
+    "color": "烈焰红",
+    "asp_cny": 4299.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": "SKU-C3-GY"
+  },
+  {
+    "sku_id": "SKU-C3-GN",
+    "sku_name": "C3 薄荷绿",
+    "vehicle_model": "C3",
+    "color": "薄荷绿",
+    "asp_cny": 3599.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-M1Pro-BK",
+    "sku_name": "M1 Pro 哑光黑",
+    "vehicle_model": "M1 Pro",
+    "color": "哑光黑",
+    "asp_cny": 3599.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-M1Pro-GY",
+    "sku_name": "M1 Pro 星空灰",
+    "vehicle_model": "M1 Pro",
+    "color": "星空灰",
+    "asp_cny": 3599.0,
+    "hot_slow_flag": "hot",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-M1Pro-WH",
+    "sku_name": "M1 Pro 极光白",
+    "vehicle_model": "M1 Pro",
+    "color": "极光白",
+    "asp_cny": 3599.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-M1Pro-RD",
+    "sku_name": "M1 Pro 烈焰红",
+    "vehicle_model": "M1 Pro",
+    "color": "烈焰红",
+    "asp_cny": 2999.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": "SKU-M1Pro-GY"
+  },
+  {
+    "sku_id": "SKU-M1Pro-GN",
+    "sku_name": "M1 Pro 薄荷绿",
+    "vehicle_model": "M1 Pro",
+    "color": "薄荷绿",
+    "asp_cny": 3299.0,
+    "hot_slow_flag": "hot",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-CityGo-BK",
+    "sku_name": "CityGo 哑光黑",
+    "vehicle_model": "CityGo",
+    "color": "哑光黑",
+    "asp_cny": 3299.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-CityGo-GY",
+    "sku_name": "CityGo 星空灰",
+    "vehicle_model": "CityGo",
+    "color": "星空灰",
+    "asp_cny": 3999.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-CityGo-WH",
+    "sku_name": "CityGo 极光白",
+    "vehicle_model": "CityGo",
+    "color": "极光白",
+    "asp_cny": 3299.0,
+    "hot_slow_flag": "hot",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-CityGo-RD",
+    "sku_name": "CityGo 烈焰红",
+    "vehicle_model": "CityGo",
+    "color": "烈焰红",
+    "asp_cny": 4299.0,
+    "hot_slow_flag": "hot",
+    "substitute_sku_id": "SKU-CityGo-GY"
+  },
+  {
+    "sku_id": "SKU-CityGo-GN",
+    "sku_name": "CityGo 薄荷绿",
+    "vehicle_model": "CityGo",
+    "color": "薄荷绿",
+    "asp_cny": 3599.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-TrailX-BK",
+    "sku_name": "TrailX 哑光黑",
+    "vehicle_model": "TrailX",
+    "color": "哑光黑",
+    "asp_cny": 3999.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-TrailX-GY",
+    "sku_name": "TrailX 星空灰",
+    "vehicle_model": "TrailX",
+    "color": "星空灰",
+    "asp_cny": 3299.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-TrailX-WH",
+    "sku_name": "TrailX 极光白",
+    "vehicle_model": "TrailX",
+    "color": "极光白",
+    "asp_cny": 2599.0,
+    "hot_slow_flag": "hot",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-TrailX-RD",
+    "sku_name": "TrailX 烈焰红",
+    "vehicle_model": "TrailX",
+    "color": "烈焰红",
+    "asp_cny": 2599.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": "SKU-TrailX-GY"
+  },
+  {
+    "sku_id": "SKU-TrailX-GN",
+    "sku_name": "TrailX 薄荷绿",
+    "vehicle_model": "TrailX",
+    "color": "薄荷绿",
+    "asp_cny": 3599.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-LiteAir-BK",
+    "sku_name": "LiteAir 哑光黑",
+    "vehicle_model": "LiteAir",
+    "color": "哑光黑",
+    "asp_cny": 3599.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-LiteAir-GY",
+    "sku_name": "LiteAir 星空灰",
+    "vehicle_model": "LiteAir",
+    "color": "星空灰",
+    "asp_cny": 3599.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-LiteAir-WH",
+    "sku_name": "LiteAir 极光白",
+    "vehicle_model": "LiteAir",
+    "color": "极光白",
+    "asp_cny": 3299.0,
+    "hot_slow_flag": "hot",
+    "substitute_sku_id": null
+  },
+  {
+    "sku_id": "SKU-LiteAir-RD",
+    "sku_name": "LiteAir 烈焰红",
+    "vehicle_model": "LiteAir",
+    "color": "烈焰红",
+    "asp_cny": 3599.0,
+    "hot_slow_flag": "normal",
+    "substitute_sku_id": "SKU-LiteAir-GY"
+  },
+  {
+    "sku_id": "SKU-LiteAir-GN",
+    "sku_name": "LiteAir 薄荷绿",
+    "vehicle_model": "LiteAir",
+    "color": "薄荷绿",
+    "asp_cny": 2599.0,
+    "hot_slow_flag": "slow",
+    "substitute_sku_id": null
+  }
+]

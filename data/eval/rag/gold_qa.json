@@ -1,0 +1,201 @@
+{
+  "version": "v1",
+  "description": "青枢出行 RAG 金标问答（合成知识）；用于 scripts/eval_rag.py / smoke_rag.py",
+  "thresholds": {
+    "run_ok_rate": 1.0,
+    "hit_doc_recall": 0.8,
+    "cite_present_rate": 1.0,
+    "keyword_hit_rate": 0.7,
+    "domain_isolation_rate": 1.0,
+    "cross_domain_safe_rate": 1.0
+  },
+  "cases": [
+    {
+      "id": "RAG-REP-001",
+      "skill_id": "repair_kb",
+      "suite": "core",
+      "query": "续航低于标称怎么排查？",
+      "gold": {
+        "expect_hit": true,
+        "kb_domain": "repair",
+        "doc_id_any_of": ["repair__续航异常排查"],
+        "must_contain_any": ["续航", "SOH", "OTA", "充满"],
+        "notes": "一期 Demo 主问"
+      }
+    },
+    {
+      "id": "RAG-REP-002",
+      "skill_id": "repair_kb",
+      "suite": "core",
+      "query": "App 绑车失败怎么办？",
+      "gold": {
+        "expect_hit": true,
+        "kb_domain": "repair",
+        "doc_id_any_of": ["repair__App绑车失败"],
+        "must_contain_any": ["绑车", "蓝牙", "解绑", "续费", "智能"]
+      }
+    },
+    {
+      "id": "RAG-REP-003",
+      "skill_id": "repair_kb",
+      "suite": "extended",
+      "query": "电机异响还限速是什么原因？",
+      "gold": {
+        "expect_hit": true,
+        "kb_domain": "repair",
+        "doc_id_any_of": ["repair__电机异响与限速"],
+        "must_contain_any": ["电机", "异响", "限速"]
+      }
+    },
+    {
+      "id": "RAG-REP-004",
+      "skill_id": "repair_kb",
+      "suite": "extended",
+      "query": "刹车异响要不要换刹车皮？",
+      "gold": {
+        "expect_hit": true,
+        "kb_domain": "repair",
+        "doc_id_any_of": ["repair__刹车异响与刹车皮"],
+        "must_contain_any": ["刹车", "异响"]
+      }
+    },
+    {
+      "id": "RAG-REP-005",
+      "skill_id": "repair_kb",
+      "suite": "extended",
+      "query": "充电口接触不良怎么处理？",
+      "gold": {
+        "expect_hit": true,
+        "kb_domain": "repair",
+        "doc_id_any_of": ["repair__充电口与充电器兼容"],
+        "must_contain_any": ["充电", "充电器", "接触"]
+      }
+    },
+    {
+      "id": "RAG-POL-001",
+      "skill_id": "policy_kb",
+      "suite": "core",
+      "query": "2026Q3 提货返利金牌要提多少台？",
+      "gold": {
+        "expect_hit": true,
+        "kb_domain": "policy",
+        "doc_id_any_of": ["policy__2026Q3提货返利"],
+        "must_contain_any": ["1200", "金牌", "4.2"]
+      }
+    },
+    {
+      "id": "RAG-POL-002",
+      "skill_id": "policy_kb",
+      "suite": "extended",
+      "query": "三包期内电池 SOH 低怎么办？",
+      "gold": {
+        "expect_hit": true,
+        "kb_domain": "policy",
+        "doc_id_any_of": ["policy__三包与电池政策"],
+        "must_contain_any": ["三包", "电池", "SOH"]
+      }
+    },
+    {
+      "id": "RAG-POL-003",
+      "skill_id": "policy_kb",
+      "suite": "extended",
+      "query": "续费触达有哪些红线不能碰？",
+      "gold": {
+        "expect_hit": true,
+        "kb_domain": "policy",
+        "doc_id_any_of": ["policy__续费触达红线"],
+        "must_contain_any": ["续费", "投诉", "触达", "红线"]
+      }
+    },
+    {
+      "id": "RAG-POL-004",
+      "skill_id": "policy_kb",
+      "suite": "extended",
+      "query": "门店非专卖和 VI 违规怎么认定？",
+      "gold": {
+        "expect_hit": true,
+        "kb_domain": "policy",
+        "doc_id_any_of": ["policy__门店VI与非专卖红线"],
+        "must_contain_any": ["VI", "非专卖", "门店"]
+      }
+    },
+    {
+      "id": "RAG-HR-001",
+      "skill_id": "hr_rules",
+      "suite": "core",
+      "query": "坐席质检不能说哪些话？",
+      "gold": {
+        "expect_hit": true,
+        "kb_domain": "hr",
+        "doc_id_any_of": ["hr__坐席质检SOP要点"],
+        "must_contain_any": ["绝对没问题", "质检", "风险"]
+      }
+    },
+    {
+      "id": "RAG-HR-002",
+      "skill_id": "hr_rules",
+      "suite": "extended",
+      "query": "员工请假制度怎么规定？",
+      "gold": {
+        "expect_hit": true,
+        "kb_domain": "hr",
+        "doc_id_any_of": ["hr__员工制度问答摘要"],
+        "must_contain_any": ["请假", "年假", "审批"]
+      }
+    },
+    {
+      "id": "RAG-HR-003",
+      "skill_id": "hr_rules",
+      "suite": "extended",
+      "query": "能不能把客户手机号导出到私人手机？",
+      "gold": {
+        "expect_hit": true,
+        "kb_domain": "hr",
+        "doc_id_any_of": ["hr__员工制度问答摘要"],
+        "must_contain_any": ["禁止", "手机号", "信息安全", "脱敏"]
+      }
+    },
+    {
+      "id": "RAG-XDOM-001",
+      "skill_id": "repair_kb",
+      "suite": "cross_domain",
+      "query": "员工请假制度是什么？年假怎么休？",
+      "gold": {
+        "expect_hit": false,
+        "kb_domain": "repair",
+        "cross_domain": true,
+        "forbid_doc_id_any_of": ["hr__员工制度问答摘要", "hr__坐席质检SOP要点"],
+        "must_contain_any": ["未覆盖", "知识库", "维修", "无法", "不在", "超出", "换", "人资"],
+        "notes": "越域：维修 Skill 问人资"
+      }
+    },
+    {
+      "id": "RAG-XDOM-002",
+      "skill_id": "policy_kb",
+      "suite": "cross_domain",
+      "query": "电机异响限速怎么修？",
+      "gold": {
+        "expect_hit": false,
+        "kb_domain": "policy",
+        "cross_domain": true,
+        "forbid_doc_id_any_of": ["repair__电机异响与限速"],
+        "must_contain_any": ["未覆盖", "知识库", "政策", "无法", "不在", "超出", "维修"],
+        "notes": "越域：政策 Skill 问维修"
+      }
+    },
+    {
+      "id": "RAG-XDOM-003",
+      "skill_id": "hr_rules",
+      "suite": "cross_domain",
+      "query": "2026Q3 提货返利钻石档要多少台？",
+      "gold": {
+        "expect_hit": false,
+        "kb_domain": "hr",
+        "cross_domain": true,
+        "forbid_doc_id_any_of": ["policy__2026Q3提货返利"],
+        "must_contain_any": ["未覆盖", "知识库", "制度", "无法", "不在", "超出", "政策", "人资"],
+        "notes": "越域：人资 Skill 问返利"
+      }
+    }
+  ]
+}

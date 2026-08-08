@@ -1,0 +1,20 @@
+[
+  {
+    "campaign_id": "CAMP-暑期换新",
+    "campaign_name": "暑期以旧换新",
+    "campaign_goal": "提升零售核销与智能车续费曝光",
+    "campaign_budget": 50000.0,
+    "participants": 3200,
+    "campaign_roi": 2.4,
+    "campaign_complaint_rate": 0.3
+  },
+  {
+    "campaign_id": "CAMP-开学季",
+    "campaign_name": "开学季通勤礼包",
+    "campaign_goal": "冲刺年轻用户绑车激活",
+    "campaign_budget": 30000.0,
+    "participants": 1800,
+    "campaign_roi": 1.9,
+    "campaign_complaint_rate": 0.2
+  }
+]

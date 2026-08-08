@@ -1,0 +1,58 @@
+{
+  "version": "v2",
+  "description": "每个 Skill 归属一个平台控制环。运行时真相源 apps/skill_loops.py。",
+  "control_loops": [
+    "retrieve",
+    "act",
+    "extract",
+    "plan"
+  ],
+  "skills": {
+    "channel_ops": "act",
+    "crm_lookup": "act",
+    "fill_ticket": "act",
+    "hr_rules": "retrieve",
+    "policy_kb": "retrieve",
+    "renewal_plan": "plan",
+    "repair_kb": "retrieve",
+    "shared_write": "act",
+    "ticket_fields": "extract",
+    "voc_entities": "extract",
+    "voc_tagging": "extract"
+  },
+  "planned_skills": {},
+  "by_loop": {
+    "retrieve": [
+      "hr_rules",
+      "policy_kb",
+      "repair_kb"
+    ],
+    "act": [
+      "channel_ops",
+      "crm_lookup",
+      "fill_ticket",
+      "shared_write"
+    ],
+    "extract": [
+      "ticket_fields",
+      "voc_entities",
+      "voc_tagging"
+    ],
+    "plan": [
+      "renewal_plan"
+    ]
+  },
+  "planned_by_loop": {
+    "retrieve": [],
+    "act": [],
+    "extract": [],
+    "plan": []
+  },
+  "legacy_agent_type": {
+    "retrieve": "rag",
+    "act": "react",
+    "extract": "extraction",
+    "plan": "planning"
+  },
+  "note": "Skill YAML 字段 control_loop 为规范名；RAG 仍保留 agent_type: rag 供 loader 识别。"
+}

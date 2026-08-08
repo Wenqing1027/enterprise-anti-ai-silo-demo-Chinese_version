@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>青枢出行 · IT 运维看板</title>
+    <link rel="stylesheet" href="/static/styles.css?v=20260808-ops-layout11" />
+  </head>
+  <body class="page-ops">
+    <nav class="mode-switch mode-switch-vertical" aria-label="界面切换">
+      <a href="/business">业务主管</a>
+      <a class="active" href="/ops" aria-current="page">IT 运维</a>
+      <a href="/logic">逻辑讲解</a>
+    </nav>
+    <div class="shell shell-wide">
+      <header class="topbar ops-topbar">
+        <div class="topbar-brand">
+          <div class="eyebrow">Qingshu Mobility · Ops Dashboard</div>
+          <h1>IT 运维看板</h1>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-meta ops-meta">
+            健康分 · 黄金指标 · 事件关联 · 调用链<br />
+            <a href="/docs" target="_blank" rel="noreferrer">OpenAPI</a>
+          </div>
+        </div>
+      </header>
+
+      <div id="ops-banner" class="ops-banner">
+        平台创新点：按 <strong>4 控制环</strong>分治观测运行态（非业务 Skill 试跑）。
+        联调顺序建议：Act → Extract → Retrieve → Plan；Plan 通后到业务墙做
+        <a href="/business">Story2 两步演示</a>。
+        全局看板 + 各环子页；指标异常时高亮旁侧<strong>事件/变更</strong>。
+      </div>
+
+      <div class="ops-layout">
+        <aside class="biz-side">
+          <div class="side-block">
+            <div class="side-label">范围</div>
+            <div id="ops-nav" class="side-list"></div>
+          </div>
+          <div class="side-block">
+            <div class="side-label">快捷</div>
+            <button type="button" class="side-item" id="btn-refresh">刷新</button>
+            <a class="side-item" href="/business">业务工作台 →</a>
+          </div>
+        </aside>
+        <section class="biz-main">
+          <div id="ops-panel" class="ops-dash">
+            <p class="blurb">加载中…</p>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="/static/ops.js?v=20260808-ops-layout11"></script>
+  </body>
+</html>

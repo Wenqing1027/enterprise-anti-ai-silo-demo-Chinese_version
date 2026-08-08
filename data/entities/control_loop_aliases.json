@@ -1,0 +1,29 @@
+{
+  "version": "v2",
+  "description": "平台控制环规范 ID 与历史别名。运行时真相源为 apps/loops.py；本文件供 catalog/文档机读对照。",
+  "control_loops": ["retrieve", "act", "extract", "plan"],
+  "aliases": {
+    "rag": "retrieve",
+    "react": "act",
+    "extraction": "extract",
+    "planning": "plan"
+  },
+  "legacy_api_paths": {
+    "retrieve": "/v1/rag/runs",
+    "act": "/v1/react/runs",
+    "extract": "/v1/extraction/runs",
+    "plan": "/v1/planning/runs"
+  },
+  "unified_api_path": "/v1/runs",
+  "note": "专用路径按环保留；POST /v1/runs 用 control_loop（或 agent_type 别名）统一分发。",
+  "skill_yaml_agent_type": {
+    "retrieve": "rag",
+    "act": "react",
+    "extract": "extraction",
+    "plan": "planning"
+  },
+  "extension_types": {
+    "rule_llm": { "parent_loop": "plan", "note": "非平台主清单" },
+    "vision": { "parent_loop": "extract", "note": "非平台主清单" }
+  }
+}

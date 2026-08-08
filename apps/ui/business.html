@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>青枢出行 · 青枢 AI 工作台</title>
+    <link rel="stylesheet" href="/static/styles.css?v=20260808-biz-ui12" />
+  </head>
+  <body class="page-business">
+    <nav class="mode-switch mode-switch-vertical" aria-label="界面切换">
+      <a class="active" href="/business" aria-current="page">业务主管</a>
+      <a href="/ops">IT 运维</a>
+      <a href="/logic">逻辑讲解</a>
+    </nav>
+
+    <div class="shell shell-wide shell-business">
+      <header class="topbar topbar-business">
+        <div class="topbar-brand">
+          <div class="eyebrow">Qingshu Mobility</div>
+          <h1>青枢 AI 工作台</h1>
+        </div>
+      </header>
+
+      <p class="platform-note platform-note-subtle" id="platform-guide">
+        按部门查看能力；左侧点一项进入详情。每项可单独试用，跨部门结果经共用信息衔接，不会自动连跑。
+      </p>
+
+      <nav id="dept-nav" class="dept-nav dept-nav-row" aria-label="部门导航"></nav>
+
+      <div id="dept-intro" class="dept-intro" hidden></div>
+
+      <div class="biz-workspace">
+        <aside class="feature-rail" aria-label="功能列">
+          <div class="feature-rail-head">
+            <h2>功能列</h2>
+            <p id="rail-sub" class="blurb">请选择部门</p>
+          </div>
+          <div id="feature-rail-list" class="feature-rail-list"></div>
+        </aside>
+
+        <section class="biz-main" id="biz-main">
+          <div id="view-empty" class="view-empty card">
+            <h2>请从左侧选择功能</h2>
+            <p class="blurb">选择部门后，在「功能列」中点击一项，即可查看说明并试用可用能力。</p>
+          </div>
+
+          <div id="view-feature" class="view-feature" hidden>
+            <div class="feature-detail-bar card">
+              <div class="feature-detail-head">
+                <div class="feature-detail-main">
+                  <div class="crumb" id="feature-crumb"></div>
+                  <div class="feature-top" id="feature-badges"></div>
+                  <h2 id="feature-title">功能</h2>
+                </div>
+                <button type="button" class="ghost" id="btn-close-runner" hidden>收起</button>
+              </div>
+              <p id="feature-purpose-line" class="feature-purpose-line">
+                <span id="feature-purpose"></span>
+                <span id="feature-run-hint" class="feature-run-hint"></span>
+              </p>
+              <div class="card-actions" id="feature-actions"></div>
+            </div>
+
+            <div id="runner" class="runner card" hidden>
+              <label for="input-text" id="label-input-text" class="runner-field-label">输入</label>
+              <textarea id="input-text"></textarea>
+              <div class="row-2">
+                <div id="wrap-customer">
+                  <label for="input-customer">客户编号</label>
+                  <input id="input-customer" autocomplete="off" />
+                </div>
+                <div id="wrap-vin">
+                  <label for="input-vin">车辆识别码</label>
+                  <input id="input-vin" autocomplete="off" />
+                </div>
+              </div>
+              <div class="row-2">
+                <div id="wrap-dealer">
+                  <label for="input-dealer">经销商编号</label>
+                  <input id="input-dealer" autocomplete="off" />
+                </div>
+                <div id="wrap-channel">
+                  <label for="input-channel">渠道</label>
+                  <input id="input-channel" autocomplete="off" />
+                </div>
+              </div>
+              <div id="wrap-order">
+                <label for="input-order">订单编号</label>
+                <input id="input-order" autocomplete="off" />
+              </div>
+              <div id="payload-box" hidden>
+                <label for="input-payload">补充信息（可选）</label>
+                <textarea id="input-payload" class="mono-area"></textarea>
+              </div>
+              <div class="actions">
+                <button id="btn-run" class="primary" type="button">开始试用</button>
+                <button id="btn-sample" class="ghost" type="button">填入示例</button>
+              </div>
+              <div id="status" class="status-line">就绪</div>
+              <div id="board" class="board-grid"></div>
+              <div id="answer" class="answer">尚未试用。</div>
+              <div id="kv" class="kv"></div>
+              <div id="steps" class="steps"></div>
+            </div>
+          </div>
+
+          <div id="view-guide" class="view-guide" hidden>
+            <div class="feature-detail-bar card">
+              <div class="crumb" id="guide-crumb"></div>
+              <span class="pill pill-ok">业务操作指南</span>
+              <h2 id="guide-title">跨部门协同：投诉未结则暂停触达</h2>
+              <p class="blurb" id="guide-blurb">
+                先在服务侧登记投诉信息，再在用户运营侧发起触达评估。
+                若投诉尚未结案，系统会自动暂停营销触达，避免对客户造成二次打扰。
+                两步各自完成，中间结果通过共用信息衔接。
+              </p>
+            </div>
+            <ol class="guide-steps">
+              <li class="guide-step card">
+                <div class="guide-step-num">步骤 1</div>
+                <h3>登记投诉信息</h3>
+                <p class="blurb">在服务部门记录客户投诉，写入共用信息，供后续触达评估使用。</p>
+                <div class="card-actions">
+                  <button type="button" class="primary mini" id="btn-guide-step1a">打开：智能填单</button>
+                  <button type="button" class="ghost mini" id="btn-guide-step1b">打开：智能填单（结构化）</button>
+                </div>
+              </li>
+              <li class="guide-step card">
+                <div class="guide-step-num">步骤 2</div>
+                <h3>评估是否可触达</h3>
+                <p class="blurb">切换到用户运营相关能力，发起触达评估。期望结果：因投诉未结而暂停触达。</p>
+                <div class="card-actions">
+                  <button type="button" class="primary mini" id="btn-guide-step2">打开：主动触达评估</button>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="/static/business.js?v=20260808-biz-ui13"></script>
+  </body>
+</html>

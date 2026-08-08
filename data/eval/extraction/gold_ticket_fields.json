@@ -1,0 +1,918 @@
+{
+  "version": "2026-08-05-v2",
+  "skill_id": "ticket_fields",
+  "payload_schema": "ticket_draft_v1",
+  "thresholds": {
+    "schema_ok_rate": 1.0,
+    "ticket_type_acc": 0.8,
+    "fault_category_acc": 0.75,
+    "tag_id_acc": 0.75,
+    "blocking_miss": 0,
+    "sentiment_acc": 0.8,
+    "id_recall": 0.95
+  },
+  "cases": [
+    {
+      "id": "T01",
+      "input": {
+        "text": "投诉门店未按三包政策处理电池更换，工单已超过7天未结。客户 CUS-10057，车辆 QS0F65B984410D7B6。",
+        "customer_id": "CUS-10057",
+        "vin": "QS0F65B984410D7B6",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "fault_category": "battery",
+        "tag_id": "TAG-投诉未结",
+        "tag_id_accept": [
+          "TAG-投诉未结",
+          "TAG-三包争议"
+        ],
+        "sentiment": "neg",
+        "is_complaint": true,
+        "customer_id": "CUS-10057",
+        "vin": "QS0F65B984410D7B6",
+        "expect_ids": true,
+        "blocking_required": true
+      }
+    },
+    {
+      "id": "T02",
+      "input": {
+        "text": "骑行续航明显低于标称，充满电跑不到一半。",
+        "channel": "App"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "battery",
+        "tag_id": "TAG-续航短",
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T03",
+      "input": {
+        "text": "电机异响很大，爬坡还有点限速，想预约检修。",
+        "customer_id": "CUS-10088",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "motor",
+        "tag_id": "TAG-异响",
+        "tag_id_accept": [
+          "TAG-异响",
+          "TAG-动力弱"
+        ],
+        "sentiment": "neg",
+        "is_complaint": false,
+        "customer_id": "CUS-10088",
+        "expect_ids": true,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T04",
+      "input": {
+        "text": "刹车感觉偏软，刹不住有点怕，VIN QS06B9D93B16FE307。",
+        "vin": "QS06B9D93B16FE307",
+        "channel": "门店"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "brake",
+        "tag_id": "TAG-刹车",
+        "sentiment": "neg",
+        "is_complaint": false,
+        "vin": "QS06B9D93B16FE307",
+        "expect_ids": true,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T05",
+      "input": {
+        "text": "充电特别慢，一晚上充不满，是不是充电器问题？",
+        "channel": "电商"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "charging",
+        "tag_id": "TAG-充电慢",
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T06",
+      "input": {
+        "text": "仪表黑屏了，重启也不行，怎么处理？",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "dashboard",
+        "tag_id": "TAG-仪表黑屏",
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T07",
+      "input": {
+        "text": "App 绑车一直失败，提示设备离线。",
+        "channel": "App"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "other",
+        "tag_id": "TAG-绑车失败",
+        "sentiment": "neg",
+        "is_complaint": false,
+        "accept_fault_other": true,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T08",
+      "input": {
+        "text": "想咨询一下三包政策里电池质保年限是多久？",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "consult",
+        "fault_category": null,
+        "tag_id": "TAG-三包争议",
+        "tag_id_accept": [
+          "TAG-三包争议",
+          "TAG-续航短"
+        ],
+        "sentiment": "neu",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T09",
+      "input": {
+        "text": "上门师傅约了三天还不来，态度也很差。",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "fault_category": null,
+        "tag_id": "TAG-上门慢",
+        "tag_id_accept": [
+          "TAG-上门慢",
+          "TAG-态度差"
+        ],
+        "sentiment": "neg",
+        "is_complaint": true,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T10",
+      "input": {
+        "text": "坐席说话很不耐烦还骂人，我要投诉。",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "tag_id": "TAG-态度差",
+        "sentiment": "neg",
+        "is_complaint": true,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T11",
+      "input": {
+        "text": "电池鼓包发热发烫，感觉有安全隐患要起火。",
+        "customer_id": "CUS-10101",
+        "channel": "App"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "fault_category": "battery",
+        "tag_id": "TAG-安全隐患",
+        "tag_id_accept": [
+          "TAG-安全隐患",
+          "TAG-电池鼓包"
+        ],
+        "sentiment": "neg",
+        "is_complaint": true,
+        "customer_id": "CUS-10101",
+        "expect_ids": true,
+        "blocking_required": true
+      }
+    },
+    {
+      "id": "T12",
+      "input": {
+        "text": "准备去媒体曝光，已经打了12315，你们看着办。",
+        "channel": "community"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "tag_id": "TAG-舆情风险",
+        "sentiment": "neg",
+        "is_complaint": true,
+        "expect_ids": false,
+        "blocking_required": true
+      }
+    },
+    {
+      "id": "T13",
+      "input": {
+        "text": "爬坡没力动力弱，感觉电机不行。",
+        "channel": "门店"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "motor",
+        "tag_id": "TAG-动力弱",
+        "tag_id_accept": [
+          "TAG-动力弱",
+          "TAG-异响"
+        ],
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T14",
+      "input": {
+        "text": "控制器报错闪灯，车突然断电。",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "controller",
+        "tag_id": "TAG-控制器",
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T15",
+      "input": {
+        "text": "门店非专卖还挂竞品海报，VI 也不合规。",
+        "channel": "community"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "tag_id": "TAG-非专卖",
+        "tag_id_accept": [
+          "TAG-非专卖",
+          "TAG-VI违规"
+        ],
+        "sentiment": "neg",
+        "is_complaint": true,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T16",
+      "input": {
+        "text": "问一下续费入口在 App 哪里打开？",
+        "channel": "App"
+      },
+      "gold": {
+        "ticket_type": "consult",
+        "tag_id": "TAG-续费入口",
+        "sentiment": "neu",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T17",
+      "input": {
+        "text": "定位老是飘，差几百米，怎么校准？",
+        "channel": "App"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "other",
+        "tag_id": "TAG-定位飘",
+        "accept_fault_other": true,
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T18",
+      "input": {
+        "text": "配件缺货说要等两周，能催一下吗？",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "consult",
+        "tag_id": "TAG-配件缺货",
+        "tag_id_accept": [
+          "TAG-配件缺货",
+          "TAG-上门慢"
+        ],
+        "sentiment": "neu",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T19",
+      "input": {
+        "text": "多次投诉一直没处理，超过7天未结，CUS-10200。",
+        "customer_id": "CUS-10200",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "tag_id": "TAG-投诉未结",
+        "sentiment": "neg",
+        "is_complaint": true,
+        "customer_id": "CUS-10200",
+        "expect_ids": true,
+        "blocking_required": true
+      }
+    },
+    {
+      "id": "T20",
+      "input": {
+        "text": "车架附近有吱吱异响，减震好像松了。",
+        "channel": "门店"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "frame",
+        "tag_id": "TAG-异响",
+        "tag_id_accept": [
+          "TAG-异响"
+        ],
+        "fault_category_accept": [
+          "frame",
+          "other"
+        ],
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T21",
+      "input": {
+        "text": "推送太频繁像骚扰，能不能关？",
+        "channel": "App"
+      },
+      "gold": {
+        "ticket_type": "consult",
+        "tag_id": "TAG-推送骚扰",
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T22",
+      "input": {
+        "text": "一代压货严重，颜色计划对不上，求助。",
+        "channel": "门店"
+      },
+      "gold": {
+        "ticket_type": "consult",
+        "tag_id": "TAG-压货",
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T23",
+      "input": {
+        "text": "电量掉得飞快，标称续航根本跑不到，CUS-10301。",
+        "customer_id": "CUS-10301",
+        "channel": "App"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "battery",
+        "tag_id": "TAG-续航短",
+        "sentiment": "neg",
+        "is_complaint": false,
+        "customer_id": "CUS-10301",
+        "expect_ids": true,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T24",
+      "input": {
+        "text": "后轮附近有异响，骑行时吱吱响不停。",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "tire",
+        "tag_id": "TAG-异响",
+        "fault_category_accept": [
+          "tire",
+          "other",
+          "frame"
+        ],
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T25",
+      "input": {
+        "text": "大灯不亮仪表也有点异常，夜骑很危险，VIN QS09D927790081462。",
+        "vin": "QS09D927790081462",
+        "channel": "门店"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "lighting",
+        "tag_id": "TAG-仪表黑屏",
+        "tag_id_accept": [
+          "TAG-仪表黑屏",
+          "TAG-控制器",
+          "TAG-安全隐患"
+        ],
+        "fault_category_accept": [
+          "lighting",
+          "other",
+          "dashboard"
+        ],
+        "sentiment": "neg",
+        "is_complaint": false,
+        "vin": "QS09D927790081462",
+        "expect_ids": true,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T26",
+      "input": {
+        "text": "电池鼓包鼓起来了，摸着发热。",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "battery",
+        "tag_id": "TAG-电池鼓包",
+        "tag_id_accept": [
+          "TAG-电池鼓包",
+          "TAG-安全隐患"
+        ],
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T27",
+      "input": {
+        "text": "急刹时刹不住，差点追尾，请尽快处理。",
+        "channel": "App"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "brake",
+        "tag_id": "TAG-刹车",
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T28",
+      "input": {
+        "text": "充电器充一夜都充不满，是不是充电慢？",
+        "channel": "电商"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "charging",
+        "tag_id": "TAG-充电慢",
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T29",
+      "input": {
+        "text": "控制器报故障码，整车限速到走不动。",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "controller",
+        "tag_id": "TAG-控制器",
+        "tag_id_accept": [
+          "TAG-控制器",
+          "TAG-动力弱"
+        ],
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T30",
+      "input": {
+        "text": "上坡完全没力，动力弱得像没电。",
+        "channel": "门店"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "motor",
+        "tag_id": "TAG-动力弱",
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T31",
+      "input": {
+        "text": "怎么查询三包电池质保还剩多久？",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "consult",
+        "tag_id": "TAG-三包争议",
+        "tag_id_accept": [
+          "TAG-三包争议",
+          "TAG-续航短"
+        ],
+        "sentiment": "neu",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T32",
+      "input": {
+        "text": "预约的上门维修改了两次还没来。",
+        "channel": "App"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "tag_id": "TAG-上门慢",
+        "sentiment": "neg",
+        "is_complaint": true,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T33",
+      "input": {
+        "text": "客服语气很冲，态度差到想投诉。",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "tag_id": "TAG-态度差",
+        "sentiment": "neg",
+        "is_complaint": true,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T34",
+      "input": {
+        "text": "刹车皮配件缺货，说要等半个月。",
+        "channel": "门店"
+      },
+      "gold": {
+        "ticket_type": "consult",
+        "tag_id": "TAG-配件缺货",
+        "tag_id_accept": [
+          "TAG-配件缺货",
+          "TAG-刹车"
+        ],
+        "sentiment": "neu",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T35",
+      "input": {
+        "text": "App 绑定车辆失败，扫码没反应。",
+        "channel": "App"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "other",
+        "tag_id": "TAG-绑车失败",
+        "accept_fault_other": true,
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T36",
+      "input": {
+        "text": "地图定位飘得很离谱，差一条街。",
+        "channel": "App"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "other",
+        "tag_id": "TAG-定位飘",
+        "accept_fault_other": true,
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T37",
+      "input": {
+        "text": "咨询一下车联服务续费入口在哪。",
+        "channel": "App"
+      },
+      "gold": {
+        "ticket_type": "consult",
+        "tag_id": "TAG-续费入口",
+        "sentiment": "neu",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T38",
+      "input": {
+        "text": "营销推送一天十几条，太骚扰了。",
+        "channel": "App"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "tag_id": "TAG-推送骚扰",
+        "sentiment": "neg",
+        "is_complaint": true,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T39",
+      "input": {
+        "text": "门店混卖别的牌子，明显非专卖。",
+        "channel": "community"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "tag_id": "TAG-非专卖",
+        "sentiment": "neg",
+        "is_complaint": true,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T40",
+      "input": {
+        "text": "海报字体颜色都不对，VI 违规严重。",
+        "channel": "community"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "tag_id": "TAG-VI违规",
+        "sentiment": "neg",
+        "is_complaint": true,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T41",
+      "input": {
+        "text": "仓库压货太多，颜色计划推不动。",
+        "channel": "门店"
+      },
+      "gold": {
+        "ticket_type": "consult",
+        "tag_id": "TAG-压货",
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T42",
+      "input": {
+        "text": "电池冒烟了差点起火，马上处理！CUS-10444 QS0B40C273B23B7D9",
+        "customer_id": "CUS-10444",
+        "vin": "QS0B40C273B23B7D9",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "fault_category": "battery",
+        "tag_id": "TAG-安全隐患",
+        "tag_id_accept": [
+          "TAG-安全隐患",
+          "TAG-电池鼓包"
+        ],
+        "sentiment": "neg",
+        "is_complaint": true,
+        "customer_id": "CUS-10444",
+        "vin": "QS0B40C273B23B7D9",
+        "expect_ids": true,
+        "blocking_required": true
+      }
+    },
+    {
+      "id": "T43",
+      "input": {
+        "text": "我要去媒体曝光并打12315，你们别装死。",
+        "channel": "community"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "tag_id": "TAG-舆情风险",
+        "sentiment": "neg",
+        "is_complaint": true,
+        "expect_ids": false,
+        "blocking_required": true
+      }
+    },
+    {
+      "id": "T44",
+      "input": {
+        "text": "工单开了超过7天一直没处理，多次投诉未结。CUS-10555",
+        "customer_id": "CUS-10555",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "tag_id": "TAG-投诉未结",
+        "sentiment": "neg",
+        "is_complaint": true,
+        "customer_id": "CUS-10555",
+        "expect_ids": true,
+        "blocking_required": true
+      }
+    },
+    {
+      "id": "T45",
+      "input": {
+        "text": "仪表盘黑屏闪一下又灭，什么情况？",
+        "channel": "电商"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "dashboard",
+        "tag_id": "TAG-仪表黑屏",
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T46",
+      "input": {
+        "text": "电机噪音大还有异响，限速也频繁。",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "fault",
+        "fault_category": "motor",
+        "tag_id": "TAG-异响",
+        "tag_id_accept": [
+          "TAG-异响",
+          "TAG-动力弱"
+        ],
+        "sentiment": "neg",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T47",
+      "input": {
+        "text": "三包说拒保不给换，我不同意。",
+        "channel": "门店"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "tag_id": "TAG-三包争议",
+        "sentiment": "neg",
+        "is_complaint": true,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T48",
+      "input": {
+        "text": "请问刹车皮等配件大概多久能到货？",
+        "channel": "400"
+      },
+      "gold": {
+        "ticket_type": "consult",
+        "tag_id": "TAG-配件缺货",
+        "tag_id_accept": [
+          "TAG-配件缺货",
+          "TAG-刹车"
+        ],
+        "sentiment": "neu",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    },
+    {
+      "id": "T49",
+      "input": {
+        "text": "车架焊缝附近有裂纹感觉，怕安全隐患漏电。",
+        "channel": "App"
+      },
+      "gold": {
+        "ticket_type": "complaint",
+        "fault_category": "frame",
+        "tag_id": "TAG-安全隐患",
+        "tag_id_accept": [
+          "TAG-安全隐患"
+        ],
+        "fault_category_accept": [
+          "frame",
+          "other"
+        ],
+        "sentiment": "neg",
+        "is_complaint": true,
+        "expect_ids": false,
+        "blocking_required": true
+      }
+    },
+    {
+      "id": "T50",
+      "input": {
+        "text": "车挺好用，想咨询下常规保养项目有哪些。",
+        "channel": "门店"
+      },
+      "gold": {
+        "ticket_type": "consult",
+        "tag_id": "TAG-配件缺货",
+        "tag_id_accept": [
+          "TAG-配件缺货",
+          "TAG-三包争议",
+          "TAG-上门慢"
+        ],
+        "sentiment": "pos",
+        "is_complaint": false,
+        "expect_ids": false,
+        "blocking_required": false
+      }
+    }
+  ],
+  "meta": {
+    "expanded_to": 50,
+    "note": "扩容：变体/ID/阻断/灯光轮胎/鼓包"
+  }
+}

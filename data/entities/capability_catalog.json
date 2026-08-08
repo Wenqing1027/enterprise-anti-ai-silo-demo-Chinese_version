@@ -1,0 +1,215 @@
+[
+  {
+    "skill_id": "fill_ticket",
+    "skill_desc": "对话/文本生成工单草案并写入共享产出",
+    "input_schema": {
+      "text": "string",
+      "customer_id": "string?",
+      "vin": "string?"
+    },
+    "output_schema": {
+      "ticket_draft": "object",
+      "ai_output_id": "string"
+    },
+    "allowed_tools": [
+      "get_customer",
+      "get_vehicle",
+      "get_ticket",
+      "list_tickets",
+      "extract_ticket_fields",
+      "suggest_voc_tags",
+      "get_tag",
+      "write_ai_output",
+      "log_step"
+    ]
+  },
+  {
+    "skill_id": "renewal_plan",
+    "skill_desc": "续费触达计划；若存在未结投诉标签则阻断",
+    "input_schema": {
+      "customer_id": "string",
+      "vin": "string?"
+    },
+    "output_schema": {
+      "allow_outreach": "boolean",
+      "reason": "string",
+      "plan.channels": "list?",
+      "plan.renew_pool_layer": "string?"
+    },
+    "allowed_tools": [
+      "get_customer",
+      "get_vehicle",
+      "get_renewal",
+      "get_user_behavior",
+      "score_renewal",
+      "route_renewal_pool",
+      "read_ai_outputs",
+      "read_shared_tags",
+      "check_outreach_block",
+      "log_step"
+    ]
+  },
+    {
+      "skill_id": "repair_kb",
+      "skill_desc": "维修知识库 RAG 问答",
+      "input_schema": {
+        "query": "string",
+        "vin": "string?"
+      },
+      "output_schema": {
+        "answer": "string",
+        "citations": "list"
+      },
+      "allowed_tools": [
+        "search_kb",
+        "get_kb_document",
+        "list_kb_domains",
+        "log_step"
+      ]
+    },
+    {
+      "skill_id": "policy_kb",
+      "skill_desc": "销售/三包政策 RAG 问答",
+      "input_schema": {
+        "query": "string",
+        "dealer_id": "string?"
+      },
+      "output_schema": {
+        "answer": "string",
+        "citations": "list"
+      },
+      "allowed_tools": [
+        "search_kb",
+        "get_kb_document",
+        "list_kb_domains",
+        "log_step"
+      ]
+    },
+    {
+      "skill_id": "hr_rules",
+      "skill_desc": "人资制度 / 坐席 SOP RAG 问答",
+      "input_schema": {
+        "query": "string"
+      },
+      "output_schema": {
+        "answer": "string",
+        "citations": "list"
+      },
+      "allowed_tools": [
+        "search_kb",
+        "get_kb_document",
+        "list_kb_domains",
+        "log_step"
+      ]
+    },
+  {
+    "skill_id": "ticket_fields",
+    "skill_desc": "Extraction：文本→工单草案 ticket_draft_v1 并资产化",
+    "input_schema": {
+      "text": "string",
+      "customer_id": "string?",
+      "vin": "string?",
+      "channel": "string?"
+    },
+    "output_schema": {
+      "payload_schema": "ticket_draft_v1",
+      "ai_output_id": "string"
+    },
+    "allowed_tools": [
+      "write_ai_output"
+    ]
+  },
+  {
+    "skill_id": "voc_entities",
+    "skill_desc": "Extraction：原声→VoC 实体 voc_entities_v1 并资产化",
+    "input_schema": {
+      "text": "string",
+      "customer_id": "string?",
+      "vin": "string?"
+    },
+    "output_schema": {
+      "payload_schema": "voc_entities_v1",
+      "ai_output_id": "string"
+    },
+    "allowed_tools": [
+      "write_ai_output"
+    ]
+  },
+  {
+    "skill_id": "voc_tagging",
+    "skill_desc": "Extraction：VoC 打标别名（同 voc_entities_v1）",
+    "input_schema": {
+      "text": "string",
+      "customer_id": "string?"
+    },
+    "output_schema": {
+      "payload_schema": "voc_entities_v1",
+      "ai_output_id": "string"
+    },
+    "allowed_tools": [
+      "write_ai_output"
+    ]
+  },
+  {
+    "skill_id": "shared_write",
+    "skill_desc": "通用共享产出写入示例",
+    "input_schema": {
+      "payload": "object"
+    },
+    "output_schema": {
+      "ai_output_id": "string"
+    },
+    "allowed_tools": [
+      "write_ai_output",
+      "read_ai_outputs",
+      "get_ai_output",
+      "log_step"
+    ]
+  },
+  {
+    "skill_id": "crm_lookup",
+    "skill_desc": "主数据/订单/库存综合查询",
+    "input_schema": {
+      "customer_id": "string?",
+      "vin": "string?",
+      "order_id": "string?"
+    },
+    "output_schema": {
+      "entities": "object"
+    },
+    "allowed_tools": [
+      "get_customer",
+      "get_vehicle",
+      "list_vehicles",
+      "get_order",
+      "list_orders",
+      "list_inventory",
+      "get_dealer",
+      "get_store",
+      "get_sku",
+      "log_step"
+    ]
+  },
+  {
+    "skill_id": "channel_ops",
+    "skill_desc": "渠道经营健康/预警/巡检查询",
+    "input_schema": {
+      "dealer_id": "string?"
+    },
+    "output_schema": {
+      "insights": "object"
+    },
+    "allowed_tools": [
+      "get_dealer",
+      "get_dealer_health",
+      "list_alerts",
+      "list_sales_metrics",
+      "list_retail_daily",
+      "list_inspections",
+      "get_risk",
+      "get_policy",
+      "simulate_rebate_tier",
+      "log_step"
+    ]
+  }
+]

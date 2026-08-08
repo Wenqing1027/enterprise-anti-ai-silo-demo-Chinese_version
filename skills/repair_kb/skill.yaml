@@ -1,0 +1,41 @@
+# flow: service_repair_qa（planned；与 Story1 并行存在，见 docs/rag/02）
+# agent: RAG（retrieve → stuff → generate）— 勿与 ReAct + search_kb 工具步混淆
+# feature: F-SVC-002 / F-SVC-004 / F-UO-009 / F-DAT-011
+skill_id: repair_kb
+control_loop: retrieve
+agent_type: rag
+department: 服务事业部
+goal: 基于维修知识库回答续航/异响/绑车/充电等售后问题，并给出可引用片段。
+success_hint: 终答含步骤或口径，并标注 kb_chunk_id / 文档标题引用；无命中时明确说明知识库未覆盖。
+success_when: cited_answer
+kb_domains_allow:
+  - repair
+top_k: 5
+max_context_chars: 2400
+cite_required: true
+allow_no_hit_answer: true
+tone:
+  label: 稳妥确认型
+  style: 先复述问题；按检索依据分步说明；不确定则建议转人工/开单
+  forbid: 超权承诺「一定能修好/必赔」；编造未检索到的零件号或政策条款
+allowed_tools:
+  - search_kb
+  - get_kb_document
+  - list_kb_domains
+  - log_step
+system_extra: |
+  【分治标注】本 Skill 走 RAG 控制环，不是 ReAct 多步脑。
+  检索域仅限 repair；禁止回答人资制度、销售返利等外域问题（应引导换 Skill）。
+  若用户同时提供 VIN，可提示一线核对 OTA/SOH，但本 Skill 一期不强制查主数据。
+  App 智能问答（F-UO-009）一期复用本 Skill 同域配置。
+output_format: |
+  1. 问题复述（一句话）
+  2. 依据知识库的排查/处理建议（分步）
+  3. 引用：kb_chunk_id 与文档/节标题（至少 1 条；无命中则写「未检索到」）
+  4. 建议下一步（开单 / 转专席 / 用户自助动作）
+security:
+  kb_domains_allow:
+    - repair
+  redact_pii: true
+  prompt_forbid_extra: 不得承诺必赔/必修好；不得编造未出现在检索片段中的条款；不得输出明文手机号
+write_ai_output: false

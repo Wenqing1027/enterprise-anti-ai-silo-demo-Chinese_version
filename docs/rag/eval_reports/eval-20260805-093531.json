@@ -1,0 +1,331 @@
+{
+  "version": "v1",
+  "built_at": "2026-08-05T09:35:31Z",
+  "suite": "all",
+  "elapsed_s": 51.03,
+  "passed": true,
+  "failures": [],
+  "thresholds": {
+    "run_ok_rate": 1.0,
+    "hit_doc_recall": 0.8,
+    "cite_present_rate": 1.0,
+    "keyword_hit_rate": 0.7,
+    "domain_isolation_rate": 1.0,
+    "cross_domain_safe_rate": 1.0
+  },
+  "metrics": {
+    "n": 15,
+    "run_ok_rate": 1.0,
+    "hit_doc_recall": 1.0,
+    "hit_n": 12,
+    "cite_present_rate": 1.0,
+    "cite_n": 12,
+    "keyword_hit_rate": 1.0,
+    "keyword_n": 15,
+    "domain_isolation_rate": 1.0,
+    "cross_domain_safe_rate": 1.0,
+    "cross_domain_n": 3
+  },
+  "rows": [
+    {
+      "id": "RAG-REP-001",
+      "skill_id": "repair_kb",
+      "suite": "core",
+      "ok": true,
+      "stop_reason": "cited_answer",
+      "elapsed_s": 4.64,
+      "expect_hit": true,
+      "doc_hit": true,
+      "cited_docs": [
+        "repair__续航异常排查"
+      ],
+      "cited_domains": [
+        "repair"
+      ],
+      "keyword_hit": true,
+      "domain_isolation_ok": true,
+      "cross_domain_ok": null,
+      "answer_preview": "【问题复述】 您咨询的是：车辆续航低于标称值时，应如何排查。  【依据知识库的排查/处理建议】 根据《续航异常排查手册（青枢出行 · 合成知识）》，建议按以下三步走：  1. **标准三步话术**：先确认“充满电标准”、核对“OTA 版本”、查看“电池健康度（SOH）”。 2. **快速区分现象与动作**（依据片段 [3]）：    - 若满电里程约为标称 "
+    },
+    {
+      "id": "RAG-REP-002",
+      "skill_id": "repair_kb",
+      "suite": "core",
+      "ok": true,
+      "stop_reason": "cited_answer",
+      "elapsed_s": 3.29,
+      "expect_hit": true,
+      "doc_hit": true,
+      "cited_docs": [
+        "repair__App绑车失败",
+        "repair__续航异常排查"
+      ],
+      "cited_domains": [
+        "repair"
+      ],
+      "keyword_hit": true,
+      "domain_isolation_ok": true,
+      "cross_domain_ok": null,
+      "answer_preview": "【问题复述】 您咨询的是：App 绑车失败时，应如何排查和处理。  【依据知识库的排查/处理建议】  根据知识库《App绑车失败》文档，建议按以下步骤处理：  1. **先查车辆属性**：确认该 VIN 是否为智能车（`is_smart_vehicle=true`）；若非智能车被误导入智能车绑车流程，需纠正流程。 2. **查服务状态**：确认车辆 4G 是"
+    },
+    {
+      "id": "RAG-REP-003",
+      "skill_id": "repair_kb",
+      "suite": "extended",
+      "ok": true,
+      "stop_reason": "cited_answer",
+      "elapsed_s": 5.01,
+      "expect_hit": true,
+      "doc_hit": true,
+      "cited_docs": [
+        "repair__刹车异响与刹车皮",
+        "repair__电机异响与限速"
+      ],
+      "cited_domains": [
+        "repair"
+      ],
+      "keyword_hit": true,
+      "domain_isolation_ok": true,
+      "cross_domain_ok": null,
+      "answer_preview": "【问题复述】 您反馈的是：电机出现异响，同时车辆被限速，想了解可能的原因及如何处理。  【依据知识库的排查/处理建议】 根据知识库《电机异响与限速》的检索内容，该症状组合（加速时轮毂电机周期性异响 + 仪表提示限速至 15km/h + 偶发“驱动系统保护”弹窗）有明确的排查路径，建议按以下步骤处理：  1. **读取故障码**：优先关注 `MCU_OC_02"
+    },
+    {
+      "id": "RAG-REP-004",
+      "skill_id": "repair_kb",
+      "suite": "extended",
+      "ok": true,
+      "stop_reason": "cited_answer",
+      "elapsed_s": 4.31,
+      "expect_hit": true,
+      "doc_hit": true,
+      "cited_docs": [
+        "repair__刹车异响与刹车皮",
+        "repair__电机异响与限速"
+      ],
+      "cited_domains": [
+        "repair"
+      ],
+      "keyword_hit": true,
+      "domain_isolation_ok": true,
+      "cross_domain_ok": null,
+      "answer_preview": "【问题复述】   您问的是刹车出现异响时，是否需要更换刹车皮。  【依据知识库的排查/处理建议】   根据知识库《刹车异响与刹车皮更换指引（合成）》的判定口径，刹车异响是否需要换刹车皮，不能只看“响不响”，要分场景判断：  1. **先区分异响类型**      - 轻刹时有金属摩擦音、重刹正常 → 偏向刹车皮磨损到位的表现，需要重点检查。      - 雨"
+    },
+    {
+      "id": "RAG-REP-005",
+      "skill_id": "repair_kb",
+      "suite": "extended",
+      "ok": true,
+      "stop_reason": "cited_answer",
+      "elapsed_s": 4.01,
+      "expect_hit": true,
+      "doc_hit": true,
+      "cited_docs": [
+        "repair__充电口与充电器兼容",
+        "repair__电机异响与限速",
+        "repair__续航异常排查"
+      ],
+      "cited_domains": [
+        "repair"
+      ],
+      "keyword_hit": true,
+      "domain_isolation_ok": true,
+      "cross_domain_ok": null,
+      "answer_preview": "**1. 问题复述（一句话）** 您咨询的是充电口接触不良应如何处理。  **2. 依据知识库的排查/处理建议（分步）** 根据知识库中《充电口与充电器兼容》及《续航异常排查》的排障指引，建议按以下步骤处理：  - **第一步：互换同规格充电器试验**。先排除充电器本身限流或故障的可能（引用片段1、2）。 - **第二步：检查充电口针脚**。查看针脚是否有烧"
+    },
+    {
+      "id": "RAG-POL-001",
+      "skill_id": "policy_kb",
+      "suite": "core",
+      "ok": true,
+      "stop_reason": "cited_answer",
+      "elapsed_s": 3.38,
+      "expect_hit": true,
+      "doc_hit": true,
+      "cited_docs": [
+        "policy__2026Q3提货返利",
+        "policy__门店VI与非专卖红线"
+      ],
+      "cited_domains": [
+        "policy"
+      ],
+      "keyword_hit": true,
+      "domain_isolation_ok": true,
+      "cross_domain_ok": null,
+      "answer_preview": "**结论**：2026Q3 提货返利政策中，**金牌档位要求月累计提货 ≥1200 台**，返利点位为 **4.2%**。  **政策口径要点**： - 版本号：`2026Q3-提货返利-V3`（青枢出行合成口径） - 金牌档位：月累计提货 **≥1200 台**，返利点位 **4.2%** - 相关档位参考：铜牌 ≥300 台（2.0%）、银牌 ≥800 "
+    },
+    {
+      "id": "RAG-POL-002",
+      "skill_id": "policy_kb",
+      "suite": "extended",
+      "ok": true,
+      "stop_reason": "cited_answer",
+      "elapsed_s": 4.5,
+      "expect_hit": true,
+      "doc_hit": true,
+      "cited_docs": [
+        "policy__三包与电池政策"
+      ],
+      "cited_domains": [
+        "policy"
+      ],
+      "keyword_hit": true,
+      "domain_isolation_ok": true,
+      "cross_domain_ok": null,
+      "answer_preview": "**结论**：三包期内电池 SOH 低，需先区分电池类型与损坏原因，再判断是否落入三包范围；锂电可按「SOH≥80%」质保策略评估，但人为损坏明确不在三包内。  ---  **政策口径要点**  1. **电池质保范围（按类型区分）**    - 铅酸电池：6 个月容量质保；    - 锂电池：12 个月或 SOH≥80% 质保策略（示意口径）；    - "
+    },
+    {
+      "id": "RAG-POL-003",
+      "skill_id": "policy_kb",
+      "suite": "extended",
+      "ok": true,
+      "stop_reason": "cited_answer",
+      "elapsed_s": 3.83,
+      "expect_hit": true,
+      "doc_hit": true,
+      "cited_docs": [
+        "policy__续费触达红线",
+        "policy__门店VI与非专卖红线"
+      ],
+      "cited_domains": [
+        "policy"
+      ],
+      "keyword_hit": true,
+      "domain_isolation_ok": true,
+      "cross_domain_ok": null,
+      "answer_preview": "### 1. 问题复述 您询问的是「续费触达」场景下有哪些合规红线不能触碰。  ### 2. 政策口径要点（红线/适用范围） 依据检索片段，续费触达红线如下（青枢出行合成口径）：  - **红线一：投诉未结用户禁止触达**     存在标签 `TAG-投诉未结` 的用户，**禁止**自动外呼与优惠 Push（片段1、片段2）。  - **红线二：触达频次上限"
+    },
+    {
+      "id": "RAG-POL-004",
+      "skill_id": "policy_kb",
+      "suite": "extended",
+      "ok": true,
+      "stop_reason": "cited_answer",
+      "elapsed_s": 3.73,
+      "expect_hit": true,
+      "doc_hit": true,
+      "cited_docs": [
+        "policy__门店VI与非专卖红线"
+      ],
+      "cited_domains": [
+        "policy"
+      ],
+      "keyword_hit": true,
+      "domain_isolation_ok": true,
+      "cross_domain_ok": null,
+      "answer_preview": "### 1. 问题复述 您询问的是门店「非专卖」和「VI 违规」两类问题的认定标准。  ### 2. 政策口径要点（依据检索片段） 根据《门店VI与非专卖红线（合成）》政策，认定口径如下：  - **非专卖（TAG-非专卖）**：在同一营业面积内混售未授权竞品整车。 - **VI 违规（TAG-VI违规）**：擅自更改门头主色与标准字体。 - **其他违规情"
+    },
+    {
+      "id": "RAG-HR-001",
+      "skill_id": "hr_rules",
+      "suite": "core",
+      "ok": true,
+      "stop_reason": "cited_answer",
+      "elapsed_s": 2.23,
+      "expect_hit": true,
+      "doc_hit": true,
+      "cited_docs": [
+        "hr__员工制度问答摘要",
+        "hr__坐席质检SOP要点"
+      ],
+      "cited_domains": [
+        "hr"
+      ],
+      "keyword_hit": true,
+      "domain_isolation_ok": true,
+      "cross_domain_ok": null,
+      "answer_preview": "【问题复述】 您想了解坐席在质检中不能说的风险话术。  【制度/SOP 要点】 根据《坐席质检 SOP 要点》（合成口径），以下话术属于风险词，命中即质检失败并进入辅导清单： - 「绝对没问题」 - 「保证三天修好」 - 「官方肯定全额退」  此外，质检必检项中明确要求**避免绝对化承诺**，例如「一定」「绝对没问题」这类表述。  【引用】 - kb_chu"
+    },
+    {
+      "id": "RAG-HR-002",
+      "skill_id": "hr_rules",
+      "suite": "extended",
+      "ok": true,
+      "stop_reason": "cited_answer",
+      "elapsed_s": 2.33,
+      "expect_hit": true,
+      "doc_hit": true,
+      "cited_docs": [
+        "hr__员工制度问答摘要"
+      ],
+      "cited_domains": [
+        "hr"
+      ],
+      "keyword_hit": true,
+      "domain_isolation_ok": true,
+      "cross_domain_ok": null,
+      "answer_preview": "1. **问题复述**      您询问的是员工请假制度的具体规定。  2. **制度要点**      根据知识库检索片段，目前仅覆盖以下与请假相关的内容：      - 年假按司龄阶梯计算；      - 事假需直属上级审批。      其余请假类型（如病假、婚假、产假等）及具体天数、流程，知识库未覆盖。  3. **引用**      - kb_chu"
+    },
+    {
+      "id": "RAG-HR-003",
+      "skill_id": "hr_rules",
+      "suite": "extended",
+      "ok": true,
+      "stop_reason": "cited_answer",
+      "elapsed_s": 2.36,
+      "expect_hit": true,
+      "doc_hit": true,
+      "cited_docs": [
+        "hr__员工制度问答摘要"
+      ],
+      "cited_domains": [
+        "hr"
+      ],
+      "keyword_hit": true,
+      "domain_isolation_ok": true,
+      "cross_domain_ok": null,
+      "answer_preview": "【问题复述】 您询问能否将客户手机号导出到私人手机。  【制度或 SOP 要点】 根据知识库中的信息安全规定： - **禁止导出真实用户手机号**（以及完整 VIN）到私人设备。 - 仅允许在 Demo/培训场景使用 QS0 合成车架号与脱敏手机号。 - 同时禁止将客户原声截图发到外部社群。  因此，将客户真实手机号导出到私人手机属于明确禁止行为。如需用于培"
+    },
+    {
+      "id": "RAG-XDOM-001",
+      "skill_id": "repair_kb",
+      "suite": "cross_domain",
+      "ok": true,
+      "stop_reason": "no_hit_answered",
+      "elapsed_s": 1.95,
+      "expect_hit": false,
+      "doc_hit": null,
+      "cited_docs": [],
+      "cited_domains": [],
+      "keyword_hit": true,
+      "domain_isolation_ok": true,
+      "cross_domain_ok": true,
+      "answer_preview": "【问题复述】 您询问的是员工请假制度及年假休假规则。  【依据知识库的排查/处理建议】 经检索，当前维修知识库（repair 域）中**未检索到**任何关于员工请假制度或年假休假规则的片段。此类内容属于人力资源制度范畴，不在本 Skill 的维修知识域覆盖范围内。  【引用】 - 未检索到相关 kb_chunk_id（引用：无）  【建议下一步】 建议您转至"
+    },
+    {
+      "id": "RAG-XDOM-002",
+      "skill_id": "policy_kb",
+      "suite": "cross_domain",
+      "ok": true,
+      "stop_reason": "cited_answer",
+      "elapsed_s": 2.7,
+      "expect_hit": false,
+      "doc_hit": null,
+      "cited_docs": [
+        "policy__三包与电池政策"
+      ],
+      "cited_domains": [
+        "policy"
+      ],
+      "keyword_hit": true,
+      "domain_isolation_ok": true,
+      "cross_domain_ok": true,
+      "answer_preview": "【问题复述】 用户询问“电机异响限速怎么修”，属于三包/电池政策域内的维修口径问题。  【政策口径要点】 - 依据检索片段，电机属于三包政策中的“主要部件”（电机、控制器、仪表）。 - 三包期：开票之日起 **12 个月或行驶 1 万公里**（以先到为准）。 - 三包期内，电机出现故障可**免费维修**；若属**严重故障**，可申请**更换**。 - 关于“"
+    },
+    {
+      "id": "RAG-XDOM-003",
+      "skill_id": "hr_rules",
+      "suite": "cross_domain",
+      "ok": true,
+      "stop_reason": "no_hit_answered",
+      "elapsed_s": 2.74,
+      "expect_hit": false,
+      "doc_hit": null,
+      "cited_docs": [],
+      "cited_domains": [],
+      "keyword_hit": true,
+      "domain_isolation_ok": true,
+      "cross_domain_ok": true,
+      "answer_preview": "【问题复述】 您询问的是 2026Q3 提货返利中「钻石档」对应的提货台数门槛。  【制度/SOP 要点】 知识库中未检索到关于「2026Q3 提货返利钻石档」的任何条目。该问题涉及**返利政策**，属于政策/商务域（policy_kb），不在本 Skill 的检索域（hr）内，且当前检索片段无命中。  因此，我无法提供钻石档的具体台数门槛，也不建议您依据本"
+    }
+  ]
+}

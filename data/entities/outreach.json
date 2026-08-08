@@ -1,0 +1,47 @@
+[
+  {
+    "channel": "push",
+    "channel_quota_daily": 20000,
+    "delivery_rate": 96.2,
+    "open_rate": 28.4,
+    "connect_rate": null,
+    "transfer_human_cnt": 0,
+    "template_approve_days": 2.0
+  },
+  {
+    "channel": "sms",
+    "channel_quota_daily": 8000,
+    "delivery_rate": 94.0,
+    "open_rate": 12.0,
+    "connect_rate": null,
+    "transfer_human_cnt": 0,
+    "template_approve_days": 2.0
+  },
+  {
+    "channel": "ai_call",
+    "channel_quota_daily": 3000,
+    "delivery_rate": 99.0,
+    "open_rate": null,
+    "connect_rate": 41.0,
+    "transfer_human_cnt": 86,
+    "template_approve_days": 2.0
+  },
+  {
+    "channel": "human",
+    "channel_quota_daily": 500,
+    "delivery_rate": 99.0,
+    "open_rate": null,
+    "connect_rate": 55.0,
+    "transfer_human_cnt": 0,
+    "template_approve_days": 2.0
+  },
+  {
+    "channel": "wecom",
+    "channel_quota_daily": 2000,
+    "delivery_rate": 90.0,
+    "open_rate": 35.0,
+    "connect_rate": null,
+    "transfer_human_cnt": 12,
+    "template_approve_days": 2.0
+  }
+]

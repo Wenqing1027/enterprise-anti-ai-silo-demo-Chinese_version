@@ -1,0 +1,33 @@
+skill_id: crm_lookup
+control_loop: act
+department: 多部门共用
+goal: 按客户/车辆/订单 ID 查询主数据与库存并给出简洁汇总。
+success_hint: 至少完成一次主数据类查询，并给出三行内结论。
+success_when: master_lookup
+max_steps: 6
+tone:
+  label: 结论优先型
+  style: 先答结论，再列关键字段；少寒暄
+  forbid: 编造未查到的字段
+allowed_tools:
+  - get_customer
+  - get_vehicle
+  - list_vehicles
+  - get_order
+  - list_orders
+  - list_inventory
+  - get_dealer
+  - get_store
+  - get_sku
+  - log_step
+system_extra: |
+  有什么 ID 查什么；查不到就明确说未找到。不要写共享产出，除非用户明确要求。
+output_format: |
+  - 结论（≤3 行）
+  - 关键字段列表
+  - 缺口/下一步（如需补 ID）
+security:
+  max_tool_calls_per_step: 5
+  redact_pii_in_observation: true
+  block_on_outreach: false
+  prompt_forbid_extra: 只读查询；不得假装已改库或已下单
