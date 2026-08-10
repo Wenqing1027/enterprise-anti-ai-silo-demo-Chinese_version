@@ -939,6 +939,25 @@
   background: rgba(192, 69, 69, 0.04);
 }
 
+.logic-video-section {
+  margin-top: 8px;
+}
+
+.logic-video-wrap {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #0f1412;
+  overflow: hidden;
+}
+
+.logic-video {
+  display: block;
+  width: 100%;
+  max-height: min(70vh, 640px);
+  background: #0f1412;
+}
+
 .logic-footer-nav {
   display: flex;
   flex-wrap: wrap;
