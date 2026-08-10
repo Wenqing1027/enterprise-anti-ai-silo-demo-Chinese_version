@@ -9,8 +9,5 @@ recordings/
 *.mp4
 *.mov
 *.webm
-# 逻辑讲解页嵌入的演示视频（允许入库供 Render 静态托管）
-!apps/ui/media/
-!apps/ui/media/**/*.mp4
 data/runtime/*.json
 !data/runtime/.gitkeep
