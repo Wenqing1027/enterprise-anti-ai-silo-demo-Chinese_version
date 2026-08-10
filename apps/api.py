@@ -1231,13 +1231,6 @@ def embed_page() -> RedirectResponse:
 
 
 @app.get("/")
-def root() -> dict[str, str]:
-    return {
-        "product": PRODUCT,
-        "business": "/business?department=service",
-        "ops": "/ops",
-        "ops_embed": "/ops/embed",
-        "logic": "/logic",
-        "docs": "/docs",
-        "health": "/health",
-    }
+def root() -> RedirectResponse:
+    """浏览器打开根路径时直接进入逻辑讲解页（避免看到 JSON / Not Found）。"""
+    return RedirectResponse(url="/logic", status_code=307)
