@@ -156,6 +156,61 @@ def _ui(name: str) -> Path:
     return path
 
 
+def _demo_video_local_path() -> Path:
+    return UI_DIR / "media" / "demo-walkthrough.mp4"
+
+
+def _fetch_demo_video_from_private_github() -> Path | None:
+    """从私有仓库拉取讲解视频到本地缓存（不进入公开 Git）。"""
+    token = (os.getenv("GH_MEDIA_TOKEN") or os.getenv("GITHUB_TOKEN") or "").strip()
+    if not token:
+        return None
+    dest = _demo_video_local_path()
+    if dest.is_file() and dest.stat().st_size > 0:
+        return dest
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    repo = (os.getenv("DEMO_VIDEO_REPO") or "Wenqing1027/qingshu-demo-media-private").strip()
+    path_in_repo = (os.getenv("DEMO_VIDEO_PATH") or "demo-walkthrough.mp4").strip()
+    url = f"https://api.github.com/repos/{repo}/contents/{path_in_repo}"
+    try:
+        import urllib.request
+
+        req = urllib.request.Request(
+            url,
+            headers={
+                "Authorization": f"Bearer {token}",
+                "Accept": "application/vnd.github.raw",
+                "X-GitHub-Api-Version": "2022-11-28",
+                "User-Agent": "qingshu-demo",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=120) as resp:  # noqa: S310
+            data = resp.read()
+        if not data:
+            return None
+        dest.write_bytes(data)
+        return dest
+    except Exception:  # noqa: BLE001
+        return None
+
+
+@app.get("/media/demo-walkthrough.mp4")
+def demo_walkthrough_video() -> FileResponse:
+    """讲解视频：优先本地；否则用 GH_MEDIA_TOKEN 从私有库拉取。"""
+    path = _demo_video_local_path()
+    if not (path.is_file() and path.stat().st_size > 0):
+        path = _fetch_demo_video_from_private_github() or path
+    if not (path.is_file() and path.stat().st_size > 0):
+        raise HTTPException(
+            status_code=404,
+            detail="demo video missing: set GH_MEDIA_TOKEN on Render to fetch from private media repo",
+        )
+    return FileResponse(
+        path,
+        media_type="video/mp4",
+        filename="青枢出行-Demo讲解.mp4",
+    )
+
 class ReactRunOptions(BaseModel):
     return_steps: bool = True
 
