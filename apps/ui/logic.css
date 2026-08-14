@@ -975,3 +975,95 @@
 }
 
 .logic-footer-nav a:hover { text-decoration: underline; }
+
+/* 论证主线 · 双视角验证 */
+.logic-spine-table-wrap {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.logic-spine-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.logic-spine-table thead th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent-dim);
+  background: var(--bg2);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 14px;
+}
+
+.logic-spine-table tbody th,
+.logic-spine-table tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(26, 43, 34, 0.08);
+  vertical-align: top;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.logic-spine-table tbody tr:last-child th,
+.logic-spine-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.logic-spine-table tbody th {
+  width: 7.5em;
+  font-weight: 700;
+  color: var(--text);
+  background: rgba(47, 143, 107, 0.06);
+}
+
+.logic-spine-table tbody td {
+  color: var(--muted);
+}
+
+.logic-proof-board {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.logic-proof-row {
+  display: grid;
+  grid-template-columns: 7.5em 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #1a2420;
+  color: #f4f7f5;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.logic-proof-role {
+  font-weight: 700;
+  font-size: 13px;
+  color: #9fd9bf;
+}
+
+.logic-proof-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(244, 247, 245, 0.92);
+}
+
+@media (max-width: 640px) {
+  .logic-spine-table tbody th {
+    width: auto;
+  }
+  .logic-proof-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
