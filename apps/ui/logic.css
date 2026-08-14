@@ -1041,21 +1041,21 @@
   align-items: start;
   padding: 12px 14px;
   border-radius: 10px;
-  background: #1a2420;
-  color: #f4f7f5;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(47, 143, 107, 0.1);
+  color: var(--text);
+  border: 1px solid rgba(47, 143, 107, 0.28);
 }
 
 .logic-proof-role {
   font-weight: 700;
   font-size: 13px;
-  color: #9fd9bf;
+  color: var(--accent-dim);
 }
 
 .logic-proof-text {
   font-size: 13px;
   line-height: 1.5;
-  color: rgba(244, 247, 245, 0.92);
+  color: var(--muted);
 }
 
 @media (max-width: 640px) {
